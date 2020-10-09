@@ -1,0 +1,15 @@
+{
+  "editor.formatOnSave": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "javascript.validate.enable": false,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "[json]": {
+    "editor.tabSize": 2
+  }
+}

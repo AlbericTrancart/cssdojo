@@ -1,0 +1,62 @@
+{
+  "name": "cssdojo",
+  "description": "(re)learn CSS, the right way",
+  "author": "Albéric Trancart",
+  "license": "UNLICENSED",
+  "keywords": [],
+  "version": "0.0.1",
+  "main": "index.js",
+  "engineStrict": true,
+  "engines": {
+    "node": ">=12.13.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint './**/*.{js,ts,tsx}'",
+    "lint:tsc": "tsc",
+    "lint:style": "stylelint '**/*.style.{ts,tsx}' '**/style.{ts,tsx}'"
+  },
+  "dependencies": {
+    "lodash": "^4.17.19",
+    "next": "^9.5.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.0",
+    "tsconfig-paths-webpack-plugin": "^3.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/lodash": "^4.14.150",
+    "@types/node": "^14.0.11",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.7",
+    "@types/styled-components": "^5.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-styled-components": "^1.10.7",
+    "eslint": "^7.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-app": "^6.2.2",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "eslint-plugin-risxss": "^1.1.1",
+    "nodemon": "^2.0.3",
+    "prettier": "^2.1.1",
+    "stylelint": "^13.3.3",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-declaration-strict-value": "^1.4.3",
+    "stylelint-processor-styled-components": "^1.10.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
+  }
+}
