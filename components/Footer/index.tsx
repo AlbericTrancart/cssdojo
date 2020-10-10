@@ -27,6 +27,9 @@ export const Footer = () => (
     >
       bettermotherfuckingwebsite.com
     </Link>
-    .
+    .<br />
+    <Link as="a" target="_blank" rel="noreferrer noopener" href="https://alberic.trancart.net/">
+      About me
+    </Link>
   </Container>
 );

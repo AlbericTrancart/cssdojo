@@ -20,24 +20,32 @@ const HomeLink = styled.a`
   text-decoration: none;
 `;
 
-const Title = styled.p`
+const Text = styled.p``;
+
+const Title = styled.span`
   ${typography.title}
   margin: 0;
 `;
 
-const Description = styled.p`
+const Description = styled.span`
   ${typography.subtitle}
   margin: 0;
 `;
 
-export const Header: React.FC = () => (
-  <Container>
-    <Link href={PAGES.Home.url} passHref>
-      <HomeLink aria-label="Homepage, CSS dojo, relearn CSS the right way">
-        <Title>cssdojo</Title>
+interface Props {
+  isHomepage: boolean;
+}
 
-        <Description>(re)learn CSS, the right way</Description>
-      </HomeLink>
-    </Link>
+export const Header: React.FC<Props> = ({ isHomepage }) => (
+  <Container>
+    <Text as={isHomepage ? 'h1' : 'p'}>
+      <Link href={PAGES.Home.url} passHref>
+        <HomeLink aria-label="Homepage, CSS dojo, relearn CSS the right way">
+          <Title>cssdojo</Title>
+
+          <Description>(re)learn CSS, the right way</Description>
+        </HomeLink>
+      </Link>
+    </Text>
   </Container>
 );

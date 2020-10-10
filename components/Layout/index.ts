@@ -5,7 +5,7 @@ export const PAGE_WIDTH = getSpacing(100);
 
 export const PageContainer = styled.main`
   max-width: ${PAGE_WIDTH};
-  margin: ${getSpacing(4)} auto ${getSpacing(10)};
+  margin: ${getSpacing(4)} auto ${getSpacing(8)};
 `;
 
 export const Title = styled.h1`

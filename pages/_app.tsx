@@ -31,7 +31,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 
       <CSSResets />
 
-      <Header />
+      <Header isHomepage={config?.url === '/'} />
 
       <PageContainer>
         <Component {...pageProps} />

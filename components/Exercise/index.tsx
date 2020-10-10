@@ -38,7 +38,7 @@ export const Exercise: React.FC<Props> = ({ initialCode, solution }) => {
         {isSolutionShown ? (
           <>
             <Button onClick={() => setSolutionShown(false)}>Hide solution</Button>
-            <Button as="a" href="mailto:csssdojo@gmail.com">
+            <Button as="a" href="mailto:cssdojos@gmail.com">
               I have a question
             </Button>
           </>
