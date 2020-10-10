@@ -12,8 +12,16 @@ const Home: NextPage = () => (
         are really light and some give too much information. This is my personal compilation of what
         I think is the CSS must-know of any frontend developer.{' '}
         <strong>
-          Straight to the point, information-packed katas (exercices), with practice after laying a
-          strong theorical base.
+          Straight to the point, information-packed{' '}
+          <Link
+            href="https://en.wikipedia.org/wiki/Kata"
+            target="_blank"
+            rel="noopener noreferer"
+            aria-label="What is a Kata on Wikipedia"
+          >
+            katas
+          </Link>{' '}
+          ( = exercices), with practice after laying a strong theorical base.
         </strong>
       </p>
       <p>

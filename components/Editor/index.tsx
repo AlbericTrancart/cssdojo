@@ -5,12 +5,6 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { colorPalette, getSpacing, typography } from 'stylesheet';
 
-interface Props {
-  useReact?: boolean;
-  code: string;
-  onChange?: (code: string) => void;
-}
-
 const MainContainer = styled.div`
   margin: ${getSpacing(4)} 0;
 `;
@@ -62,15 +56,6 @@ const BaseLiveError: React.FC<ErrorProps> = ({ live }) => <ErrorZone>{live?.erro
 
 const LiveError = withLive(BaseLiveError);
 
-const guidGenerator = () => {
-  const S4 = () => (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
-
-  return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
-};
-
-const scopeStyles = (code: string, scopeClass: string) =>
-  code.replace('<style>', `<style>.${scopeClass} {`).replace('</style>', `}</style>`);
-
 const PreviewFrame = styled.iframe`
   width: 100%;
   box-sizing: border-box;
@@ -79,6 +64,12 @@ const PreviewFrame = styled.iframe`
   margin: 0;
   padding: 0;
 `;
+
+interface Props {
+  useReact?: boolean;
+  code: string;
+  onChange?: (code: string) => void;
+}
 
 export const Editor: React.FC<Props> = ({ useReact, code, onChange }) => {
   const [codeState, setCurrentCode] = useState(code);

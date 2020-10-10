@@ -5,6 +5,7 @@ import { Image } from 'components/Image';
 import { Code } from 'components/Code';
 import { Link } from 'components/Link';
 import { NextKataButton } from 'components/NextKataButton';
+import { Editor } from 'components/Editor';
 
 const Kata: NextPage = () => (
   <>
@@ -58,6 +59,11 @@ const Kata: NextPage = () => (
         The <Code>width</Code> and <Code>height</Code> properties do not apply.
       </dd>
     </dl>
+    <p>
+      All elements have a default display mode. For instance, <Code>div</Code>, <Code>h1</Code> and{' '}
+      <Code>p</Code> are block by default while <Code>a</Code>, <Code>strong</Code> and{' '}
+      <Code>span</Code> are inline.
+    </p>
     <Exercise
       task="try to set the width and height of both boxes to 200px"
       initialCode={`<style>
@@ -90,7 +96,7 @@ const Kata: NextPage = () => (
 <span class="box inline">Inline box</span>`}
     />
     <p>
-      In the above example, something is not really intuitive: I you inspect the first box with the
+      In the above example, something is not really intuitive: if you inspect the first box with the
       dev tools, we end up with a distance from border to border included of 222px. Let’s bring up
       the box model again:
     </p>
@@ -145,6 +151,24 @@ const Kata: NextPage = () => (
 
 <span class="box block">Block box</span>
 <span class="box inline">Inline box</span>`}
+    />
+    As the <Code>border-box</Code> model is more intuitive, it is a good practice to reset it for
+    all elements:
+    <Editor
+      code={`<style>
+* {
+  box-sizing: border-box;
+}
+.box {
+  display: block;
+  border: 1px solid black;
+  padding: 10px;
+  width: 200px;
+  height: 200px;
+}
+</style>
+
+<span class="box block">Block box</span>`}
     />
     <Subtitle>Help! I broke the box model</Subtitle>
     If you played a bit with the live editor, you may have noticed two issues.
