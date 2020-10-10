@@ -8,10 +8,11 @@ export const PAGES: { [key: string]: Page } = {
     url: '/',
     title: 'Home',
   },
+
   // Katas
-  // Building layouts
+  // Basics
   TheBoxModel: {
-    url: '/learn/building-layouts/the-box-model',
+    url: '/learn/basics/the-box-model',
     title: 'The Box Model',
   },
 };

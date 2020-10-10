@@ -28,11 +28,11 @@ export const typography: { [key: string]: FlattenSimpleInterpolation } = {
     line-height: 1.5;
   `,
   title: css`
-    font-size: 3rem;
+    font-size: 2.5rem;
     line-height: 1.5;
   `,
   subtitle: css`
-    font-size: 2rem;
+    font-size: 1.75rem;
     line-height: 1.5;
   `,
   code: css`

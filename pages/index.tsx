@@ -12,8 +12,8 @@ const Home: NextPage = () => (
         are really light and some give too much information. This is my personal compilation of what
         I think is the CSS must-know of any frontend developer.{' '}
         <strong>
-          Straight to the point, information-packed katas (exercices), asking for practice after
-          laying a strong theorical base.
+          Straight to the point, information-packed katas (exercices), with practice after laying a
+          strong theorical base.
         </strong>
       </p>
       <p>
@@ -32,10 +32,10 @@ const Home: NextPage = () => (
       <ol>
         <li>Why CSS and How it works</li>
         <li>Selectors and specificity</li>
+        <li>Styling text</li>
         <li>
           <Link href={PAGES.TheBoxModel.url}>The box model</Link>
         </li>
-        <li>Styling text</li>
         <li>Overflowing content</li>
       </ol>
     </section>

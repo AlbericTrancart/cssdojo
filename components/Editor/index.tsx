@@ -1,7 +1,7 @@
 import { ContextProps, LiveEditor, LivePreview, LiveProvider, withLive } from 'react-live';
 import BaseEditor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { colorPalette, getSpacing, typography } from 'stylesheet';
 
@@ -62,6 +62,24 @@ const BaseLiveError: React.FC<ErrorProps> = ({ live }) => <ErrorZone>{live?.erro
 
 const LiveError = withLive(BaseLiveError);
 
+const guidGenerator = () => {
+  const S4 = () => (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+
+  return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
+};
+
+const scopeStyles = (code: string, scopeClass: string) =>
+  code.replace('<style>', `<style>.${scopeClass} {`).replace('</style>', `}</style>`);
+
+const PreviewFrame = styled.iframe`
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  border: none;
+  margin: 0;
+  padding: 0;
+`;
+
 export const Editor: React.FC<Props> = ({ useReact, code, onChange }) => {
   const [codeState, setCurrentCode] = useState(code);
 
@@ -109,8 +127,27 @@ export const Editor: React.FC<Props> = ({ useReact, code, onChange }) => {
         <Divider />
 
         <PreviewWrapper>
-          {/* eslint-disable-next-line */}
-          <div dangerouslySetInnerHTML={{ __html: shownCode }} />
+          <PreviewFrame
+            srcDoc={`
+              <link
+                href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans"
+                rel="stylesheet"
+                type="text/css"
+              />
+              <style>
+              html {
+                font-family: IBM Plex Sans, sans-serif;
+                font-size: 20px;
+                line-height: 1.5;
+              }
+              body {
+                margin: 0;
+                padding: 0;
+              }
+              </style>
+              ${shownCode}
+            `}
+          />
         </PreviewWrapper>
       </Container>
     </MainContainer>

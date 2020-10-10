@@ -5,12 +5,18 @@ import { getSpacing } from 'stylesheet';
 import { Button } from 'components/Button';
 
 interface Props {
+  task: string;
   initialCode: string;
   solution: string;
 }
 
 const Container = styled.div`
   margin-bottom: ${getSpacing(4)};
+`;
+
+const Task = styled.p`
+  text-align: center;
+  font-weight: bold;
 `;
 
 const ButtonsWrapper = styled.div`
@@ -23,13 +29,14 @@ const ButtonsWrapper = styled.div`
   }
 `;
 
-export const Exercise: React.FC<Props> = ({ initialCode, solution }) => {
+export const Exercise: React.FC<Props> = ({ task, initialCode, solution }) => {
   const [exerciseState, setExerciseState] = useState(initialCode);
   const [solutionState, setSolutionState] = useState(solution);
   const [isSolutionShown, setSolutionShown] = useState(false);
 
   return (
     <Container>
+      <Task>Task: {task}</Task>
       <Editor
         code={isSolutionShown ? solutionState : exerciseState}
         onChange={isSolutionShown ? setSolutionState : setExerciseState}

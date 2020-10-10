@@ -29,8 +29,4 @@ export const CSSResets = createGlobalStyle`
         height: 0;
         width: 0;
     }
-
-    * {
-        box-sizing: border-box;
-    }
 `;
