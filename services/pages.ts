@@ -8,6 +8,12 @@ export const PAGES: { [key: string]: Page } = {
     url: '/',
     title: 'Home',
   },
+  // Katas
+  // Building layouts
+  TheBoxModel: {
+    url: '/learn/building-layouts/the-box-model',
+    title: 'The Box Model',
+  },
 };
 
 export const getPageConfig = (route: string) => {

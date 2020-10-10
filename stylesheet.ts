@@ -8,16 +8,39 @@ const MEASUREMENT_UNIT = 'px';
 export const getSpacing = (multiplier: number): string =>
   `${multiplier * SPACING_UNIT}${MEASUREMENT_UNIT}`;
 
-export const colorPalette: { [key: string]: string } = {
+export const colorPalette = {
   black: '#000000',
+  darkGrey: '#414141',
+  lightGrey: '#dcdcdc',
   white: '#ffffff',
+  blue: '#57a3e8',
+};
+
+export const fonts = {
+  main: 'IBM Plex Sans, sans-serif',
+  code: 'monospace',
 };
 
 export const typography: { [key: string]: FlattenSimpleInterpolation } = {
   main: css`
-    font-size: 18px;
+    font-family: ${fonts.main};
+    font-size: 20px;
     line-height: 1.5;
-    letter-spacing: 0.5px;
+  `,
+  title: css`
+    font-size: 3rem;
+    line-height: 1.5;
+  `,
+  subtitle: css`
+    font-size: 2rem;
+    line-height: 1.5;
+  `,
+  code: css`
+    font-size: 0.8rem;
+    font-family: ${fonts.code};
+  `,
+  small: css`
+    font-size: 0.8rem;
   `,
 };
 
