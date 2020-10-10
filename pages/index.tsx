@@ -21,7 +21,7 @@ const Home: NextPage = () => (
           >
             katas
           </Link>{' '}
-          ( = exercices), with practice after laying a strong theorical base.
+          (= exercices), with practice after laying a strong theorical base.
         </strong>
       </p>
       <p>

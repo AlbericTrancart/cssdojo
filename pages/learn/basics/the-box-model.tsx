@@ -214,6 +214,19 @@ const Kata: NextPage = () => (
         Why the inline box gets merged with the block box: the <Link href="">flow layout Kata</Link>
       </li>
     </ul>
+    <Subtitle>What I should remember</Subtitle>
+    <ul>
+      <li>
+        Every element is a <em>box</em>
+      </li>
+      <li>
+        The block and inline <em>display modes</em> control how width and height <em>properties</em>{' '}
+        impact the box <em>characteristics</em>
+      </li>
+      <li>
+        The <Code>border-box</Code> model is actually more intuitive
+      </li>
+    </ul>
     <NextKataButton href="" />
   </>
 );
