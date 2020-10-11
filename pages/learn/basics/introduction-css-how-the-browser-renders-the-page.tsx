@@ -180,7 +180,7 @@ const Kata: NextPage = () => (
           <strong>DOM construction</strong>
         </dt>
         <dd>
-          As the HTML file comes in over the network, the browser parses it and build a DOM tree
+          As the HTML file comes in over the network, the browser parses it and builds a DOM tree
           representing every HTML node encountered.
         </dd>
 
@@ -268,8 +268,8 @@ const Kata: NextPage = () => (
 
       <p>
         <strong>
-          While a stylesheet is being downloaded, nothing will change on screen and all scripts will
-          be paused.
+          While the browser downloads a stylesheet, nothing will change on screen and all scripts
+          will be paused.
         </strong>{' '}
         Let that sink in. Thus, we should keep our stylesheets lightweight and fast to load.
       </p>
@@ -302,7 +302,7 @@ const Kata: NextPage = () => (
 
       <p>
         That also ensures the backwards compability of CSS. When new properties are added in the
-        spec, you can use them freely and will not impact the rendering in browser that don’t
+        spec, you can use them freely and it will not impact the rendering in browsers that don’t
         support them.{' '}
         <strong>
           To check if a CSS property, value or feature is compatible with a browser, use this great
