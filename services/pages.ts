@@ -12,8 +12,8 @@ export const PAGES = {
   // Katas
   // Basics
   WhyCSSHowItWorks: {
-    url: '/learn/basics/why-css-how-it-works',
-    title: 'Why CSS and How it works',
+    url: '/learn/basics/introduction-css-how-the-browser-renders-the-page',
+    title: 'Introduction to CSS and How the browser renders the page',
   },
   SelectorsSpecificity: {
     url: '/learn/basics/selectors-specificity',

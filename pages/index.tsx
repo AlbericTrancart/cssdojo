@@ -58,9 +58,12 @@ const Home: NextPage = () => (
       <Subtitle>Basics</Subtitle>
 
       <ol>
-        <Kata page={PAGES.WhyCSSHowItWorks}>Why CSS and How it works</Kata>
+        <Kata page={PAGES.WhyCSSHowItWorks}>
+          Introduction to CSS and How the browser renders the page
+        </Kata>
         <li>Selectors and Specificity</li>
         <li>Styling text</li>
+        <li>CSS units and variables</li>
         <Kata page={PAGES.TheBoxModel}>The box model</Kata>
         <li>Overflowing content</li>
       </ol>

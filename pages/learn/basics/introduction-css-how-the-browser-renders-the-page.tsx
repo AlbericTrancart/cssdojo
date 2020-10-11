@@ -10,10 +10,10 @@ import { Editor } from 'components/Editor';
 
 const Kata: NextPage = () => (
   <>
-    <Title>Why CSS and How it works</Title>
+    <Title>Introduction to CSS and How the browser renders the page</Title>
 
     <section>
-      <Subtitle>Introduction</Subtitle>
+      <Subtitle>Definitions</Subtitle>
       <p>
         CSS stands for <strong>Cascading Style Sheets</strong>. It is a core web language, with HTML
         and JS it forms the base for website creation. HTML conveys the meaning of the document,
