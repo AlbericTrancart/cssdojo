@@ -28,7 +28,7 @@ const Kata: NextPage = () => (
         caption="An example of CSS rule: make all the first-level titles red and big"
       />
 
-      <dd>
+      <dl>
         <dt>
           <strong>Rule</strong>
         </dt>
@@ -48,7 +48,7 @@ const Kata: NextPage = () => (
           A combination of a CSS <strong>property</strong> and a <strong>value</strong> (in the case
           above: <Code>color: red;</Code>)
         </dd>
-      </dd>
+      </dl>
 
       <p>
         We’re going to learn a lot of selectors, properties and values in the next katas. But first,{' '}

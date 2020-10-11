@@ -21,6 +21,8 @@ export const fonts = {
   code: 'monospace',
 };
 
+export const mobileBreakpoint = '1024px';
+
 export const typography: { [key: string]: FlattenSimpleInterpolation } = {
   main: css`
     font-family: ${fonts.main};
@@ -28,12 +30,18 @@ export const typography: { [key: string]: FlattenSimpleInterpolation } = {
     line-height: 1.5;
   `,
   title: css`
-    font-size: 2.5rem;
-    line-height: 1.5;
-  `,
-  subtitle: css`
     font-size: 1.75rem;
     line-height: 1.5;
+    @media (min-width: ${mobileBreakpoint}) {
+      font-size: 2.5rem;
+    }
+  `,
+  subtitle: css`
+    font-size: 1.25rem;
+    line-height: 1.5;
+    @media (min-width: ${mobileBreakpoint}) {
+      font-size: 1.75rem;
+    }
   `,
   code: css`
     font-size: 0.8rem;
@@ -43,8 +51,6 @@ export const typography: { [key: string]: FlattenSimpleInterpolation } = {
     font-size: 0.8rem;
   `,
 };
-
-export const mobileBreakpoint = '1024px';
 
 export const zIndex = {};
 

@@ -29,4 +29,8 @@ export const CSSResets = createGlobalStyle`
         height: 0;
         width: 0;
     }
+
+    dl {
+        margin: 0;
+    }
 `;

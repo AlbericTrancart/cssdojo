@@ -40,6 +40,7 @@ const EditorWrapper = styled.div`
 `;
 
 const PreviewWrapper = styled.div`
+  min-height: ${getSpacing(20)};
   flex-basis: 100%;
   @media (min-width: ${mobileBreakpoint}) {
     flex-basis: 50%;
@@ -48,15 +49,17 @@ const PreviewWrapper = styled.div`
 `;
 
 const Divider = styled.div`
-  display: none;
+  height: 1px;
+  width: 100%;
+  margin: ${getSpacing(2)} 0;
   @media (min-width: ${mobileBreakpoint}) {
-    display: block;
+    width: 1px;
+    height: auto;
+    margin: 0 ${getSpacing(2)};
   }
 
-  width: 1px;
   flex-shrink: 0;
   background-color: ${colorPalette.lightGrey};
-  margin: 0 ${getSpacing(2)};
 `;
 
 const ErrorZone = styled.pre`

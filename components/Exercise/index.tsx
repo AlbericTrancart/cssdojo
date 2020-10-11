@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Editor } from 'components/Editor';
 import styled from 'styled-components';
-import { getSpacing } from 'stylesheet';
+import { getSpacing, mobileBreakpoint } from 'stylesheet';
 import { Button } from 'components/Button';
 
 interface Props {
@@ -23,9 +23,22 @@ const ButtonsWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+
+  > * {
+    width: 100%;
+    @media (min-width: ${mobileBreakpoint}) {
+      width: auto;
+    }
+  }
 
   > :not(:last-child) {
-    margin-right: ${getSpacing(2)};
+    margin-bottom: ${getSpacing(2)};
+    margin-right: 0;
+    @media (min-width: ${mobileBreakpoint}) {
+      margin-bottom: 0;
+      margin-right: ${getSpacing(2)};
+    }
   }
 `;
 

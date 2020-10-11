@@ -10,4 +10,5 @@ export const Button = styled.button`
   font: inherit;
   color: inherit;
   text-decoration: none;
+  text-align: center;
 `;
