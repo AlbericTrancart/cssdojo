@@ -1,11 +1,15 @@
 import styled from 'styled-components';
-import { getSpacing, typography } from 'stylesheet';
+import { getSpacing, mobileBreakpoint, typography } from 'stylesheet';
 
 export const PAGE_WIDTH = getSpacing(100);
 
 export const PageContainer = styled.main`
   max-width: ${PAGE_WIDTH};
-  margin: ${getSpacing(4)} auto ${getSpacing(8)};
+  margin: ${getSpacing(4)} auto;
+  padding: ${getSpacing(2)};
+  @media (min-width: ${mobileBreakpoint}) {
+    margin-bottom: ${getSpacing(8)};
+  }
 `;
 
 export const Title = styled.h1`

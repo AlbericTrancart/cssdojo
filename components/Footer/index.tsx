@@ -7,7 +7,8 @@ import { getSpacing, typography } from 'stylesheet';
 
 const Container = styled.footer`
   max-width: ${PAGE_WIDTH};
-  margin: ${getSpacing(4)} auto;
+  margin: 0 auto;
+  padding: 0 ${getSpacing(2)} ${getSpacing(4)} ${getSpacing(2)};
   text-decoration: italic;
   text-align: center;
   ${typography.small}

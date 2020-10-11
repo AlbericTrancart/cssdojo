@@ -7,7 +7,7 @@ import { PAGES } from 'services/pages';
 const Container = styled.header`
   background-color: ${colorPalette.darkGrey};
   color: ${colorPalette.white};
-  padding: ${getSpacing(3)} 0;
+  padding: ${getSpacing(3)} ${getSpacing(2)};
   margin-bottom: ${getSpacing(4)};
 `;
 

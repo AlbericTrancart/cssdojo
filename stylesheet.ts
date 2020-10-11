@@ -44,6 +44,8 @@ export const typography: { [key: string]: FlattenSimpleInterpolation } = {
   `,
 };
 
+export const mobileBreakpoint = '1024px';
+
 export const zIndex = {};
 
 export const borderRadius = '5px';

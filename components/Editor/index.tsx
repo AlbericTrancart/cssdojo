@@ -3,22 +3,30 @@ import BaseEditor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { colorPalette, getSpacing, typography } from 'stylesheet';
+import { colorPalette, getSpacing, mobileBreakpoint, typography } from 'stylesheet';
 
 const MainContainer = styled.div`
   margin: ${getSpacing(4)} 0;
 `;
 
 const Container = styled.div`
-  position: relative;
-  width: ${getSpacing(120)};
-  left: -${getSpacing(10)};
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  @media (min-width: ${mobileBreakpoint}) {
+    width: ${getSpacing(120)};
+    position: relative;
+    left: -${getSpacing(10)};
+    flex-wrap: nowrap;
+  }
 `;
 
 const EditorWrapper = styled.div`
-  flex-basis: 50%;
-  flex-shrink: 1;
+  flex-basis: 100%;
+  @media (min-width: ${mobileBreakpoint}) {
+    flex-basis: 50%;
+    flex-shrink: 1;
+  }
 
   > * {
     ${typography.code}
@@ -32,11 +40,19 @@ const EditorWrapper = styled.div`
 `;
 
 const PreviewWrapper = styled.div`
-  flex-basis: 50%;
-  flex-shrink: 1;
+  flex-basis: 100%;
+  @media (min-width: ${mobileBreakpoint}) {
+    flex-basis: 50%;
+    flex-shrink: 1;
+  }
 `;
 
 const Divider = styled.div`
+  display: none;
+  @media (min-width: ${mobileBreakpoint}) {
+    display: block;
+  }
+
   width: 1px;
   flex-shrink: 0;
   background-color: ${colorPalette.lightGrey};
