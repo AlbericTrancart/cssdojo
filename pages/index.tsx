@@ -57,6 +57,8 @@ const Home: NextPage = () => (
     <section>
       <Subtitle>Basics</Subtitle>
 
+      <p>How to style the UI elements themselves.</p>
+
       <ol>
         <Kata page={PAGES.WhyCSSHowItWorks}>
           Introduction to CSS and How the browser renders the page
@@ -72,6 +74,8 @@ const Home: NextPage = () => (
     <section>
       <Subtitle>Layouts</Subtitle>
 
+      <p>How to arrange the UI elements between each other.</p>
+
       <ol>
         <li>The flow layout</li>
         <li>The flex layout</li>
@@ -85,6 +89,11 @@ const Home: NextPage = () => (
     <section>
       <Subtitle>Advanced CSS</Subtitle>
 
+      <p>
+        Although this part will use some Javascript, no previous knowledge of frameworks such as
+        React is required.
+      </p>
+
       <ol>
         <li>Styled Components (CSS in JS)</li>
         <li>How to organize your CSS</li>
@@ -97,17 +106,22 @@ const Home: NextPage = () => (
     <section>
       <Subtitle>Your own design system</Subtitle>
 
+      <p>
+        This part is more a sandbox to practice all the concepts that you learnt in the previous
+        parts. Keep doing the katas in order though!
+      </p>
+
       <ol>
         <li>Design a Link</li>
         <li>Design a Button</li>
-        <li>Design a Dropdown Menu</li>
-        <li>Design an Input</li>
-        <li>Design a Select</li>
-        <li>Design a Modal</li>
-        <li>Design Checkboxes/Radio buttons</li>
         <li>Design a Table</li>
-        <li>Design a Tab navigation system</li>
+        <li>Design an Input</li>
+        <li>Design Checkboxes/Radio buttons</li>
+        <li>Design a Select</li>
+        <li>Design a Dropdown Menu</li>
         <li>Design a Tooltip</li>
+        <li>Design a Modal</li>
+        <li>Design a Tab navigation system</li>
       </ol>
     </section>
   </>
