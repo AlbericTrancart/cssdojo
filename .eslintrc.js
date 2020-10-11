@@ -76,7 +76,7 @@ module.exports = {
     'risxss/catch-potential-xss-react': 'error',
     'react/react-in-jsx-scope': 'off',
     complexity: ['error', 8],
-    'max-lines': ['error', 300],
+    'max-lines': 'off',
     'max-depth': ['error', 3],
     'max-params': ['error', 5],
     'arrow-body-style': ['error', 'as-needed'],

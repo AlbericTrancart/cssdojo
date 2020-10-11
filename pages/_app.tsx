@@ -16,7 +16,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   });
 
   const config = getPageConfig(router.route);
-  const title = config === null ? 'cssdojo' : `cssdojo | ${config.title}`;
+  const title = config ? `cssdojo | ${config.title}` : 'cssdojo';
 
   return (
     <>

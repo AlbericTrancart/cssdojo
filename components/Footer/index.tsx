@@ -30,6 +30,19 @@ export const Footer = () => (
     .<br />
     <Link as="a" target="_blank" rel="noreferrer noopener" href="https://alberic.trancart.net/">
       About me
+    </Link>{' '}
+    |{' '}
+    <Link
+      as="a"
+      target="_blank"
+      rel="noreferrer noopener"
+      href="https://twitter.com/alberictrancart"
+    >
+      Contact me on Twitter
+    </Link>{' '}
+    or{' '}
+    <Link as="a" target="_blank" rel="noreferrer noopener" href="mailto:cssdojos@gmail.com">
+      send me an email at cssdojos@gmail.com
     </Link>
   </Container>
 );

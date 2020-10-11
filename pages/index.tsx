@@ -1,12 +1,24 @@
 import { Subtitle } from 'components/Layout';
 import { Link } from 'components/Link';
 import { NextPage } from 'next';
-import { PAGES } from 'services/pages';
+import { ReactNode } from 'react';
+import { Page, PAGES } from 'services/pages';
+
+interface Props {
+  children: ReactNode;
+  page: Page;
+}
+const Kata: React.FC<Props> = ({ children, page }) => (
+  <li>
+    <Link href={page.url}>{children}</Link>
+  </li>
+);
 
 const Home: NextPage = () => (
   <>
     <section>
       <Subtitle>Introduction</Subtitle>
+
       <p>
         <strong>Why another CSS guide?</strong> Some tutorials lack theory, some lack practice. Some
         are really light and some give too much information. This is my personal compilation of what
@@ -21,35 +33,42 @@ const Home: NextPage = () => (
           >
             katas
           </Link>{' '}
-          (= exercices), with practice after laying a strong theorical base.
+          (= exercises), with practice after laying a strong theoretical base.
         </strong>
       </p>
+
       <p>
-        <strong>If you are a beginner:</strong> read and practice the katas in order.
+        <strong>You are a beginner?</strong> Read and practice the katas in order.
       </p>
+
       <p>
-        <strong>If you already know some stuff:</strong> read and practice the katas in order,{' '}
-        <em>even more carefully</em>. Maybe you need solid theorical foundations, maybe you need
+        <strong>You already know some stuff?</strong> Read and practice the katas in order,{' '}
+        <em>even more carefully</em>. Maybe you need solid theoretical foundations, maybe you need
         more practice. Whatever reason brought you here, don’t skip any kata,{' '}
         <em>100% of the content is useful</em>.
+      </p>
+
+      <p>
+        <strong>You want to master CSS?</strong> Try to explain every concept in here to someone
+        else. If you succeed in making it crystal clear, you truly have mastered CSS.
       </p>
     </section>
 
     <section>
       <Subtitle>Basics</Subtitle>
+
       <ol>
-        <li>Why CSS and How it works</li>
-        <li>Selectors and specificity</li>
+        <Kata page={PAGES.WhyCSSHowItWorks}>Why CSS and How it works</Kata>
+        <li>Selectors and Specificity</li>
         <li>Styling text</li>
-        <li>
-          <Link href={PAGES.TheBoxModel.url}>The box model</Link>
-        </li>
+        <Kata page={PAGES.TheBoxModel}>The box model</Kata>
         <li>Overflowing content</li>
       </ol>
     </section>
 
     <section>
       <Subtitle>Layouts</Subtitle>
+
       <ol>
         <li>The flow layout</li>
         <li>The flex layout</li>
@@ -62,6 +81,7 @@ const Home: NextPage = () => (
 
     <section>
       <Subtitle>Advanced CSS</Subtitle>
+
       <ol>
         <li>Styled Components (CSS in JS)</li>
         <li>How to organize your CSS</li>
@@ -73,6 +93,7 @@ const Home: NextPage = () => (
 
     <section>
       <Subtitle>Your own design system</Subtitle>
+
       <ol>
         <li>Design a Link</li>
         <li>Design a Button</li>
