@@ -23,7 +23,7 @@ const Kata: NextPage = () => (
       <p>Some vocabulary first. When we write CSS, we write a lot of CSS rules:</p>
 
       <Image
-        src="/learn/basics/why-css-how-it-works/css-rule.png"
+        src="/learn/basics/introduction-css-how-the-browser-renders-the-page/css-rule.png"
         alt="A h1 rule with font-size and color declarations"
         caption="An example of CSS rule: make all the first-level titles red and big"
       />
@@ -81,7 +81,7 @@ const Kata: NextPage = () => (
         initialCode={`<html>
   <head>
     <!-- link this external stylesheet that changes the h1 tag -->
-    <!-- /learn/basics/why-css-how-it-works/style.css -->
+    <!-- /learn/basics/introduction-css-how-the-browser-renders-the-page/style.css -->
     <link href="" rel="stylesheet" type="text/css" />
 
     <!-- Make the <p> blue -->
@@ -104,8 +104,8 @@ const Kata: NextPage = () => (
         solution={`<html>
   <head>
     <!-- link this external stylesheet that changes the h1 tag -->
-    <!-- /learn/basics/why-css-how-it-works/style.css -->
-    <link href="/learn/basics/why-css-how-it-works/style.css" rel="stylesheet" type="text/css" />
+    <!-- /learn/basics/introduction-css-how-the-browser-renders-the-page/style.css -->
+    <link href="/learn/basics/introduction-css-how-the-browser-renders-the-page/style.css" rel="stylesheet" type="text/css" />
 
     <!-- Make the <p> blue -->
     <style>
@@ -227,7 +227,7 @@ const Kata: NextPage = () => (
       </dl>
 
       <Image
-        src="/learn/basics/why-css-how-it-works/profiler.png"
+        src="/learn/basics/introduction-css-how-the-browser-renders-the-page/profiler.png"
         alt="This page profiled by the chrome dev tools - all rendering operations included"
         caption="You can see all these steps in the Performance tab of your browser’s dev tools"
       />
