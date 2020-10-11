@@ -170,7 +170,7 @@ const Kata: NextPage = () => (
         </strong>
         . If you want a detailed explanation, here is{' '}
         <Link href="https://medium.com/jspoint/how-the-browser-renders-a-web-page-dom-cssom-and-rendering-df10531c9969">
-          a fantastic article about the browser renders a web page
+          a fantastic article about how the browser renders a web page
         </Link>
         . Here is a summary of what is the CRP:
       </p>
@@ -188,7 +188,7 @@ const Kata: NextPage = () => (
           <strong>CSSOM construction</strong>
         </dt>
         <dd>
-          The browser also reads CSS and constructs a similar tree containing all informations about
+          The browser also reads CSS and constructs a similar tree containing all information about
           how to style the page. It’s the CSSOM.
         </dd>
 
@@ -241,37 +241,38 @@ const Kata: NextPage = () => (
       <ul>
         <li>
           <strong>The CSS is render-blocking.</strong> The DOM tree is built incrementally as the
-          browser receives the HTML over the network, but this is not the case with CSS. If the
+          browser receives the HTML over the network, but this is not the case with CSSOM. If the
           CSSOM and render tree were built and rendered incrementally, we would see the page build
           itself and flash every microsecond as the CSS is read. This is not good for user
-          experience. Thus when the browser encounters a <Code>&lt;style&gt;</Code> tag or an
-          external CSS file, the CSSOM is built in one go.{' '}
+          experience nor optimal. Thus when the browser encounters a <Code>&lt;style&gt;</Code> tag
+          or an external CSS file, the CSSOM is built in one go.{' '}
           <strong>
             Until the whole CSS file is parsed, the render tree construction will be blocked.
           </strong>{' '}
-          The browser will continue to parse the DOM but nothing will appear on screen until it’s
-          done.
+          The browser will continue to parse the DOM but nothing will appear on screen until the
+          stylesheet is downloaded and parsed.
         </li>
         <li>
           <strong>The CSS is script-blocking.</strong> Javascript can manipulate the DOM and access
           the styles of any element throught the <Code>style</Code> object of every DOM node. Thus,
           it is dangerous to execute Javascript while a stylesheet is being downloaded. Imagine that
-          a script reads a <Code>style</Code> value while a stylesheet downloaded is in progress.
+          a script reads a <Code>style</Code> value while a stylesheet download is in progress.
           Depending on when the stylesheet download finishes and the CSSOM update completes, the
           value may or may not be outdated.{' '}
           <strong>
             To prevent race conditions, all script execution is paused until every previous
-            stylesheet is downloaded and parsed.
+            stylesheet in the DOM is downloaded and parsed.
           </strong>
         </li>
       </ul>
 
       <p>
+        Let that sink in.{' '}
         <strong>
           While the browser downloads a stylesheet, nothing will change on screen and all scripts
           will be paused.
         </strong>{' '}
-        Let that sink in. Thus, we should keep our stylesheets lightweight and fast to load.
+        Thus, we should keep our stylesheets lightweight and fast to load.
       </p>
 
       <p>

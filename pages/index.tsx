@@ -95,11 +95,12 @@ const Home: NextPage = () => (
       </p>
 
       <ol>
+        <li>Animations</li>
         <li>Styled Components (CSS in JS)</li>
         <li>How to organize your CSS</li>
         <li>Best practices and Stylelint</li>
         <li>How to choose your CSS tooling</li>
-        <li>Animations</li>
+        <li>How to refactor legacy CSS</li>
       </ol>
     </section>
 
