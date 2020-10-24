@@ -19,9 +19,9 @@ const BaseImage = styled.img`
   max-width: 100%;
 `;
 
-export const Image: React.FC<Props> = ({ src, alt, caption }) => (
+export const Image: React.FC<Props> = ({ src, alt, caption, ...rest }) => (
   <Figure>
-    <BaseImage src={src} alt={alt} />
+    <BaseImage src={src} alt={alt} {...rest} />
     {caption !== undefined && <Caption>{caption}</Caption>}
   </Figure>
 );

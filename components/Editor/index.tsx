@@ -147,7 +147,7 @@ export const Editor: React.FC<Props> = ({ useReact, code, onChange }) => {
               <style>
               html {
                 font-family: IBM Plex Sans, sans-serif;
-                font-size: 20px;
+                font-size: 125%;
                 line-height: 1.5;
               }
               body {

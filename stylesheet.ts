@@ -3,8 +3,8 @@ import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 // We are in the stylesheet, we can use hardcoded vars here
 // stylelint-disable
 
-const SPACING_UNIT = 8;
-const MEASUREMENT_UNIT = 'px';
+const SPACING_UNIT = 0.5;
+const MEASUREMENT_UNIT = 'rem';
 export const getSpacing = (multiplier: number): string =>
   `${multiplier * SPACING_UNIT}${MEASUREMENT_UNIT}`;
 
@@ -21,12 +21,12 @@ export const fonts = {
   code: 'monospace',
 };
 
-export const mobileBreakpoint = '1024px';
+export const mobileBreakpoint = '50em';
 
 export const typography: { [key: string]: FlattenSimpleInterpolation } = {
   main: css`
     font-family: ${fonts.main};
-    font-size: 20px;
+    font-size: 125%;
     line-height: 1.5;
   `,
   title: css`
