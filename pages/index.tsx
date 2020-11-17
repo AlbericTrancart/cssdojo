@@ -65,8 +65,8 @@ const Home: NextPage = () => (
           Introduction to CSS and How the browser renders the page
         </Kata>
         <Kata page={PAGES.SelectorsSpecificity}>Selectors and Specificity</Kata>
-        <li>Styling text</li>
-        <li>CSS units and variables</li>
+        <Kata page={PAGES.CSSUnitsVariables}>CSS units and variables</Kata>
+        <Kata page={PAGES.StylingTextCustomFonts}>Styling text and custom fonts</Kata>
         <Kata page={PAGES.TheBoxModel}>The box model</Kata>
         <li>Overflowing content</li>
       </ol>

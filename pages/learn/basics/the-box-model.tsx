@@ -204,7 +204,9 @@ const Kata: NextPage = () => (
 
     <section>
       <Subtitle>Help! I broke the box model</Subtitle>
+
       <p>If you played a bit with the live editor, you may have noticed two issues.</p>
+
       <Exercise
         task="set the block width to 10px and remove the margins"
         initialCode={`<style>
@@ -238,7 +240,9 @@ const Kata: NextPage = () => (
 <span class="box block">Block box</span>
 <span class="box inline">Inline box</span>`}
       />
-      No worries! We’re going to understand what happens in the next two katas:
+
+      <p>No worries! We’re going to understand what happens in the next two katas:</p>
+
       <ul>
         <li>
           Why the text gets outside the box:{' '}
@@ -267,7 +271,7 @@ const Kata: NextPage = () => (
         </li>
       </ul>
 
-      <NextKataButton href={PAGES.FlowLayout.url} />
+      <NextKataButton href={PAGES.OverflowingContent.url} />
     </section>
   </>
 );

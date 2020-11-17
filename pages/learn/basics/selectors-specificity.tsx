@@ -6,6 +6,7 @@ import { Code } from 'components/Code';
 import { Link } from 'components/Link';
 import { NextKataButton } from 'components/NextKataButton';
 import { PAGES } from 'services/pages';
+import { Editor } from 'components/Editor';
 
 const Kata: NextPage = () => (
   <>
@@ -448,6 +449,93 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
+      <Subtitle>What is a good selector?</Subtitle>
+
+      <p>
+        So, we’ve seen that a good selector should have a low specificity. But sometimes it is
+        possible to achieve the same result with different selectors. Classic example:
+      </p>
+
+      <Editor
+        code={`<style>
+.article {
+  border: 1px solid black;
+}
+
+/* Which is best? */
+/* 1st version */
+.article { margin-bottom: 15px; }
+
+/* 2nd version */
+.articles-list > * { margin-bottom: 15px; }
+
+/* 3rd version */
+.articles-list .article { margin-bottom: 15px; }
+
+/* 4th version */
+.article:not(:last-child) { margin-bottom: 15px; }
+
+/* 5th version */
+.articles-list > :not(:last-child) { margin-bottom: 15px; }
+</style>
+
+<section class="articles-list">
+  <article class="article">Article 1</article>
+  <article class="article">Article 2</article>
+  <article class="article">Article 3</article>
+</section>`}
+      />
+
+      <p>
+        What is the best selector among those five versions?{' '}
+        <strong>
+          A good selector conveys the design intention and thus will be more resilient to changes.
+        </strong>{' '}
+        Here the design intention is not clear so it’s difficult to pick one, but let’s analyze the
+        intentions:
+      </p>
+
+      <ul>
+        <li>
+          <Code>.article</Code> is probably not a good selector because I probably don’t want to set
+          the margin on all articles. What if I want to use the <Code>.article</Code> class on a
+          lonely article in another page?
+        </li>
+        <li>
+          <Code>.articles-list &gt; *</Code> seems better because the margin is applied in the
+          context of the list. But what if I add a title in the <Code>.articles-list</Code> section
+          or some pagination buttons at the bottom? In this case I may not like the margin given to
+          all children by this selector.
+        </li>
+        <li>
+          <Code>.articles-list .article</Code> seems better than the previous one. But there’s still
+          a margin after the last element that might interfere with content after this section
+        </li>
+        <li>
+          <Code>.article:not(:last-child)</Code> solves the last margin problem but is not scoped to
+          the list (same problem as <Code>.article</Code>)
+        </li>
+        <li>
+          <Code>.articles-list &gt; :not(:last-child)</Code> is probably what I would go for, but
+          that’s still making assumptions on the design intentions.
+        </li>
+      </ul>
+
+      <p>As we’ve seen, choosing the right selector may not be easy. Overall, try this:</p>
+
+      <ol>
+        <li>
+          Ask yourself <em>&quot;what is the intention?&quot;</em>
+        </li>
+        <li>If the intention is not clear, ask your designer</li>
+        <li>
+          If it’s still not clear, pick your best guess by confronting your code to edge cases or by
+          trying to imagine what happens if you reuse this code somewhere else.
+        </li>
+      </ol>
+    </section>
+
+    <section>
       <Subtitle>What I should remember</Subtitle>
 
       <ul>
@@ -469,12 +557,13 @@ const Kata: NextPage = () => (
           The pseudo-elements: <Code>::before</Code>, <Code>::after</Code>,{' '}
           <Code>::placeholder</Code>.
         </li>
+        <li>How specificity works.</li>
         <li>
-          How specificity works and that <strong>we should keep specificity low.</strong>
+          <strong>A good selector has a low specificity and conveys the design intention</strong>
         </li>
       </ul>
 
-      <NextKataButton href={PAGES.FlowLayout.url} />
+      <NextKataButton href={PAGES.CSSUnitsVariables.url} />
     </section>
   </>
 );

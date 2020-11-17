@@ -23,6 +23,14 @@ export const PAGES = {
     url: '/learn/basics/selectors-specificity',
     title: 'Selectors and Specificity',
   },
+  StylingTextCustomFonts: {
+    url: '/learn/basics/styling-text-custom-fonts',
+    title: 'Styling text and custom fonts',
+  },
+  CSSUnitsVariables: {
+    url: '/learn/basics/css-units-variables',
+    title: 'CSS units and variables',
+  },
   TheBoxModel: {
     url: '/learn/basics/the-box-model',
     title: 'The Box Model',
