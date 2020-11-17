@@ -7,6 +7,7 @@ import { Header } from 'components/Header';
 import { PageContainer } from 'components/Layout';
 import { Footer } from 'components/Footer';
 import 'prismjs/themes/prism-solarizedlight.css';
+import '@reach/checkbox/styles.css';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   // from https://github.com/vercel/next.js/issues/3249

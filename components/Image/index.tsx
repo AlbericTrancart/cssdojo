@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { getSpacing } from 'stylesheet';
 
 interface Props {
   src: string;
@@ -7,7 +8,7 @@ interface Props {
 }
 
 const Figure = styled.figure`
-  margin: 0;
+  margin: ${getSpacing(3)} 0;
   text-align: center;
 `;
 

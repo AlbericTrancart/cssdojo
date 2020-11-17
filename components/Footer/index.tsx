@@ -14,7 +14,7 @@ const Container = styled.footer`
   ${typography.small}
 `;
 
-export const Footer = () => (
+export const Footer: React.FC = () => (
   <Container>
     <Divider />
     Made with NextJS, ❤ and other hipster technologies.

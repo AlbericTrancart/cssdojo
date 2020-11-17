@@ -19,6 +19,7 @@
     "lint:style": "stylelint '**/*.style.{ts,tsx}' '**/style.{ts,tsx}'"
   },
   "dependencies": {
+    "@reach/checkbox": "^0.11.2",
     "lodash": "^4.17.19",
     "next": "^9.5.0",
     "prismjs": "^1.21.0",

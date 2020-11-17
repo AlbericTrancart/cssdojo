@@ -8,6 +8,10 @@ export const PAGES = {
     url: '/',
     title: 'Home',
   },
+  SkillsList: {
+    url: '/skills-list',
+    title: 'Skills list',
+  },
 
   // Katas
   // Basics

@@ -49,8 +49,9 @@ const Home: NextPage = () => (
       </p>
 
       <p>
-        <strong>You want to master CSS?</strong> Try to explain every concept in here to someone
-        else. If you succeed in making it crystal clear, you truly have mastered CSS.
+        <strong>You want to master CSS?</strong> Try to explain every concept in this{' '}
+        <Link href={PAGES.SkillsList.url}>skills list</Link> to someone else. If you succeed in
+        making it crystal clear, you truly have mastered CSS.
       </p>
     </section>
 
