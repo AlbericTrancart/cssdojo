@@ -248,8 +248,9 @@ const Kata: NextPage = () => (
         <Code>var()</Code> function. Try it for yourself!
       </p>
 
-      <Editor
-        code={`<style>
+      <Exercise
+        task="make the disclaimer more important by using a variable and turning it red"
+        initialCode={`<style>
 :root {
   --big: 2rem;
   --small: 0.5rem;
@@ -264,9 +265,33 @@ const Kata: NextPage = () => (
 
 <h1 class="title">Hello world!</h1>
 
-<p class="article">
+<article class="article">
   This CSS uses variables <small class="whisper">and I like it</small>
-</p>
+</article>
+
+<p class="disclaimer">...unless you’re using IE 11</p>`}
+        solution={`<style>
+:root {
+  --big: 2rem;
+  --small: 0.5rem;
+  --important-color: red;
+}
+.article {
+  --small: 0.75rem;
+}
+.title { font-size: var(--big) }
+.disclaimer {
+  font-size: var(--small);
+  color: var(--important-color);
+}
+.whisper { font-size: var(--small) }
+</style>
+
+<h1 class="title">Hello world!</h1>
+
+<article class="article">
+  This CSS uses variables <small class="whisper">and I like it</small>
+</article>
 
 <p class="disclaimer">...unless you’re using IE 11</p>`}
       />

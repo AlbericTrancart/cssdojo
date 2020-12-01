@@ -20,4 +20,5 @@ export const Title = styled.h1`
 export const Subtitle = styled.h2`
   ${typography.subtitle}
   margin: 0;
+  margin-top: ${getSpacing(2)};
 `;

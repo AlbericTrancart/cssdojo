@@ -13,7 +13,8 @@ interface SkillsList {
 }
 
 const SKILLS: { [key: string]: ReactNode } = {
-  'introduction-css-browser-rendering-include': 'What are the 3 ways to include CSS in a page?',
+  'introduction-css-browser-rendering-include':
+    'What are the 3 ways to include CSS in a page? What is the one you should not use?',
   'introduction-css-browser-rendering-crp': (
     <>
       What is the <em>Critical Rendering Path</em>?
@@ -22,28 +23,31 @@ const SKILLS: { [key: string]: ReactNode } = {
   'introduction-css-browser-rendering-loading': 'How can CSS impact the load time of a page?',
   'introduction-css-browser-rendering-feature':
     'How can I check if a CSS feature is supported by a browser?',
-  'selectors-specificity-main': 'What are the main CSS selectors?',
+  'selectors-specificity-main': 'What are the main CSS selectors? (give 20 of them)',
   'selectors-specificity-specificity': 'What is Specificity?',
   'selectors-specificity-good-practices': 'What makes a good/bad CSS selector?',
-  'css-units-variables-units': 'What are the main CSS units?',
+  'css-units-variables-units': 'What are the main CSS units? (give 8 of them)',
   'css-units-variables-px-rem': 'Should I use px or rem/em?',
-  'css-units-variables-variables': 'How can I use CSS varaibles?',
+  'css-units-variables-variables': 'How can I use CSS variables?',
   'css-units-variables-keywords': (
     <>
       What are the differences between <Code>inherit</Code>, <Code>initial</Code> and{' '}
       <Code>unset</Code>?
     </>
   ),
+  'styling-text-custom-fonts-standard-font-size':
+    'What is the standard range of font sizes and the standard value of line height?',
+  'styling-text-custom-fonts-include-fonts': 'How can I include custom fonts?',
+  'styling-text-custom-fonts': 'What are the best practices for loading fonts?',
+  'styling-text-custom-fonts-variable-fonts': 'What is a variable font?',
+  'box-model-definition': 'What is the box model?',
+  'box-model-alternatives': 'What are the two possible box models?',
   'styling-text-custom-fonts-baseline': (
     <>
       What is the baseline and what are the two purposes of the <Code>vertical-align</Code>{' '}
       property?
     </>
   ),
-  'styling-text-custom-fonts-include-fonts': 'How can I include custom fonts?',
-  'styling-text-custom-fonts': 'What are the best practices for loading fonts?',
-  'box-model-definition': 'What is the box model?',
-  'box-model-alternatives': 'What are the two possible box models?',
 };
 
 const Form = styled.form``;
