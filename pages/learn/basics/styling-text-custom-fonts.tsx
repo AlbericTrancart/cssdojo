@@ -184,14 +184,26 @@ html {
       </p>
 
       <p>
-        You can add custom fonts with the <Code>@font-face</Code> directive. This directive needs
-        two mandatory arguments:
+        <strong>A font family is a collection of font styles.</strong> When using the{' '}
+        <Code>font-weight</Code> and <Code>font-style</Code> properties, it will try to use the
+        related style if it is available.
+      </p>
+
+      <Image
+        src="/learn/basics/styling-text/roboto-font-family.svg"
+        alt="Different combinations of the Roboto font in different weights and italics"
+        caption="Different font styles of the Roboto font family"
+      />
+
+      <p>
+        You can add custom font styles with the <Code>@font-face</Code> directive. This directive
+        needs two mandatory arguments:
       </p>
 
       <ul>
         <li>
-          <Code>font-family</Code>: the name that you will use in <Code>font-family</Code>{' '}
-          declarations
+          <Code>font-family</Code>: the related font family that you will use in{' '}
+          <Code>font-family</Code> declarations
         </li>
         <li>
           <Code>src</Code>: a prioritized list of potential sources for the font files. You can use
@@ -201,7 +213,7 @@ html {
         </li>
       </ul>
 
-      <p>Here is what a complete font declaration might look like:</p>
+      <p>Here is what a font declaration might look like:</p>
 
       <Editor
         code={`<style>
@@ -220,6 +232,23 @@ html {
 <p>This is some text</p>`}
       />
 
+      <p>It can also include those optional properties:</p>
+
+      <ul>
+        <li>
+          <Code>font-style</Code>: the associated value that will be targeted by{' '}
+          <Code>font-style</Code> declarations
+        </li>
+        <li>
+          <Code>font-weight</Code>: the associated value that will be targeted by{' '}
+          <Code>font-weight</Code> declarations
+        </li>
+        <li>
+          <Code>font-display</Code>: sets the behavior the browser should follow until the font is
+          downloaded.
+        </li>
+      </ul>
+
       <p>
         When including custom fonts, there are some caveats that you want to avoid. What will your
         browser show while the font is not loaded? And you don’t want your website to flash once
@@ -232,10 +261,16 @@ html {
 
       <ul>
         <li>
-          <strong>Optimize your font files.</strong>
+          <strong>Optimize your font files.</strong> Including multiple font styles can quickly
+          amount to 500KB of data.
         </li>
         <li>
-          <strong>Preload your fonts.</strong>
+          <strong>Preload your fonts.</strong> If you have one hundred <Code>@font-face</Code>{' '}
+          declarations and use only one, the browser will download only this font-face. However, to
+          allow for this optimization the browser must read <em>all the HTML and all the CSS</em>{' '}
+          before starting to download the font. You can preload the font by putting a link tag in
+          the head of the document:{' '}
+          <Code>{`<link rel="preload" href="/fontsmy-super-font.woff2" as="font" type="font/woff2">`}</Code>
         </li>
         <li>
           <strong>
@@ -244,6 +279,67 @@ html {
         </li>
       </ul>
 
+      <p>The font loading is split into 3 periods:</p>
+
+      <ol>
+        <li>
+          <strong>The block period</strong>: text elements using this font will instead use an
+          invisible font during this period
+        </li>
+        <li>
+          <strong>The swap period</strong>: if the font is loaded, the browser will use it.
+          Otherwise it will use a fallback font
+        </li>
+        <li>
+          <strong>The failure period</strong>: if the font is not loaded, the browser will treat it
+          as failed and use a fallback font.
+        </li>
+      </ol>
+
+      <p>
+        The <Code>font-display</Code> property can take these values. Use the one that you find will
+        be better for your user experience!
+      </p>
+
+      <dl>
+        <dt>
+          <Code>optional</Code>
+        </dt>
+        <dd>
+          Extremely small block period and no swap period. What it means is that your font is not
+          loaded super quickly, it will not be used. If it is that optional, you may reconsider
+          using a custom font at all.
+        </dd>
+        <dt>
+          <Code>block</Code>
+        </dt>
+        <dd>
+          Short block period, infinite swap period. If your font takes some time to load, your users
+          will see a flash of invisible text (FOIT) becoming visible.
+        </dd>
+        <dt>
+          <Code>swap</Code>
+        </dt>
+        <dd>
+          Extremely small block period, infinite swap period. If your font takes some time to load,
+          your users will see a flash of unstyled text (FOUT) when your font replaces the fallback.
+          On a slow connection, the user might see the swap happen dozens of the seconds after
+          scrolling through the content.
+        </dd>
+        <dt>
+          <Code>fallback</Code>
+        </dt>
+        <dd>
+          Extremely small block period and a short swap period. Let some time for the font to load
+          but if it takes too much time it will use the fallback. Thus there will not be a FOUT
+          quite late in the page loading.
+        </dd>
+      </dl>
+    </section>
+
+    <section>
+      <Subtitle>Variable fonts</Subtitle>
+
       <p>
         If you don’t need to support Internet Explorer 11, you can even use variable fonts. Here is{' '}
         <Link href="https://web.dev/variable-fonts/">a detailed article on variable fonts</Link>. In
@@ -251,22 +347,20 @@ html {
         overall bandwith required to download all fonts and thus optimizing the display speed.
       </p>
 
+      <p>
+        In supported browsers, you will be able to specify a range for the <Code>font-weight</Code>{' '}
+        and <Code>font-style</Code> properties in the <Code>@font-face</Code> declaration.
+      </p>
+
       <Exercise
-        task="someone has made this text unreadable. Make it easier to read by using the good practices we’ve seen!"
+        task="use a variable font from https://v-fonts.com/ to style all texts using only one font file!"
         initialCode={`<style>
-.blog-post {
-  font-size: 14px;
-  line-height: 1;
-  word-spacing: -1px;
-  letter-spacing: -0.5px;
-}
-.title {
-  font-size: 16px;
-}
-.link {
-  font-style: italic;
-  text-decoration: red wavy overline;
-  font-weight: 900;
+@font-face {
+  font-family: 'MyFont';
+  src: url('RobotoFlex-VF.woff2') format('woff2 supports variations'),
+        url('RobotoFlex-VF.woff2') format('woff2-variations');
+  font-weight: 100 1000;
+  font-stretch: 25% 151%;
 }
 </style>
 

@@ -38,7 +38,7 @@ const SKILLS: { [key: string]: ReactNode } = {
   'styling-text-custom-fonts-standard-font-size':
     'What is the standard range of font sizes and the standard value of line height?',
   'styling-text-custom-fonts-include-fonts': 'How can I include custom fonts?',
-  'styling-text-custom-fonts': 'What are the best practices for loading fonts?',
+  'styling-text-custom-fonts': 'What are the 3 steps of font loading?',
   'styling-text-custom-fonts-variable-fonts': 'What is a variable font?',
   'box-model-definition': 'What is the box model?',
   'box-model-alternatives': 'What are the two possible box models?',
