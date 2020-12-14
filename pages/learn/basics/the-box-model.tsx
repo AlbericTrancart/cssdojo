@@ -13,7 +13,7 @@ const Kata: NextPage = () => (
     <Title>The Box Model</Title>
 
     <section>
-      <Subtitle>Definition</Subtitle>
+      <Subtitle id="definition">Definition</Subtitle>
 
       <p>
         Every DOM element (even text) is modelized in CSS by a box, and{' '}
@@ -55,7 +55,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>The display property</Subtitle>
+      <Subtitle id="display-property">The display property</Subtitle>
 
       <p>
         You can change the display mode with the <Code>display</Code> CSS property. There are two
@@ -203,7 +203,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>Help! I broke the box model</Subtitle>
+      <Subtitle id="i-broke-the-box-model">Help! I broke the box model</Subtitle>
 
       <p>If you played a bit with the live editor, you may have noticed two issues.</p>
 
@@ -230,7 +230,6 @@ const Kata: NextPage = () => (
   padding: 10px;
   width: 10px;
   height: 200px;
-  box-sizing: border-box;
 }
 
 .block { display: block; }
@@ -256,7 +255,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>What I should remember</Subtitle>
+      <Subtitle id="key-learnings">What I should remember</Subtitle>
 
       <ul>
         <li>

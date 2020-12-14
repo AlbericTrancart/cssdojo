@@ -13,7 +13,7 @@ const Kata: NextPage = () => (
     <Title>Styling text and custom fonts</Title>
 
     <section>
-      <Subtitle>Basic text styling</Subtitle>
+      <Subtitle id="basic-text-styling">Basic text styling</Subtitle>
 
       <p>
         At last! We are going to learn other properties than this silly <Code>color</Code> property
@@ -72,7 +72,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>Cosmetic properties</Subtitle>
+      <Subtitle id="cosmetic-properties">Cosmetic properties</Subtitle>
 
       <p>Now we can make our text fancier. Here is a list of some useful properties:</p>
 
@@ -174,7 +174,7 @@ html {
     </section>
 
     <section>
-      <Subtitle>Font families and custom fonts</Subtitle>
+      <Subtitle id="font-families-custom-fonts">Font families and custom fonts</Subtitle>
 
       <p>
         We’ll dedicate this whole section to the <Code>font-family</Code> property. This property
@@ -338,7 +338,7 @@ html {
     </section>
 
     <section>
-      <Subtitle>Variable fonts</Subtitle>
+      <Subtitle id="variable-fonts">Variable fonts</Subtitle>
 
       <p>
         If you don’t need to support Internet Explorer 11, you can even use variable fonts. Here is{' '}
@@ -420,7 +420,7 @@ html {
     </section>
 
     <section>
-      <Subtitle>What I should remember</Subtitle>
+      <Subtitle id="key-learnings">What I should remember</Subtitle>
 
       <ul>
         <li>

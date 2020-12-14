@@ -17,7 +17,7 @@ const Kata: React.FC<Props> = ({ children, page }) => (
 const Home: NextPage = () => (
   <>
     <section>
-      <Subtitle>Introduction</Subtitle>
+      <Subtitle id="introduction">Introduction</Subtitle>
 
       <p>
         <strong>Why another CSS guide?</strong> Some tutorials lack theory, some lack practice. Some
@@ -56,7 +56,7 @@ const Home: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>Basics</Subtitle>
+      <Subtitle id="basics">Basics</Subtitle>
 
       <p>How to style the UI elements themselves.</p>
 
@@ -73,7 +73,7 @@ const Home: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>Layouts</Subtitle>
+      <Subtitle id="layouts">Layouts</Subtitle>
 
       <p>How to arrange the UI elements between each other.</p>
 
@@ -88,7 +88,7 @@ const Home: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>Advanced CSS</Subtitle>
+      <Subtitle id="advanced-css">Advanced CSS</Subtitle>
 
       <p>
         Although this part will use some Javascript, no previous knowledge of frameworks such as

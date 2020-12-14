@@ -19,7 +19,7 @@ const Kata: NextPage = () => (
     </p>
 
     <section>
-      <Subtitle>CSS units</Subtitle>
+      <Subtitle id="css-units">CSS units</Subtitle>
 
       <p>Let’s start with colors. You can define a color by:</p>
 
@@ -225,7 +225,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>CSS variables</Subtitle>
+      <Subtitle id="css-variables">CSS variables</Subtitle>
 
       <p>
         When handling CSS values there are many pitfall that you want to avoid. The first of them is{' '}
@@ -364,7 +364,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>The Cascade and special values</Subtitle>
+      <Subtitle id="css-cascade">The Cascade and special values</Subtitle>
 
       <p>
         As you may have guessed, some properties will <em>cascade</em> their value to children
@@ -463,7 +463,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>What I should remember</Subtitle>
+      <Subtitle id="key-learnings">What I should remember</Subtitle>
 
       <ul>
         <li>

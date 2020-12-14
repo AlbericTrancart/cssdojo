@@ -13,7 +13,7 @@ const Kata: NextPage = () => (
     <Title>Introduction to CSS and How the browser renders the page</Title>
 
     <section>
-      <Subtitle>Definitions</Subtitle>
+      <Subtitle id="definitions">Definitions</Subtitle>
       <p>
         CSS stands for <strong>Cascading Style Sheets</strong>. It is a core web language, with HTML
         and JS it forms the base for website creation. HTML conveys the meaning of the document,
@@ -59,7 +59,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>Where do we write CSS?</Subtitle>
+      <Subtitle id="where-to-write-css">Where do we write CSS?</Subtitle>
 
       <p>There are 3 ways to include CSS in a HTML page:</p>
 
@@ -161,7 +161,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>How the browser renders the page</Subtitle>
+      <Subtitle id="how-the-browser-renders-the-page">How the browser renders the page</Subtitle>
 
       <p>
         To optimize your website for the best User Experience and page speed as possible,{' '}
@@ -284,7 +284,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>What happens if I write invalid CSS?</Subtitle>
+      <Subtitle id="invalid-css">What happens if I write invalid CSS?</Subtitle>
 
       <p>
         If you write invalid CSS (because of a syntax error or a property/value doesn’t exist), the
@@ -313,7 +313,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>What I should remember</Subtitle>
+      <Subtitle id="key-learnings">What I should remember</Subtitle>
 
       <ul>
         <li>

@@ -13,7 +13,7 @@ const Kata: NextPage = () => (
     <Title>Selectors and Specificity</Title>
 
     <section>
-      <Subtitle>Simple selectors</Subtitle>
+      <Subtitle id="base-selectors">Base selectors</Subtitle>
 
       <p>
         Before learning a lot of properties and values, let’s focus on the selector part of CSS
@@ -107,7 +107,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>Combining selectors</Subtitle>
+      <Subtitle id="combining-selectors">Combining selectors</Subtitle>
 
       <p>You can combine selectors to create more complex ones:</p>
 
@@ -205,7 +205,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>Pseudo-classes and pseudo-elements</Subtitle>
+      <Subtitle id="pseudo-classes-pseudo-elements">Pseudo-classes and pseudo-elements</Subtitle>
 
       <p>
         Peusdo-classes allow us to select elements based on states or informations not present in
@@ -338,7 +338,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>Specificty</Subtitle>
+      <Subtitle id="specificity">Specificty</Subtitle>
 
       <p>
         <strong>
@@ -449,7 +449,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>What is a good selector?</Subtitle>
+      <Subtitle id="what-makes-a-good-selector">What is a good selector?</Subtitle>
 
       <p>
         So, we’ve seen that a good selector should have a low specificity. But sometimes it is
@@ -536,7 +536,7 @@ const Kata: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>What I should remember</Subtitle>
+      <Subtitle id="key-learnings">What I should remember</Subtitle>
 
       <ul>
         <li>
