@@ -89,11 +89,11 @@ const Kata: NextPage = () => (
           Changes the boldness of the font. It can be set using multiple values. First, you can use
           a number between 1 and 1000. However,{' '}
           <strong>the possible values will be limited by the font you are currently using</strong>{' '}
-          (likely some of those: 100/200/300/400/500/600/700/800/900). If you are using a{' '}
-          <Link href="https://v-fonts.com/">variable font</Link>, you can use any weight value. You
-          can also use a keyword: <Code>normal</Code> is a shorthand for 400 and <Code>bold</Code>{' '}
-          is a shorthand for 700. If you use <Code>lighter</Code> or <Code>bolder</Code>, it will
-          take the parent’s font weight and move it accordingly on a scale between 100/400/700/900.
+          (likely some of those: 100/200/300/400/500/600/700/800/900). If you are using a variable
+          font, you can use any weight value. You can also use a keyword: <Code>normal</Code> is a
+          shorthand for 400 and <Code>bold</Code> is a shorthand for 700. If you use{' '}
+          <Code>lighter</Code> or <Code>bolder</Code>, it will take the parent’s font weight and
+          move it accordingly on a scale between 100/400/700/900.
         </dd>
 
         <dt>
@@ -190,7 +190,7 @@ html {
       </p>
 
       <Image
-        src="/learn/basics/styling-text/roboto-font-family.svg"
+        src="/learn/basics/styling-text/roboto-font-family.png"
         alt="Different combinations of the Roboto font in different weights and italics"
         caption="Different font styles of the Roboto font family"
       />
@@ -353,14 +353,22 @@ html {
       </p>
 
       <Exercise
-        task="use a variable font from https://v-fonts.com/ to style all texts using only one font file!"
+        task="use the given variable font to style all texts using only one font file!"
         initialCode={`<style>
 @font-face {
-  font-family: 'MyFont';
-  src: url('RobotoFlex-VF.woff2') format('woff2 supports variations'),
-        url('RobotoFlex-VF.woff2') format('woff2-variations');
-  font-weight: 100 1000;
-  font-stretch: 25% 151%;
+  /* Font url: /learn/basics/styling-text/JunctionVariableGX.ttf */
+  /* It weights only 66 KB for all font styles! */
+}
+
+.blog-post {
+  font-family: 'VariableJunction', sans-serif;
+}
+.title {
+  font-weight: 666;
+}
+.link {
+  font-style: italic;
+  font-weight: 321;
 }
 </style>
 
@@ -372,26 +380,27 @@ html {
   <a class="link">Go to next page</a>
 </article>`}
         solution={`<style>
-html {
-  /* Sets the base font-size in % so that it computes to 19px on most browsers (16px*1.2) */
-  /* For a blog, it's better to go bigger than the default! */
-  font-size: 120%;
+@font-face {
+  font-family: 'VariableJunction';
+  /*
+   * This also works because most modern browsers can autodetect the font properties
+   * src: url('/learn/basics/styling-text/JunctionVariableGX.ttf')
+   * However you can still add following values for better control
+   */
+  src: url('/learn/basics/styling-text/JunctionVariableGX.ttf') format('truetype-variations');
+  font-weight: 300 700;
+  font-stretch: 25% 151%;
 }
+
 .blog-post {
-  /* Let it breathe */
-  line-height: 1.5;
+  font-family: 'VariableJunction', sans-serif;
 }
 .title {
-  font-size: 1.2rem; /* Using rem instead of px */
+  font-weight: 666;
 }
 .link {
   font-style: italic;
-
-  /* A little less fancy but easier to understand */
-  text-decoration: dotted underline;
-
-  /* 900 is useless here because the default font is not variable, bold is easier to understand */
-  font-weight: bold;
+  font-weight: 321;
 }
 </style>
 
@@ -431,6 +440,7 @@ html {
           The three techniques to optimize font loading: lighter font files, preloading and{' '}
           <Code>font-display</Code>
         </li>
+        <li>Variable fonts exists and will become the standard for loading font styles.</li>
       </ul>
 
       <NextKataButton href={PAGES.TheBoxModel.url} />
