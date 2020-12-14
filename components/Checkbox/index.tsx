@@ -1,4 +1,5 @@
 import { CustomCheckboxContainer, CustomCheckboxInput } from '@reach/checkbox';
+import { ChangeEvent } from 'react';
 import styled from 'styled-components';
 import { colorPalette } from 'stylesheet';
 
@@ -32,7 +33,10 @@ const Check = styled.span<{ checked: boolean }>`
 `;
 
 export const Checkbox: React.FC<Props> = ({ checked, onChange }) => (
-  <Container checked={checked} onChange={(event) => onChange(event.target.checked)}>
+  <Container
+    checked={checked}
+    onChange={(event: ChangeEvent<HTMLInputElement>) => onChange(event.target.checked)}
+  >
     <Input checked={checked} /> <Check aria-hidden checked={checked} />
   </Container>
 );
