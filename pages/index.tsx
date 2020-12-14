@@ -67,22 +67,22 @@ const Home: NextPage = () => (
         <Kata page={PAGES.SelectorsSpecificity}>Selectors and Specificity</Kata>
         <Kata page={PAGES.CSSUnitsVariables}>CSS units and variables</Kata>
         <Kata page={PAGES.StylingTextCustomFonts}>Styling text and custom fonts</Kata>
-        <Kata page={PAGES.TheBoxModel}>The box model</Kata>
-        <li>Overflowing content</li>
+        <Kata page={PAGES.TheBoxModel}>The box model </Kata>
+        <li>The flow layout (part 1) - the block formatting context</li>
       </ol>
     </section>
 
     <section>
-      <Subtitle id="layouts">Layouts</Subtitle>
+      <Subtitle id="layouts">Advanced layouts</Subtitle>
 
       <p>How to arrange the UI elements between each other.</p>
 
       <ol>
-        <li>The flow layout</li>
+        <li>The flow layout (part 2) - Overflowing content and floats</li>
+        <li>Position and z-index</li>
         <li>The flex layout</li>
         <li>The grid layout</li>
         <li>The table layout</li>
-        <li>Position and z-index</li>
         <li>Media queries</li>
       </ol>
     </section>

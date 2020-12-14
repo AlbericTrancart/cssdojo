@@ -49,8 +49,18 @@ const Kata: NextPage = () => (
       </p>
 
       <p>
-        Those CSS <em>properties</em> will impact (or not) those <em>characteristics</em> depending
-        on the <em>display mode</em>.
+        Let me tell it again, this is really important:{' '}
+        <strong>
+          for every CSS property there is a difference between the <em>specified</em> value in your
+          CSS code and the value that is actually <em>computed</em> by the browser.
+        </strong>{' '}
+        Most of the time the <em>specified</em> and <em>computed</em> values will be the same but in
+        a lot of cases the browser will override the specified value.
+      </p>
+
+      <p>
+        The box model <em>properties</em> will impact (or not) the box <em>characteristics</em>{' '}
+        depending on the <em>display mode</em>.
       </p>
     </section>
 

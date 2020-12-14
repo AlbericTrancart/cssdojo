@@ -42,10 +42,38 @@ const SKILLS: { [key: string]: ReactNode } = {
   'styling-text-custom-fonts-variable-fonts': 'What is a variable font?',
   'box-model-definition': 'What is the box model?',
   'box-model-alternatives': 'What are the two possible box models?',
-  'styling-text-custom-fonts-baseline': (
+  'flow-layout-basics-block-formatting-context': 'What is the block formatting context?',
+  'flow-layout-basics-vertical-align': (
     <>
       What is the baseline and what are the two purposes of the <Code>vertical-align</Code>{' '}
       property?
+    </>
+  ),
+  'flow-layout-basics-margin-collapsing': 'What is margin collapsing?',
+  'flow-layout-advanced-float': (
+    <>
+      How does <Code>float</Code> and <Code>clear</Code> work?
+    </>
+  ),
+  'flow-layout-advanced-text-overflow':
+    'How can I put an ellipsis at the end of my text if it is too big?',
+  'position-zindex-position': (
+    <>
+      What are the different values of <Code>position</Code> and how do they work?
+    </>
+  ),
+  'position-zindex-stacking-context': 'What is a stacking context?',
+  'position-zindex-good-value': 'How does z-index work?',
+  'flex-formatting-context': (
+    <>
+      What is the computed value of the <Code>display</Code> property of a <Code>span</Code> element
+      in a container with <Code>display: flex</Code>?
+    </>
+  ),
+  'flex-formatting-align': 'What are the properties to align content in a flex context?',
+  'flex-formatting-basis': (
+    <>
+      How does <Code>flex-basis</Code> work?
     </>
   ),
 };
