@@ -1,13 +1,12 @@
 import React from 'react';
 import { MAIN_VERTICAL_MARGIN, MAIN_VERTICAL_PADDING, Title } from 'components/Layout';
-import { GetStaticPropsContext, GetStaticPropsResult, NextPage, NextPageContext } from 'next';
+import { GetStaticPropsContext, GetStaticPropsResult, NextPage } from 'next';
 import styled from 'styled-components';
-import { Skill, SKILLS } from 'services/skills';
+import { SKILLS } from 'services/skills';
 import { PAGES } from 'services/pages';
-import { useRouter } from 'next/router';
 import { getSpacing } from 'stylesheet';
 import { Button } from 'components/Button';
-import { Link } from 'components/Link';
+import { useHotkeys } from 'react-hotkeys-hook';
 
 const Dojo = styled.section`
   display: flex;
@@ -38,6 +37,17 @@ const DojoKataPage: NextPage<DojoProps> = ({ kataId }) => {
   const kata = SKILLS.find((skill) => skill.id === kataId)!;
   const kataIndex = SKILLS.indexOf(kata);
 
+  useHotkeys('left', () => {
+    if (kataIndex > 0) {
+      window.document.getElementById('previousLink')?.click();
+    }
+  });
+  useHotkeys('right', () => {
+    if (kataIndex + 1 < SKILLS.length) {
+      window.document.getElementById('nextLink')?.click();
+    }
+  });
+
   return (
     <Dojo>
       <Title style={{ textAlign: 'center' }}>{kata.skill}</Title>
@@ -46,7 +56,7 @@ const DojoKataPage: NextPage<DojoProps> = ({ kataId }) => {
 
       <ButtonsWrapper>
         {kataIndex > 0 && (
-          <Button as="a" href={PAGES.Dojo.url(SKILLS[kataIndex - 1].id)}>
+          <Button id="previousLink" as="a" href={PAGES.Dojo.url(SKILLS[kataIndex - 1].id)}>
             Previous question
           </Button>
         )}
@@ -60,7 +70,7 @@ const DojoKataPage: NextPage<DojoProps> = ({ kataId }) => {
         </Button>
 
         {kataIndex + 1 < SKILLS.length && (
-          <Button as="a" href={PAGES.Dojo.url(SKILLS[kataIndex + 1].id)}>
+          <Button id="nextLink" as="a" href={PAGES.Dojo.url(SKILLS[kataIndex + 1].id)}>
             Next question
           </Button>
         )}
