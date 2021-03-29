@@ -106,7 +106,7 @@ const Home: NextPage = () => (
     </section>
 
     <section>
-      <Subtitle>Your own design system</Subtitle>
+      <Subtitle id="own-design-system">Your own design system</Subtitle>
 
       <p>
         This part is more a sandbox to practice all the concepts that you learnt in the previous
