@@ -69,6 +69,11 @@ export const SKILLS: Skill[] = [
     kataUrl: PAGES.CSSUnitsVariables.url() + '#css-units',
   },
   {
+    id: 'css-units-variables-good-unit',
+    skill: 'When should I use relative or absolute units?',
+    kataUrl: PAGES.SelectorsSpecificity.url() + '#css-units',
+  },
+  {
     id: 'css-units-variables-px-rem',
     skill: 'Should I use px or rem/em?',
     kataUrl: PAGES.SelectorsSpecificity.url() + '#css-units',
