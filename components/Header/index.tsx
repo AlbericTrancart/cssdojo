@@ -39,7 +39,7 @@ interface Props {
 export const Header: React.FC<Props> = ({ isHomepage }) => (
   <Container>
     <Text as={isHomepage ? 'h1' : 'p'}>
-      <Link href={PAGES.Home.url} passHref>
+      <Link href={PAGES.Home.url()} passHref>
         <HomeLink aria-label="Homepage, CSS dojo, relearn CSS the right way">
           <Title>cssdojo</Title>
 

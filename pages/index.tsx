@@ -10,7 +10,7 @@ interface Props {
 }
 const Kata: React.FC<Props> = ({ children, page }) => (
   <li>
-    <Link href={page.url}>{children}</Link>
+    <Link href={page.url()}>{children}</Link>
   </li>
 );
 
@@ -50,7 +50,7 @@ const Home: NextPage = () => (
 
       <p>
         <strong>You want to master CSS?</strong> Try to explain every concept in this{' '}
-        <Link href={PAGES.SkillsList.url}>skills list</Link> to someone else. If you succeed in
+        <Link href={PAGES.SkillsList.url()}>skills list</Link> to someone else. If you succeed in
         making it crystal clear, you truly have mastered CSS.
       </p>
     </section>

@@ -255,11 +255,11 @@ const Kata: NextPage = () => (
       <ul>
         <li>
           Why the text gets outside the box:{' '}
-          <Link href={PAGES.OverflowingContent.url}>the overflowing content kata</Link>
+          <Link href={PAGES.OverflowingContentFloats.url()}>the overflowing content kata</Link>
         </li>
         <li>
           Why the inline box gets merged with the block box:{' '}
-          <Link href={PAGES.FlowLayout.url}>the flow layout Kata</Link>
+          <Link href={PAGES.FlowLayout.url()}>the flow layout Kata</Link>
         </li>
       </ul>
     </section>
@@ -280,7 +280,7 @@ const Kata: NextPage = () => (
         </li>
       </ul>
 
-      <NextKataButton href={PAGES.OverflowingContent.url} />
+      <NextKataButton href={PAGES.FlowLayout.url()} />
     </section>
   </>
 );

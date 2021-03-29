@@ -485,7 +485,7 @@ const Kata: NextPage = () => (
         </li>
       </ul>
 
-      <NextKataButton href={PAGES.StylingTextCustomFonts.url} />
+      <NextKataButton href={PAGES.StylingTextCustomFonts.url()} />
     </section>
   </>
 );

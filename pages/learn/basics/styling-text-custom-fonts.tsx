@@ -41,7 +41,7 @@ const Kata: NextPage = () => (
               For better accessibility, never use the <Code>px</Code> unit for font size, use{' '}
               <Code>em</Code> or <Code>rem</Code> instead
             </strong>{' '}
-            (see <Link href={PAGES.CSSUnitsVariables.url}>previous kata</Link>).{' '}
+            (see <Link href={PAGES.CSSUnitsVariables.url()}>previous kata</Link>).{' '}
             <strong>
               For better readability, never go a computed value of below <Code>15px</Code>.
             </strong>{' '}
@@ -443,7 +443,7 @@ html {
         <li>Variable fonts exists and will become the standard for loading font styles.</li>
       </ul>
 
-      <NextKataButton href={PAGES.TheBoxModel.url} />
+      <NextKataButton href={PAGES.TheBoxModel.url()} />
     </section>
   </>
 );

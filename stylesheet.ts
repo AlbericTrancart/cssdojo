@@ -44,7 +44,7 @@ export const typography: { [key: string]: FlattenSimpleInterpolation } = {
     }
   `,
   code: css`
-    font-size: 0.8rem;
+    font-size: 0.8em;
     font-family: ${fonts.code};
   `,
   small: css`

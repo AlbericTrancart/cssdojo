@@ -563,7 +563,7 @@ const Kata: NextPage = () => (
         </li>
       </ul>
 
-      <NextKataButton href={PAGES.CSSUnitsVariables.url} />
+      <NextKataButton href={PAGES.CSSUnitsVariables.url()} />
     </section>
   </>
 );

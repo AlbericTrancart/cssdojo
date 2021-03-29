@@ -150,7 +150,7 @@ const Kata: NextPage = () => (
         </dt>
         <dd>
           This will be the focus of the next kata,{' '}
-          <Link href={PAGES.SelectorsSpecificity.url}>Selectors and Specificity</Link>.
+          <Link href={PAGES.SelectorsSpecificity.url()}>Selectors and Specificity</Link>.
         </dd>
 
         <dt>
@@ -340,7 +340,7 @@ const Kata: NextPage = () => (
         </li>
       </ul>
 
-      <NextKataButton href={PAGES.SelectorsSpecificity.url} />
+      <NextKataButton href={PAGES.SelectorsSpecificity.url()} />
     </section>
   </>
 );

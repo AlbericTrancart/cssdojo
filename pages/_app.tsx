@@ -17,6 +17,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   });
 
   const config = getPageConfig(router.route);
+  const isFullpageMode = router.route.includes('dojo');
   const title = config ? `cssdojo | ${config.title}` : 'cssdojo';
 
   return (
@@ -41,13 +42,13 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 
       <CSSResets />
 
-      <Header isHomepage={config?.url === '/'} />
+      {!isFullpageMode && <Header isHomepage={config?.route === '/'} />}
 
       <PageContainer>
         <Component {...pageProps} />
       </PageContainer>
 
-      <Footer />
+      {!isFullpageMode && <Footer />}
     </>
   );
 };
