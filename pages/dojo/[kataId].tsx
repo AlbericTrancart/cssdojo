@@ -4,7 +4,7 @@ import { GetStaticPropsContext, GetStaticPropsResult, NextPage } from 'next';
 import styled from 'styled-components';
 import { SKILLS } from 'services/skills';
 import { PAGES } from 'services/pages';
-import { getSpacing } from 'stylesheet';
+import { getSpacing, mobileBreakpoint } from 'stylesheet';
 import { Button } from 'components/Button';
 import { useHotkeys } from 'react-hotkeys-hook';
 
@@ -23,9 +23,21 @@ const AdditionalInfos = styled.div`
 
 const ButtonsWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
 
-  > :not(:last-child) {
-    margin-right: ${getSpacing(2)};
+  > * {
+    width: 100%;
+    margin-bottom: ${getSpacing(2)};
+  }
+
+  @media (min-width: ${mobileBreakpoint}) {
+    > * {
+      width: auto;
+      margin-bottom: 0;
+    }
+    > :not(:last-child) {
+      margin-right: ${getSpacing(2)};
+    }
   }
 `;
 
