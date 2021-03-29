@@ -19,7 +19,7 @@
     "lint:style": "stylelint '**/*.style.{ts,tsx}' '**/style.{ts,tsx}'"
   },
   "dependencies": {
-    "@reach/checkbox": "^0.12.1",
+    "@reach/checkbox": "^0.14.0",
     "copy-text-to-clipboard": "^2.2.0",
     "lodash": "^4.17.19",
     "next": "^10.0.0",
@@ -45,7 +45,7 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.10.7",
     "eslint": "^7.8.0",
-    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
@@ -58,7 +58,7 @@
     "prettier": "^2.1.1",
     "stylelint": "^13.3.3",
     "stylelint-config-prettier": "^8.0.1",
-    "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-standard": "^21.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-declaration-strict-value": "^1.4.3",
     "stylelint-processor-styled-components": "^1.10.0",
