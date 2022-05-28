@@ -6,6 +6,7 @@ import { colorPalette } from 'stylesheet';
 export interface CustomLinkProps extends LinkProps {
   target?: string;
   rel?: string;
+  children?: React.ReactNode;
 }
 
 const StyledLink = styled.a`
@@ -23,7 +24,7 @@ const StyledLink = styled.a`
 
 export const Link: React.FC<CustomLinkProps> = ({ href, children, ...rest }) => (
   <BaseLink href={href} passHref>
-    {/* @ts-ignore */}
+    {/* @ts-expect-error Too lazy to find the right type */}
     <StyledLink {...rest}>{children}</StyledLink>
   </BaseLink>
 );

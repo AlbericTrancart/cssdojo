@@ -17,7 +17,7 @@ export const Button = styled.button`
 
 export const Link: React.FC<CustomLinkProps> = ({ href, children, ...rest }) => (
   <BaseLink href={href} passHref>
-    {/* @ts-ignore */}
+    {/* @ts-expect-error Too lazy to find the right type */}
     <Button as="a" {...rest}>
       {children}
     </Button>

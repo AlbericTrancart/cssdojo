@@ -3,16 +3,18 @@ module.exports = {
   parserOptions: {
     project: 'tsconfig.json',
   },
+  ignorePatterns: ['*.js'],
   extends: [
     'plugin:react/recommended',
-    'prettier',
+    'plugin:prettier/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'react-app',
     'plugin:prettier/recommended',
-    'prettier/@typescript-eslint',
-    'prettier/react',
   ],
   plugins: [
     'jsx-a11y',

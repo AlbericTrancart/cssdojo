@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import copy from 'copy-text-to-clipboard';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { getSpacing, mobileBreakpoint, typography } from 'stylesheet';
 
 export const PAGE_WIDTH = getSpacing(100);

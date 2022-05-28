@@ -1,5 +1,6 @@
 module.exports = {
-  future: {
-    webpack5: true,
+  reactStrictMode: true,
+  compiler: {
+    styledComponents: true,
   },
 };

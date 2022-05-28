@@ -64,7 +64,9 @@ const DojoKataPage: NextPage<DojoProps> = ({ kataId }) => {
     <Dojo>
       <Title style={{ textAlign: 'center' }}>{kata.skill}</Title>
 
-      {kata.additionalInfos && <AdditionalInfos>{kata.additionalInfos}</AdditionalInfos>}
+      {kata.additionalInfos !== undefined && (
+        <AdditionalInfos>{kata.additionalInfos}</AdditionalInfos>
+      )}
 
       <ButtonsWrapper>
         {kataIndex > 0 && (
@@ -93,17 +95,15 @@ const DojoKataPage: NextPage<DojoProps> = ({ kataId }) => {
 
 export const getStaticProps = async (
   context: GetStaticPropsContext,
-): Promise<GetStaticPropsResult<DojoProps>> => {
-  return {
+): Promise<GetStaticPropsResult<DojoProps>> =>
+  Promise.resolve({
     props: { kataId: context?.params?.kataId as string },
-  };
-};
+  });
 
-export const getStaticPaths = async () => {
-  return {
+export const getStaticPaths = async () =>
+  Promise.resolve({
     paths: SKILLS.map((skill) => ({ params: { kataId: skill.id } })),
     fallback: false,
-  };
-};
+  });
 
 export default DojoKataPage;

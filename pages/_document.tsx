@@ -18,12 +18,7 @@ export default class DefaultPage extends Document<Props> {
 
       return {
         ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ),
+        styles: [initialProps.styles, sheet.getStyleElement()],
       };
     } finally {
       sheet.seal();
@@ -33,7 +28,13 @@ export default class DefaultPage extends Document<Props> {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans"
+            rel="stylesheet"
+            type="text/css"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />

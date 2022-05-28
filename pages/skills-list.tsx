@@ -36,7 +36,9 @@ const SkillsListPage: NextPage = () => {
   useEffect(() => {
     try {
       setSkillsListState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) ?? '{}') as SkillsList);
-    } catch {}
+    } catch {
+      console.warn('There was an issue with local storage!');
+    }
   }, []);
 
   const toggleSkill = (key: string, checked: boolean) => {
@@ -45,7 +47,9 @@ const SkillsListPage: NextPage = () => {
 
     try {
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newSkillsListState));
-    } catch {}
+    } catch {
+      console.warn('There was an issue with local storage!');
+    }
   };
 
   const isChecked = (key: string) => key in skillsListState && skillsListState[key];

@@ -24,11 +24,6 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
     <>
       <Head>
         <title>{title}</title>
-        <link
-          href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans"
-          rel="stylesheet"
-          type="text/css"
-        />
 
         {/* Favicon */}
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
