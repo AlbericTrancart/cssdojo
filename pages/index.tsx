@@ -67,8 +67,8 @@ const Home: NextPage = () => (
         <Kata page={PAGES.SelectorsSpecificity}>Selectors and Specificity</Kata>
         <Kata page={PAGES.CSSUnitsVariables}>CSS units and variables</Kata>
         <Kata page={PAGES.StylingTextCustomFonts}>Styling text and custom fonts</Kata>
-        <Kata page={PAGES.TheBoxModel}>The box model </Kata>
-        <li>The flow layout (part 1) - the block formatting context</li>
+        <Kata page={PAGES.TheBoxModel}>The Box Model</Kata>
+        <Kata page={PAGES.FlowLayout}>The Flow layout (part 1) - the block formatting context</Kata>
       </ol>
     </section>
 
@@ -79,10 +79,10 @@ const Home: NextPage = () => (
 
       <ol>
         <li>The flow layout (part 2) - Overflowing content and floats</li>
+        <li>The Flex layout</li>
+        <li>The Grid layout</li>
+        <li>The Table layout</li>
         <li>Position and z-index</li>
-        <li>The flex layout</li>
-        <li>The grid layout</li>
-        <li>The table layout</li>
         <li>Media queries</li>
       </ol>
     </section>

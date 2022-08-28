@@ -49,16 +49,16 @@ export const PAGES = {
     title: 'The Box Model',
   },
   FlowLayout: {
-    url: () => '/learn/layouts/flow-layout',
-    route: '/learn/layouts/flow-layout',
-    title: 'The flow layout',
+    url: () => '/learn/basics/the-flow-layout-part-1-block-inline-formatting-contexts',
+    route: '/learn/basics/the-flow-layout-part-1-block-inline-formatting-contexts',
+    title: 'The Flow layout',
   },
 
   // Advanced Layouts
   OverflowingContentFloats: {
     url: () => '/learn/basics/overflowing-content-floats',
     route: '/learn/basics/overflowing-content-floats',
-    title: 'Overflowing content',
+    title: 'Overflowing content and floats',
   },
 };
 
