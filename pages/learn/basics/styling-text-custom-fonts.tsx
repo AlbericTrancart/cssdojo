@@ -341,7 +341,9 @@ html {
       <Subtitle id="variable-fonts">Variable fonts</Subtitle>
 
       <p>
-        If you don’t need to support Internet Explorer 11, you can even use variable fonts. Here is{' '}
+        If you don’t need to support Internet Explorer 11{' '}
+        <Link href="https://death-to-ie11.com/">(and you shouldn’t)</Link>, you can even use
+        variable fonts. Here is{' '}
         <Link href="https://web.dev/variable-fonts/">a detailed article on variable fonts</Link>. In
         short, a variable font will encapsulate all possible styles in one unique file, reducing the
         overall bandwith required to download all fonts and thus optimizing the display speed.
