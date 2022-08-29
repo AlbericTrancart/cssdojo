@@ -5,6 +5,7 @@ import { Link } from 'components/Link';
 import { Image } from 'components/Image';
 import { PAGES } from 'services/pages';
 import { Editor } from 'components/Editor';
+import { Exercise } from 'components/Exercise';
 
 const Kata: NextPage = () => (
   <>
@@ -280,10 +281,135 @@ html .child {
 in a
 <span class="child">block container box</span>`}
       />
+
+      <p>
+        If we try to sum up all of this, the browser takes all elements (block and inline) in a
+        block container box, introduce anonymous block-level and inline-level boxes and create
+        formatting contexts accordingly.
+      </p>
+
+      <Image
+        src="/learn/basics/the-flow-layout-part-1-block-inline-formatting-contexts/formatting-contexts.png"
+        alt="A drawing showing squares and lines at the top to represent block and inline boxes, and at the bottom the same squares and lines arranged in boxes and formatting contexts"
+        caption="How the browser transforms different elements into boxes and formatting contexts"
+      />
     </section>
 
     <section>
       <Subtitle id="mastering-formatting-contexts">Mastering the formatting contexts</Subtitle>
+
+      <p>
+        <strong>
+          But what if I introduce an block element <em>inside</em> of an inline element?
+        </strong>
+      </p>
+
+      <Exercise
+        task="Put a block element inside the middle inline element and try to predict the result"
+        initialCode={`<style>
+html {
+  border: 1px solid red;
+  margin: 10px 0;
+}
+html .child {
+  border: 1px solid black;
+}
+</style>
+
+<span class="child">Inline-level</span>
+<span class="child">boxes</span>
+<span class="child">in a block container box</span>`}
+        solution={`<style>
+html {
+  border: 1px solid red;
+  margin: 10px 0;
+}
+html .child {
+  border: 1px solid black;
+}
+</style>
+
+<span class="child">Inline-level</span>
+<span class="child">boxes <div>this is a block!</div></span>
+<span class="child">in a block container box</span>`}
+      />
+
+      <p>
+        Remember, we are dealing with boxes here.{' '}
+        <strong>
+          A formatting context doesn’t care about DOM elements. It only cares about block-level
+          boxes and inline-level boxes.
+        </strong>{' '}
+        The browser will see five boxes to group together:
+      </p>
+
+      <ul>
+        <li>
+          An inline-level box created by the first <Code>&lt;span&gt;</Code>
+        </li>
+        <li>An anonymous inline-level box containing the &quot;boxes &quot; text</li>
+        <li>
+          The block-level box created by the <Code>&lt;div&gt;</Code> element
+        </li>
+        <li>
+          An empty anonymous inline-level box resulting from the split of the middle{' '}
+          <Code>&lt;span&gt;</Code>
+        </li>
+        <li>
+          An inline-level box created by the last <Code>&lt;span&gt;</Code>
+        </li>
+      </ul>
+
+      <p>
+        Thus, the <Code>&lt;div&gt;</Code> breaks the inline formatting context and forces a block
+        formatting context by introducing anonymous block-level boxes around the groups of
+        inline-level boxes. The browser tries to reconcile other CSS properties in the most logical
+        way possible. Here, you can see that all borders are on the first anonymous inline-level box
+        and the right border is on the last anonymous and empty inline-level box (increase the
+        border’s width if it is not clear enough).
+      </p>
+
+      <p>
+        <strong>
+          To change the default behavior of DOM elements, you must use the <Code>display</Code>{' '}
+          property.
+        </strong>{' '}
+        The <Code>display</Code> property is most commonly used with shorthands but here we’ll learn
+        it with its full syntax to understand what happens. This property takes two arguments:
+      </p>
+
+      <dl>
+        <dt>
+          <strong>The outer display type</strong>
+        </dt>
+        <dd>
+          This defines how the element should behave in the context of its parent. Possible values
+          are <Code>block</Code> and <Code>inline</Code>.
+        </dd>
+        <dt>
+          <strong>The inner display type</strong>
+        </dt>
+        <dd>
+          This defines how the element’s children will lay out. Possible values are{' '}
+          <Code>flow</Code> (participate in the parent’s formatting context), <Code>flow-root</Code>{' '}
+          (create an independant formatting context) and other layout keywords such as{' '}
+          <Code>flex</Code> and <Code>grid</Code>.
+        </dd>
+      </dl>
+
+      <p>
+        Thus, a <Code>&lt;span&gt;</Code> element defaults to <Code>display: inline flow;</Code>{' '}
+        (same as <Code>display: inline;</Code>) and a <Code>&lt;div&gt;</Code> element defaults to{' '}
+        <Code>display: block flow;</Code> (same as <Code>display: block;</Code>).
+      </p>
+
+      <Image
+        src="/learn/basics/the-flow-layout-part-1-block-inline-formatting-contexts/inner-outer-display.png"
+        alt="A table of display types combining outer display inline and block with inner display flow and flow-root"
+        caption="Different combinations of outer and inner display types"
+      />
+
+      <p>Now, let’s say we have a paragraph of elements forming an inline formatting context.</p>
     </section>
 
     <section>
