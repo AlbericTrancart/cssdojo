@@ -77,13 +77,13 @@ const SkillsListPage: NextPage = () => {
             <Legend>
               Tick a box only if you are able to explain the concept clearly to someone else.
             </Legend>
-            {SKILLS.map(({ id, skill }) => (
+            {SKILLS.map(({ id, skill, kataUrl }) => (
               <Label key={id}>
                 <Checkbox
                   checked={isChecked(id)}
                   onChange={(checked) => toggleSkill(id, checked)}
                 />{' '}
-                {skill}
+                {skill} <Link href={kataUrl}>(Go to kata)</Link>
               </Label>
             ))}
           </Fieldset>
