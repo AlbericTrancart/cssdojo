@@ -10,7 +10,7 @@ import { Editor } from 'components/Editor';
 
 const Kata: NextPage = () => (
   <>
-    <Title>Selectors and Specificity</Title>
+    <Title>{PAGES.SelectorsSpecificity.title}</Title>
 
     <section>
       <Subtitle id="base-selectors">Base selectors</Subtitle>

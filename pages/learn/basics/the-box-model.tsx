@@ -10,7 +10,7 @@ import { PAGES } from 'services/pages';
 
 const Kata: NextPage = () => (
   <>
-    <Title>The Box Model</Title>
+    <Title>{PAGES.TheBoxModel.title}</Title>
 
     <section>
       <Subtitle id="definition">Definition</Subtitle>

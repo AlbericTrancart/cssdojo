@@ -10,7 +10,7 @@ import { Editor } from 'components/Editor';
 
 const Kata: NextPage = () => (
   <>
-    <Title>Introduction to CSS and How the browser renders the page</Title>
+    <Title>{PAGES.WhyCSSHowItWorks.title}</Title>
 
     <section>
       <Subtitle id="definitions">Definitions</Subtitle>

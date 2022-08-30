@@ -51,14 +51,14 @@ export const PAGES = {
   FlowLayout: {
     url: () => '/learn/basics/the-flow-layout-part-1-block-inline-formatting-contexts',
     route: '/learn/basics/the-flow-layout-part-1-block-inline-formatting-contexts',
-    title: 'The Flow layout',
+    title: 'The Flow layout (part 1) - the block and inline formatting contexts',
   },
 
-  // Advanced Layouts
+  // Layouts
   OverflowingContentFloats: {
-    url: () => '/learn/basics/overflowing-content-floats',
-    route: '/learn/basics/overflowing-content-floats',
-    title: 'Overflowing content and floats',
+    url: () => '/learn/layouts/the-flow-layout-part-2-overflowing-content-floats',
+    route: '/learn/layouts/the-flow-layout-part-2-overflowing-content-floats',
+    title: 'The Flow layout (part 2) - Overflowing content and floats',
   },
 };
 

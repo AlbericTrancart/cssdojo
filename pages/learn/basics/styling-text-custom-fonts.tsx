@@ -10,7 +10,7 @@ import { Editor } from 'components/Editor';
 
 const Kata: NextPage = () => (
   <>
-    <Title>Styling text and custom fonts</Title>
+    <Title>{PAGES.StylingTextCustomFonts.title}</Title>
 
     <section>
       <Subtitle id="basic-text-styling">Basic text styling</Subtitle>

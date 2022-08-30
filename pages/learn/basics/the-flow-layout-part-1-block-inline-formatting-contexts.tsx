@@ -6,10 +6,11 @@ import { Image } from 'components/Image';
 import { PAGES } from 'services/pages';
 import { Editor } from 'components/Editor';
 import { Exercise } from 'components/Exercise';
+import { NextKataButton } from 'components/NextKataButton';
 
 const Kata: NextPage = () => (
   <>
-    <Title>The Flow layout (part 1) - block and inline formatting contexts</Title>
+    <Title>{PAGES.FlowLayout.title}</Title>
 
     <p>
       <strong>Read this kata carefully.</strong> It may be the most important kata of the dojo as it
@@ -18,7 +19,7 @@ const Kata: NextPage = () => (
     </p>
 
     <section>
-      <Subtitle id="">What is a layout?</Subtitle>
+      <Subtitle id="definition">What is a layout?</Subtitle>
 
       <p>
         <strong>
@@ -194,7 +195,6 @@ const Kata: NextPage = () => (
         code={`<style>
 html {
   border: 1px solid red;
-  margin: 10px 0;
 }
 html .child {
   border: 1px solid black;
@@ -210,7 +210,6 @@ html .child {
         code={`<style>
 html {
   border: 1px solid red;
-  margin: 10px 0;
 }
 html .child {
   border: 1px solid black;
@@ -236,7 +235,6 @@ html .child {
         code={`<style>
 html {
   border: 1px solid red;
-  margin: 10px 0;
 }
 html .child {
   border: 1px solid black;
@@ -251,7 +249,7 @@ in a block container box`}
       <Image
         src="/learn/basics/the-flow-layout-part-1-block-inline-formatting-contexts/anonymous-box.png"
         alt="The dev tools inspecting the HTML generated in the editor above"
-        caption="A anonymous inline-level box as seen in the dev tools"
+        caption="An anonymous inline-level box as seen in the dev tools"
       />
 
       <p>
@@ -269,7 +267,6 @@ in a block container box`}
         code={`<style>
 html {
   border: 1px solid red;
-  margin: 10px 0;
 }
 html .child {
   border: 1px solid black;
@@ -309,7 +306,6 @@ in a
         initialCode={`<style>
 html {
   border: 1px solid red;
-  margin: 10px 0;
 }
 html .child {
   border: 1px solid black;
@@ -322,7 +318,6 @@ html .child {
         solution={`<style>
 html {
   border: 1px solid red;
-  margin: 10px 0;
 }
 html .child {
   border: 1px solid black;
@@ -371,7 +366,10 @@ html .child {
 
       <p>
         <strong>
-          To change the default behavior of DOM elements, you must use the <Code>display</Code>{' '}
+          To change the default behavior of DOM elements, you must use the{' '}
+          <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/display">
+            <Code>display</Code>
+          </Link>{' '}
           property.
         </strong>{' '}
         The <Code>display</Code> property is most commonly used with shorthands but here we’ll learn
@@ -409,15 +407,284 @@ html .child {
         caption="Different combinations of outer and inner display types"
       />
 
-      <p>Now, let’s say we have a paragraph of elements forming an inline formatting context.</p>
+      <p>
+        Now, let’s say we have a paragraph of elements forming an inline formatting context. We also
+        have a block element, for instance a button, that we want to inline in our text.
+      </p>
+
+      <Exercise
+        task='Inline the "button" in the text by changing its outer and inner display types'
+        initialCode={`<style>
+html {
+  border: 1px solid red;
+}
+.button {
+  background-color: darkslateblue;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  width: min-content;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+</style>
+
+This is some text that has a <div class="button">button</div> in the middle of it.`}
+        solution={`<style>
+html {
+  border: 1px solid red;
+}
+.button {
+  display: inline flow-root;
+  background-color: darkslateblue;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  width: min-content;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+</style>
+
+This is some text that has a <div class="button">button</div> in the middle of it.`}
+      />
+
+      <p>
+        Have you found it?
+        <br />
+        <br />
+        <br />
+        ...
+        <br />
+        <br />
+        <br />
+        If you already know the short answer, try to do it with the outer/inner display syntax.
+        <br />
+        <br />
+        <br />
+        ...
+        <br />
+        <br />
+        <br />
+        Congratulations! You just reinvented <Code>display: inline-block;</Code>!
+      </p>
+
+      <p>
+        <strong>
+          Why <Code>display: inline;</Code> doesn’t work:
+        </strong>{' '}
+        by setting <Code>inline</Code>, you are explicitly setting the outer display type to{' '}
+        <Code>inline</Code> (which is what we want because we want to inline the button in its
+        parent) but also implicitly setting the inner display type to <Code>flow</Code>. If the
+        inner display type is <Code>flow</Code>, the children of our button will participate in the
+        parent flow. The only child of our button is an unwrapped text, therefore an anonymous
+        inline-level box, therefore an inline formatting context will apply everywhere and our
+        button will lose some of its block-level box properties that we want to keep. By choosing{' '}
+        <Code>flow-root</Code>, we force the creation of an independant block formatting context.
+      </p>
+
+      <p>
+        <strong>
+          Good! At this stage, you should have a good grasp of when and where formatting context
+          apply, and how to switch between them.
+        </strong>{' '}
+        Don’t hesitate to let your brain cool off and think about it twice. I’m repeating myself but
+        it probably is the most confusing concept about CSS, and it is really important to truly{' '}
+        <em>understand</em> it.
+      </p>
     </section>
 
     <section>
       <Subtitle id="block-formatting-context">The block formatting context</Subtitle>
+
+      <p>
+        Now that you know what are formatting contexts and where they apply, we can learn their
+        rules. Remember, a{' '}
+        <strong>
+          <em>layout</em> is a set of rules and CSS properties that dictates how <em>multiple</em>{' '}
+          elements will interact between each other,
+        </strong>{' '}
+        and a formatting context is a mini-layout inside the flow layout. Let’s learn the rules of
+        the block formatting context.
+      </p>
+
+      <ul>
+        <li>Boxes are laid out one after the other vertically</li>
+        <li>
+          The width property is honored, by default the box will consume all the space in the inline
+          direction (full width of the container)
+        </li>
+        <li>
+          The <Code>margin</Code> property sets the vertical distance between two sibling boxes
+        </li>
+        <li>
+          <strong>Top and bottom</strong> margins (not horizontal ones!) between two{' '}
+          <strong>adjacent</strong> block-level boxes{' '}
+          <strong>that have no content between them</strong> (border, inline element...) collapse :
+          they combine in a margin whose size is the largest of the individual margins
+        </li>
+      </ul>
+
+      <Exercise
+        task="Here, every margin collapses and every block is 10px vertically from its adjacent boxes. Try to break the margin collapsing in at least 3 different ways"
+        initialCode={`<style>
+html {
+  border: 1px solid red;
+}
+div {
+  margin: 10px;
+}
+</style>
+
+<div class="a">Block-level box A</div>
+<div class="parent-1">
+  <div class="b">Block-level box B</div>
+  <div class="c">Block-level box C</div>
+  <div class="d">
+    <div class="e">Block-level box D</div>
+    <div class="f">Block-level box E</div>
+  </div>
+</div>
+`}
+        solution={`<style>
+html {
+  border: 1px solid red;
+}
+div {
+  margin: 10px;
+}
+.parent-1 {
+  border: 1px solid black;
+}
+.d {
+  display: block flow-root;
+}
+</style>
+
+<div class="a">Block-level box A</div>
+<!-- the border is breaking margin collapsing -->
+<div class="parent-1">
+  <div class="b">Block-level box B</div>
+  <!-- the inline part is breaking margin collapsing by creating an anonymous block-level box -->
+  Inline part
+  <div class="c">Block-level box C</div>
+
+  <!-- the flow-root is breaking margin collapsing by creating a new block formatting context, box c and box e are not participating in the same context anymore so their margins can't collapse -->
+  <div class="d">
+    <div class="e">Block-level box D</div>
+    <div class="f">Block-level box E</div>
+  </div>
+</div>
+`}
+      />
     </section>
+
+    <p>Not that hard now that you know about formatting contexts, eh?</p>
 
     <section>
       <Subtitle id="inline-formatting-context">The inline formatting context</Subtitle>
+
+      <p>
+        Next, we learn the rules for the inline formatting context. Let’s checkout the schema from{' '}
+        <Link href={PAGES.StylingTextCustomFonts.url()}>the styling text kata</Link> to understand
+        what is the line height and the baseline:
+      </p>
+
+      <Image
+        src="/learn/basics/styling-text/typography.svg"
+        alt="A lorem ipsum text with arrows pointing to different characteristics of a line of text"
+        aria-describedby="typography-schema-description"
+        caption="Schema of a line of text and related CSS properties"
+      />
+
+      <ul>
+        <li>
+          Boxes are laid out on the baseline one after the other horizontally in the writing
+          direction
+        </li>
+        <li>If there is not enough space, the boxes break into a new line</li>
+        <li>The height of a line is defined by the tallest box in it</li>
+        <li>
+          You can’t set <Code>width</Code> or <Code>height</Code> on inline boxes
+        </li>
+        <li>Margins work only in the inline direction </li>
+        <li>
+          The{' '}
+          <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align">
+            <Code>vertical-align</Code>
+          </Link>{' '}
+          property sets how an inline-level box should behave in the vertical direction. Possible
+          values are <Code>baseline</Code> (the default), <Code>top</Code> (the box will stick to
+          the top of the line), <Code>bottom</Code> (same but at the bottom of the line),{' '}
+          <Code>middle</Code> (centers vertically inside the line,{' '}
+          <strong>
+            which is not the same as <Code>baseline</Code>!
+          </strong>
+          ), <Code>sub</Code> and <Code>super</Code> for exponents
+        </li>
+        <li>
+          The{' '}
+          <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/word-break">
+            <Code>word-break</Code>
+          </Link>{' '}
+          property controls how words are broken when the text wraps. Classic values are{' '}
+          <Code>normal</Code> and <Code>break-all</Code> (can break after any character)
+        </li>
+        <li>
+          The{' '}
+          <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/white-space">
+            <Code>white-space</Code>
+          </Link>{' '}
+          property controls how white spaces in the generated HTML are handled. By default, white
+          spaces are combined and line breaks are ignored (so that you can indent HTML as you want
+          without interfering with the content). You can change that by setting a{' '}
+          <Code>pre-wrap</Code> to <em>preserve</em> white spaces and line breaks or{' '}
+          <Code>nowrap</Code> to prevent normal text wrapping.
+        </li>
+      </ul>
+
+      <Exercise
+        task='Make the height of the first line bigger, make the "relevant information" text fly to the top, make the empty line in the paragraph appear and break the super duper long word'
+        initialCode={`<style>
+html {
+  border: 1px solid red;
+}
+strong {
+  margin: 10px;
+  height: 3rem; /* doesn't work :( */
+}
+</style>
+
+<div>This is some text, with <strong>important words</strong> and <em>relevant information</em>. It is quite long so it should wrap at the end of the line. Let's write even more text to ensure this paragraph wraps on at least 4 lines.
+
+Further more, let's add an imaginary super duper long word: Antipericatametaanaparcircumvolutiorectumgustpoops.</div>
+`}
+        solution={`<style>
+html {
+  border: 1px solid red;
+}
+strong {
+  margin: 10px;
+  height: 3rem; /* doesn't work :( */
+  line-height: 3rem;
+}
+div {
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+em {
+  vertical-align: top;
+}
+</style>
+
+<div>This is some text, with <strong>important words</strong> and <em>relevant information</em>. It is quite long so it should wrap at the end of the line. Let's write even more text to ensure this paragraph wraps on at least 4 lines.
+
+Further more, let's add an imaginary super duper long word: Antipericatametaanaparcircumvolutiorectumgustpoops.</div>
+
+`}
+      />
+    </section>
+
+    <section>
+      <Subtitle id="key-learnings">What I should remember</Subtitle>
 
       <p>
         Ooof! That was a hard one. Now you should have enough knowledge to truly understand and use
@@ -425,10 +692,6 @@ html .child {
         <em>know</em> it. In the next katas, we’ll focus on edge cases behaviors that break the flow
         layout such as overflowing content and positionned elements.
       </p>
-    </section>
-
-    <section>
-      <Subtitle id="key-learnings">What I should remember</Subtitle>
 
       <ul>
         <li>
@@ -447,7 +710,7 @@ html .child {
         <li>
           The formatting contexts are applied at the <em>block container box</em> level. The{' '}
           <Code>&lt;html&gt;</Code> element creates a <em>block container box</em>,{' '}
-          <Code>display: flow-root;</Code> is another way to create one.
+          <Code>display: flow-root;</Code> is another way to create one
         </li>
         <li>
           Inside a <em>block container box</em>, a <em>block (or inline) formatting context</em>{' '}
@@ -460,12 +723,12 @@ html .child {
         </li>
         <li>
           The <em>outer display type</em> tells the browser if the element should behave as a
-          block-level or inline-level box in the conext of its parent <em>block container box</em>
+          block-level or inline-level box in the context of its parent <em>block container box</em>
         </li>
         <li>
           The <em>inner display type</em> tells the browser what layout should apply inside the
           element. For instance, <Code>flow</Code>, <Code>flow-root</Code>, <Code>flex</Code> and{' '}
-          <Code>grid</Code> are all valid values.
+          <Code>grid</Code> are all valid values
         </li>
         <li>
           You’ll always see and use those shorthands:
@@ -494,16 +757,27 @@ html .child {
         <li>
           The rules of the <em>block formatting context</em> are:
           <ul>
-            <li></li>
+            <li>Boxes lay out vertically and consume all space in the inline direction</li>
+            <li>Margins collapse between adjacent boxes that don’t have content between them</li>
           </ul>
         </li>
         <li>
           The rules of the <em>inline formatting context</em> are:
           <ul>
-            <li></li>
+            <li>Boxes are laid out horizontally on the baseline</li>
+            <li>
+              There are restrictions on <Code>width</Code>, <Code>height</Code> and{' '}
+              <Code>margin</Code>
+            </li>
+            <li>
+              You can control the flow of the text with <Code>vertical-align</Code>,{' '}
+              <Code>word-break</Code> and <Code>white-space</Code>
+            </li>
           </ul>
         </li>
       </ul>
+
+      <NextKataButton href={PAGES.OverflowingContentFloats.url()} />
     </section>
   </>
 );

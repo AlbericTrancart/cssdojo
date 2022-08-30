@@ -95,7 +95,7 @@ export const SKILLS: Skill[] = [
   },
   {
     id: 'styling-text-custom-fonts-standard-font-size',
-    skill: 'What is the standard range of font sizes and the standard value of line height?',
+    skill: 'What are the properties to change the style of a text? (give at least 5 of them)',
     kataUrl: PAGES.StylingTextCustomFonts.url() + '#basic-text-styling',
   },
   {
@@ -123,20 +123,41 @@ export const SKILLS: Skill[] = [
     skill: 'What are the two possible box models?',
     kataUrl: PAGES.TheBoxModel.url() + '#i-broke-the-box-model',
   },
-  // {
-  //   id: 'flow-layout-basics-block-formatting-context',
-  //   skill: 'What is the block formatting context?',
-  // },
-  // {
-  //   id: 'flow-layout-basics-vertical-align',
-  //   skill: (
-  //     <>
-  //       What is the baseline and what are the two purposes of the <Code>vertical-align</Code>{' '}
-  //       property?
-  //     </>
-  //   ),
-  // },
-  // { id: 'flow-layout-basics-margin-collapsing', skill: 'What is margin collapsing?' },
+  {
+    id: 'flow-layout-definition',
+    skill: 'In CSS, what is a layout?',
+    kataUrl: PAGES.FlowLayout.url() + '#definition',
+  },
+  {
+    id: 'flow-layout-common-layouts',
+    skill: 'What are the most common layouts?',
+    kataUrl: PAGES.FlowLayout.url() + '#definition',
+  },
+  {
+    id: 'flow-layout-formatting-contexts',
+    skill: 'What are the formatting contexts?',
+    kataUrl: PAGES.FlowLayout.url() + '#definition',
+  },
+  {
+    id: 'flow-layout-outer-inner-display',
+    skill: 'What are the outer and inner display types?',
+    kataUrl: PAGES.FlowLayout.url() + '#mastering-formatting-contexts',
+  },
+  {
+    id: 'flow-layout-block-formatting-context',
+    skill: 'What are the rules of the block formatting context?',
+    kataUrl: PAGES.FlowLayout.url() + '#block-formatting-context',
+  },
+  {
+    id: 'flow-layout-margin-collapsing',
+    skill: 'How does margin collapsing work?',
+    kataUrl: PAGES.FlowLayout.url() + '#block-formatting-context',
+  },
+  {
+    id: 'flow-layout-inline-formatting-context',
+    skill: 'What are the rules of the inline formatting context?',
+    kataUrl: PAGES.FlowLayout.url() + '#inline-formatting-context',
+  },
   // {
   //   id: 'flow-layout-advanced-float',
   //   skill: (

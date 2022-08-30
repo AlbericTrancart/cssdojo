@@ -1,16 +1,14 @@
 import { Subtitle } from 'components/Layout';
 import { Link } from 'components/Link';
 import { NextPage } from 'next';
-import { ReactNode } from 'react';
 import { Page, PAGES } from 'services/pages';
 
 interface Props {
-  children: ReactNode;
   page: Page;
 }
-const Kata: React.FC<Props> = ({ children, page }) => (
+const Kata: React.FC<Props> = ({ page }) => (
   <li>
-    <Link href={page.url()}>{children}</Link>
+    <Link href={page.url()}>{page.title}</Link>
   </li>
 );
 
@@ -61,28 +59,26 @@ const Home: NextPage = () => (
       <p>How to style the UI elements themselves.</p>
 
       <ol>
-        <Kata page={PAGES.WhyCSSHowItWorks}>
-          Introduction to CSS and How the browser renders the page
-        </Kata>
-        <Kata page={PAGES.SelectorsSpecificity}>Selectors and Specificity</Kata>
-        <Kata page={PAGES.CSSUnitsVariables}>CSS units and variables</Kata>
-        <Kata page={PAGES.StylingTextCustomFonts}>Styling text and custom fonts</Kata>
-        <Kata page={PAGES.TheBoxModel}>The Box Model</Kata>
-        <Kata page={PAGES.FlowLayout}>The Flow layout (part 1) - the block formatting context</Kata>
+        <Kata page={PAGES.WhyCSSHowItWorks} />
+        <Kata page={PAGES.SelectorsSpecificity} />
+        <Kata page={PAGES.CSSUnitsVariables} />
+        <Kata page={PAGES.StylingTextCustomFonts} />
+        <Kata page={PAGES.TheBoxModel} />
+        <Kata page={PAGES.FlowLayout} />
       </ol>
     </section>
 
     <section>
-      <Subtitle id="layouts">Advanced layouts</Subtitle>
+      <Subtitle id="layouts">Layouts</Subtitle>
 
       <p>How to arrange the UI elements between each other.</p>
 
       <ol>
-        <li>The flow layout (part 2) - Overflowing content and floats</li>
+        <li>The Flow layout (part 2) - Overflowing content and floats</li>
+        <li>The Flow layout (part 3) - Position and z-index</li>
         <li>The Flex layout</li>
         <li>The Grid layout</li>
         <li>The Table layout</li>
-        <li>Position and z-index</li>
         <li>Media queries</li>
       </ol>
     </section>
