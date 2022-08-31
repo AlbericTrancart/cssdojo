@@ -14,23 +14,16 @@ const Kata: NextPage = () => (
 
     <p>
       <strong>Read this kata carefully.</strong> It may be the most important kata of the dojo as it
-      addresses the most common misunderstood concepts of CSS and thus one of the biggest source of
-      CSS frustration.
+      addresses the most commonly misunderstood concepts of CSS and thus is one of the biggest
+      sources of CSS frustration.
     </p>
 
     <section>
       <Subtitle id="definition">What is a layout?</Subtitle>
 
       <p>
-        <strong>
-          Again, pay attention. This is the most important section to remember when stepping away
-          from this page.
-        </strong>
-      </p>
-
-      <p>
-        So far, we’ve learnt CSS properties to style <em>one</em> element, change its color, width,
-        font size... but web pages are made of hundreds, often thousands of elements.
+        So far, we’ve learned CSS properties to style <em>one</em> element and change its color,
+        width, font size... but web pages are made of hundreds, often thousands of elements.
       </p>
 
       <p>
@@ -72,11 +65,11 @@ const Kata: NextPage = () => (
       <p>
         <strong>You should see layouts as a toolbox</strong>: within the context of a layout, you’ll
         be able to predict how elements will place next to each other. You don’t like a layout’s
-        ruleset? Change your toolbox, use another layout.
+        ruleset? Change your toolbox and use another layout.
       </p>
 
       <p>
-        There are four main layouts: <em>flow</em> (the default one), <em>flex</em>, <em>grid</em>{' '}
+        There are four main layouts: <em>flow</em> (the default one), <em>flex</em>, <em>grid</em>,
         and <em>table</em>. There are others, but they are more anecdotic.{' '}
         <strong>
           As <em>flow</em> is the default layout, you <u>MUST</u> master it.{' '}
@@ -86,7 +79,7 @@ const Kata: NextPage = () => (
       </p>
 
       <p>
-        Other layouts will be addressed in the second part of the dojo. After learning all main
+        Other layouts will be addressed in the second part of the dojo. After learning all the main
         layouts, you’ll have a good understanding of which one is the more adapted to your specific
         case.
       </p>
@@ -119,7 +112,7 @@ const Kata: NextPage = () => (
           <strong>The block formatting context</strong>
         </dt>
         <dd>
-          Block boxes are laid out one after the other, vertically, beginning at the top of a
+          Block boxes are laid out vertically, one after the other, beginning at the top of a
           containing block.
         </dd>
         <dt>
@@ -132,17 +125,17 @@ const Kata: NextPage = () => (
       </dl>
 
       <p>
-        We’ll see how each formatting context works further down, but for now keep in mind that
+        We’ll see how each formatting context works further down, but for now, keep in mind that
         there are <em>block</em> and <em>inline</em> contexts.
       </p>
 
       <p>
-        For this dojo we will be working in English but take note that in other languages the
+        For this dojo, we will be working in English but take note that in other languages the
         writing mode of the page could change and invert the block and inline directions to
         horizontal and vertical respectively.
       </p>
 
-      <p>Let’s sum up what we’ve learnt:</p>
+      <p>Let’s sum up what we’ve learned:</p>
 
       <Image
         src="/learn/basics/the-flow-layout-part-1-block-inline-formatting-contexts/layouts.png"
@@ -152,14 +145,14 @@ const Kata: NextPage = () => (
 
       <p>
         <strong>How do I know which formatting context applies?</strong> This is one of the most
-        confusing part of CSS, because it is <em>implicit</em>. There are four rules:
+        confusing parts of CSS, because it is <em>implicit</em>. There are four rules:
       </p>
 
       <ol>
         <li>
           A formatting context always applies inside a <em>block container box</em>. We will see
           later how to create a new <em>block container box</em> but the <Code>&lt;html&gt;</Code>{' '}
-          element basically creates the higher one in the box tree.
+          element creates the higher one in the box tree
         </li>
         <li>
           A <em>block container box</em> having only <em>inline-level boxes</em> as children will
@@ -177,14 +170,14 @@ const Kata: NextPage = () => (
 
       <p>
         (Yes I know that using <em>block container box</em> and <em>block-level box</em> is super
-        confusing but those are the exact terms.)
+        confusing but those are the exact terms in the spec.)
       </p>
 
       <p>
         <strong>
-          But what are <em>block and inline level boxes</em>?
+          But what are <em>block-level and inline-level boxes</em>?
         </strong>{' '}
-        Remember, in CSS <Link href={PAGES.TheBoxModel.url()}>everything is a box</Link>.
+        Remember, <Link href={PAGES.TheBoxModel.url()}>in CSS everything is a box</Link>.
         Text-related elements such as <Code>&lt;strong&gt;</Code>, <Code>&lt;em&gt;</Code> or{' '}
         <Code>&lt;span&gt;</Code> will create inline-level boxes. Other elements such as{' '}
         <Code>&lt;p&gt;</Code>, <Code>&lt;section&gt;</Code> or <Code>&lt;div&gt;</Code> will create
@@ -297,7 +290,7 @@ in a
 
       <p>
         <strong>
-          But what if I introduce an block element <em>inside</em> of an inline element?
+          But what if I introduce a block element <em>inside</em> of an inline element?
         </strong>
       </p>
 
@@ -372,8 +365,9 @@ html .child {
           </Link>{' '}
           property.
         </strong>{' '}
-        The <Code>display</Code> property is most commonly used with shorthands but here we’ll learn
-        it with its full syntax to understand what happens. This property takes two arguments:
+        The <Code>display: [outer] [inner];</Code> property is most commonly used with shorthands
+        but here we’ll learn it with its full syntax to understand what happens. This property takes
+        two arguments:
       </p>
 
       <dl>
@@ -390,8 +384,8 @@ html .child {
         <dd>
           This defines how the element’s children will lay out. Possible values are{' '}
           <Code>flow</Code> (participate in the parent’s formatting context), <Code>flow-root</Code>{' '}
-          (create an independant formatting context using the flow layout) and other layout keywords
-          such as <Code>flex</Code> and <Code>grid</Code>.
+          (create an independent formatting context using the flow layout), and other layout
+          keywords such as <Code>flex</Code> and <Code>grid</Code>.
         </dd>
       </dl>
 
@@ -478,12 +472,12 @@ This is some text that has a <div class="button">button</div> in the middle of i
         parent flow. The only child of our button is an unwrapped text, therefore an anonymous
         inline-level box, therefore an inline formatting context will apply everywhere and our
         button will lose some of its block-level box properties that we want to keep. By choosing{' '}
-        <Code>flow-root</Code>, we force the creation of an independant block formatting context.
+        <Code>flow-root</Code>, we force the creation of an independent block formatting context.
       </p>
 
       <p>
         <strong>
-          Good! At this stage, you should have a good grasp of when and where formatting context
+          Good! At this stage, you should have a good grasp of when and where formatting contexts
           apply, and how to switch between them.
         </strong>{' '}
         Don’t hesitate to let your brain cool off and think about it twice. I’m repeating myself but
@@ -519,7 +513,7 @@ This is some text that has a <div class="button">button</div> in the middle of i
         <li>
           <strong>Top and bottom</strong> margins (not horizontal ones!) between two{' '}
           <strong>adjacent</strong> block-level boxes{' '}
-          <strong>that have no content between them</strong> (border, inline element...) collapse :
+          <strong>that have no content between them</strong> (border, inline element...) collapse:
           they combine in a margin whose size is the largest of the individual margins
         </li>
       </ul>
@@ -688,18 +682,18 @@ Further more, let's add an imaginary super duper long word: Antipericatametaanap
       <p>
         Ooof! That was a hard one. Now you should have enough knowledge to truly understand and use
         the <em>flow</em> layout! In the next katas, we’ll focus on edge case behaviors that break
-        the flow layout such as overflowing content and positionned elements.
+        the flow layout such as overflowing content and positioned elements.
       </p>
 
       <ul>
         <li>
           <strong>
-            Layouts are rulesets that enable developers to place elements relative to each others
+            Layouts are rulesets that enable developers to place elements relative to each other
           </strong>
         </li>
         <li>
-          There are four main layouts: <em>flow</em> (the default one), <em>flex</em>, <em>grid</em>{' '}
-          and <em>table</em>
+          There are four main layouts: <em>flow</em> (the default one), <em>flex</em>, <em>grid</em>
+          , and <em>table</em>
         </li>
         <li>
           The flow layout has two mini-layouts: the <em>block formatting context</em> and the{' '}
@@ -725,7 +719,7 @@ Further more, let's add an imaginary super duper long word: Antipericatametaanap
         </li>
         <li>
           The <em>inner display type</em> tells the browser what layout should apply inside the
-          element. For instance, <Code>flow</Code>, <Code>flow-root</Code>, <Code>flex</Code> and{' '}
+          element. For instance, <Code>flow</Code>, <Code>flow-root</Code>, <Code>flex</Code>, and{' '}
           <Code>grid</Code> are all valid values
         </li>
         <li>

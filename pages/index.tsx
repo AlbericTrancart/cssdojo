@@ -105,7 +105,7 @@ const Home: NextPage = () => (
       <Subtitle id="own-design-system">Your own design system</Subtitle>
 
       <p>
-        This part is more a sandbox to practice all the concepts that you learnt in the previous
+        This part is more a sandbox to practice all the concepts that you learned in the previous
         parts. Keep doing the katas in order though!
       </p>
 
