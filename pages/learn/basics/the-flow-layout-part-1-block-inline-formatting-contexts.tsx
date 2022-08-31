@@ -126,8 +126,8 @@ const Kata: NextPage = () => (
           <strong>The inline formatting context</strong>
         </dt>
         <dd>
-          In an inline formatting context, inline boxes are laid out horizontally, one after the
-          other, beginning at the top of a containing block.
+          Inline boxes are laid out horizontally, one after the other, beginning at the top of a
+          containing block.
         </dd>
       </dl>
 
@@ -142,7 +142,7 @@ const Kata: NextPage = () => (
         horizontal and vertical respectively.
       </p>
 
-      <p>For now, let’s sum up what we’ve learnt:</p>
+      <p>Let’s sum up what we’ve learnt:</p>
 
       <Image
         src="/learn/basics/the-flow-layout-part-1-block-inline-formatting-contexts/layouts.png"
@@ -280,8 +280,8 @@ in a
       />
 
       <p>
-        If we try to sum up all of this, the browser takes all elements (block and inline) in a
-        block container box, introduce anonymous block-level and inline-level boxes and create
+        If we try to sum up all of this, the browser takes all the elements (block and inline) in a
+        block container box, introduces anonymous block-level and inline-level boxes and creates
         formatting contexts accordingly.
       </p>
 
@@ -359,9 +359,9 @@ html .child {
         Thus, the <Code>&lt;div&gt;</Code> breaks the inline formatting context and forces a block
         formatting context by introducing anonymous block-level boxes around the groups of
         inline-level boxes. The browser tries to reconcile other CSS properties in the most logical
-        way possible. Here, you can see that all borders are on the first anonymous inline-level box
-        and the right border is on the last anonymous and empty inline-level box (increase the
-        border’s width if it is not clear enough).
+        way possible. Here, you can see that there is a border on the bottom, left and top sides of
+        the first anonymous inline-level box and the right border is on the last anonymous and empty
+        inline-level box (increase the border’s width if it is not clear enough).
       </p>
 
       <p>
@@ -390,8 +390,8 @@ html .child {
         <dd>
           This defines how the element’s children will lay out. Possible values are{' '}
           <Code>flow</Code> (participate in the parent’s formatting context), <Code>flow-root</Code>{' '}
-          (create an independant formatting context) and other layout keywords such as{' '}
-          <Code>flex</Code> and <Code>grid</Code>.
+          (create an independant formatting context using the flow layout) and other layout keywords
+          such as <Code>flex</Code> and <Code>grid</Code>.
         </dd>
       </dl>
 
@@ -509,8 +509,9 @@ This is some text that has a <div class="button">button</div> in the middle of i
       <ul>
         <li>Boxes are laid out one after the other vertically</li>
         <li>
-          The width property is honored, by default the box will consume all the space in the inline
-          direction (full width of the container)
+          The <Code>width</Code> and <Code>height</Code> properties are honored, by default the box
+          will consume all the space in the inline direction (full width of the container) and be as
+          tall as its content
         </li>
         <li>
           The <Code>margin</Code> property sets the vertical distance between two sibling boxes
@@ -577,13 +578,11 @@ div {
       />
     </section>
 
-    <p>Not that hard now that you know about formatting contexts, eh?</p>
-
     <section>
       <Subtitle id="inline-formatting-context">The inline formatting context</Subtitle>
 
       <p>
-        Next, we learn the rules for the inline formatting context. Let’s checkout the schema from{' '}
+        Next, we learn the rules for the inline formatting context. Let’s bring up the schema from{' '}
         <Link href={PAGES.StylingTextCustomFonts.url()}>the styling text kata</Link> to understand
         what is the line height and the baseline:
       </p>
@@ -633,16 +632,16 @@ div {
           <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/white-space">
             <Code>white-space</Code>
           </Link>{' '}
-          property controls how white spaces in the generated HTML are handled. By default, white
-          spaces are combined and line breaks are ignored (so that you can indent HTML as you want
-          without interfering with the content). You can change that by setting a{' '}
+          property controls how the browser handles white spaces in the generated HTML. By default,
+          white spaces are combined and line breaks are ignored (so that you can indent HTML as you
+          want without interfering with the content). You can change that by setting{' '}
           <Code>pre-wrap</Code> to <em>preserve</em> white spaces and line breaks or{' '}
           <Code>nowrap</Code> to prevent normal text wrapping.
         </li>
       </ul>
 
       <Exercise
-        task='Make the height of the first line bigger, make the "relevant information" text fly to the top, make the empty line in the paragraph appear and break the super duper long word'
+        task='Make the height of the first line bigger, make the "relevant information" text fly to the top, make the empty line in the HTML paragraph appear and break the super duper long word'
         initialCode={`<style>
 html {
   border: 1px solid red;
@@ -655,7 +654,7 @@ strong {
 
 <div>This is some text, with <strong>important words</strong> and <em>relevant information</em>. It is quite long so it should wrap at the end of the line. Let's write even more text to ensure this paragraph wraps on at least 4 lines.
 
-Further more, let's add an imaginary super duper long word: Antipericatametaanaparcircumvolutiorectumgustpoops.</div>
+Furthermore, let's add an imaginary super duper long word: Antipericatametaanaparcircumvolutiorectumgustpoops.</div>
 `}
         solution={`<style>
 html {
@@ -688,9 +687,8 @@ Further more, let's add an imaginary super duper long word: Antipericatametaanap
 
       <p>
         Ooof! That was a hard one. Now you should have enough knowledge to truly understand and use
-        the <em>flow</em> layout! Congratulations, because few frontend developers really{' '}
-        <em>know</em> it. In the next katas, we’ll focus on edge cases behaviors that break the flow
-        layout such as overflowing content and positionned elements.
+        the <em>flow</em> layout! In the next katas, we’ll focus on edge case behaviors that break
+        the flow layout such as overflowing content and positionned elements.
       </p>
 
       <ul>
@@ -757,7 +755,7 @@ Further more, let's add an imaginary super duper long word: Antipericatametaanap
         <li>
           The rules of the <em>block formatting context</em> are:
           <ul>
-            <li>Boxes lay out vertically and consume all space in the inline direction</li>
+            <li>Boxes lay out vertically and consume all the space in the inline direction</li>
             <li>Margins collapse between adjacent boxes that don’t have content between them</li>
           </ul>
         </li>
