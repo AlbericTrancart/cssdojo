@@ -18,21 +18,26 @@ const Home: NextPage = () => (
       <Subtitle id="introduction">Introduction</Subtitle>
 
       <p>
-        <strong>Why another CSS guide?</strong> Some tutorials lack theory, some lack practice. Some
-        are really light and some give too much information. This is my personal compilation of what
-        I think is the CSS must-know of any frontend developer.{' '}
         <strong>
-          Straight to the point, information-packed{' '}
-          <Link
-            href="https://en.wikipedia.org/wiki/Kata"
-            target="_blank"
-            rel="noopener noreferer"
-            aria-label="What is a Kata on Wikipedia"
-          >
-            katas
-          </Link>{' '}
-          (= exercises), with practice after laying a strong theoretical base.
+          CSS can be frustrating because it relies on rules and concepts we usually don’t learn.
+        </strong>{' '}
+        Not knowing those concepts makes CSS code unpredictable and it can annoy the hell out of
+        anyone.{' '}
+        <strong>
+          This website teaches you those concepts, allowing you to face any CSS issue with
+          confidence.{' '}
         </strong>
+        Straight to the point, information-packed{' '}
+        <Link
+          href="https://en.wikipedia.org/wiki/Kata"
+          target="_blank"
+          rel="noopener noreferer"
+          aria-label="What is a Kata on Wikipedia"
+        >
+          katas
+        </Link>{' '}
+        (= exercises), will lay a strong theoretical base and put those new skills to practice with
+        live code editors.
       </p>
 
       <p>
