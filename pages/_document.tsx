@@ -1,5 +1,6 @@
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import Script from 'next/script';
 
 interface Props {
   styleTags: string;
@@ -38,6 +39,19 @@ export default class DefaultPage extends Document<Props> {
         <body>
           <Main />
           <NextScript />
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-YYCZ0NZV0L"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-YYCZ0NZV0L');
+            `}
+          </Script>
         </body>
       </Html>
     );
