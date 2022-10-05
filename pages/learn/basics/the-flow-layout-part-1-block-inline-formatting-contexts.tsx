@@ -273,9 +273,43 @@ in a
       />
 
       <p>
-        If we try to sum up all of this, the browser takes all the elements (block and inline) in a
-        block container box, introduces anonymous block-level and inline-level boxes and creates
-        formatting contexts accordingly.
+        One thing that must be cleared up before going forward is that all these layout rules are
+        about <em>boxes</em>, not <em>elements</em>. DOM elements can create inline and block-level
+        boxes, but then you can forget about the DOM and only think in term of boxes.
+      </p>
+
+      <p>
+        Furthermore, when creating boxes the browser will look at all the descendants in the DOM
+        tree.{' '}
+        <strong>
+          By default, every element will be handled by its nearest parent block container box
+        </strong>
+        . We say that it will <em>participate in the parent’s formatting context</em>, or that it’s{' '}
+        <em>in the flow</em>. That’s why the example below renders exactly the same as the example
+        above, even if the DOM is different. All boxes are handled by the nearest block container
+        box (created by the <Code>&lt;html&gt;</Code> element).
+      </p>
+
+      <Editor
+        code={`<style>
+html {
+  border: 1px solid red;
+}
+html .child {
+  border: 1px solid black;
+}
+</style>
+
+<!-- We moved the <div> inside the <span> -->
+<span class="child">Anonymous block-level <div class="child">boxes</div></span>
+in a
+<span class="child">block container box</span>`}
+      />
+
+      <p>
+        If we try to sum up all of this, the browser takes all the elements, turns them into boxes
+        (block-level and inline-level boxes), arrange them in a block container box, introduces
+        anonymous block-level and inline-level boxes and creates formatting contexts accordingly.
       </p>
 
       <Image
@@ -290,7 +324,7 @@ in a
 
       <p>
         <strong>
-          But what if I introduce a block element <em>inside</em> of an inline element?
+          What if I introduce a block element <em>inside</em> of an inline element?
         </strong>
       </p>
 
@@ -705,8 +739,13 @@ Further more, let's add an imaginary super duper long word: Antipericatametaanap
           <Code>display: flow-root;</Code> is another way to create one
         </li>
         <li>
-          Inside a <em>block container box</em>, a <em>block (or inline) formatting context</em>{' '}
-          will be used if all children are <em>block (or inline)-level boxes</em>
+          Inside a <em>block container box</em>, the browser turns all DOM elements into block-level
+          and element-level boxes (including all descendants, by default they{' '}
+          <em>participate in the parent formatting context</em>)
+        </li>
+        <li>
+          A <em>block (or inline) formatting context</em> will be used if all children are{' '}
+          <em>block (or inline)-level boxes</em>
         </li>
         <li>The browser fixes the box tree with anonymous block-level and inline-level boxes</li>
         <li>
