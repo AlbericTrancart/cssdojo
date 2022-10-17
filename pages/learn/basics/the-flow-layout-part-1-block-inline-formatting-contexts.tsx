@@ -7,6 +7,14 @@ import { PAGES } from 'services/pages';
 import { Editor } from 'components/Editor';
 import { Exercise } from 'components/Exercise';
 import { NextKataButton } from 'components/NextKataButton';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+} from 'components/Table';
 
 const Kata: NextPage = () => (
   <>
@@ -399,9 +407,9 @@ html .child {
           </Link>{' '}
           property.
         </strong>{' '}
-        The <Code>display: [outer] [inner];</Code> property is most commonly used with shorthands
-        but here we’ll learn it with its full syntax to understand what happens. This property takes
-        two arguments:
+        The <Code>display: [outer] [inner];</Code> property is most commonly used with shorthands (
+        <Code>block</Code>, <Code>inline</Code>, <Code>flex</Code>...) but here we’ll learn it with
+        its full syntax to understand what happens.
       </p>
 
       <dl>
@@ -422,6 +430,43 @@ html .child {
           keywords such as <Code>flex</Code> and <Code>grid</Code>.
         </dd>
       </dl>
+
+      <p>
+        <strong>
+          <Link href="https://caniuse.com/mdn-css_properties_display_multi-keyword_values">
+            The two-value syntax is supported in Firefox and Safari but not yet in Chrome.
+          </Link>{' '}
+          If you are using Chrome/Edge here is a quick summary of what value to use to get the same
+          results:
+        </strong>
+      </p>
+
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderCell style={{ width: '40%' }}>Two-value syntax</TableHeaderCell>
+            <TableHeaderCell>Shorthand</TableHeaderCell>
+          </TableRow>
+        </TableHeader>
+
+        <TableBody>
+          {[
+            ['block flow', 'block'],
+            ['inline flow', 'inline'],
+            ['block flow-root', 'flow-root'],
+            ['inline flow-root', 'inline-block'],
+          ].map(([fullSyntax, shorthand]) => (
+            <TableRow key={shorthand}>
+              <TableCell key={shorthand}>
+                <Code>{fullSyntax}</Code>
+              </TableCell>
+              <TableCell>
+                <Code>{shorthand}</Code>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
 
       <p>
         Thus, a <Code>&lt;span&gt;</Code> element defaults to <Code>display: inline flow;</Code>{' '}
