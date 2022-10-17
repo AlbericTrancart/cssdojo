@@ -486,7 +486,7 @@ html .child {
       </p>
 
       <Exercise
-        task='Inline the "button" in the text by changing its outer and inner display types'
+        task='Inline the "button" in the text without changing its shape by using the display property'
         initialCode={`<style>
 html {
   border: 1px solid red;
