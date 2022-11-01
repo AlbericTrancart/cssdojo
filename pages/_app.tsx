@@ -39,7 +39,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         <meta property="og:title" content={title} />
         <meta property="og:description" content="(re)learn CSS, the right way" />
         <meta property="og:site_name" content="CSS Dojo" />
-        <meta property="og:image" content="https://cssdojo.dev/android-chrome-512x512.png" />
+        <meta property="og:image" content="https://cssdojo.dev/og-image.png" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="512" />
         <meta property="og:image:height" content="512" />
