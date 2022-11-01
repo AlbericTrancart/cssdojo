@@ -2,7 +2,7 @@ import { ContextProps, LiveEditor, LivePreview, LiveProvider, withLive } from 'r
 import BaseEditor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs';
 import { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { colorPalette, getSpacing, mobileBreakpoint, typography } from 'stylesheet';
 
 const MainContainer = styled.div`
@@ -21,13 +21,7 @@ const Container = styled.div`
   }
 `;
 
-const EditorWrapper = styled.div`
-  flex-basis: 100%;
-  @media (min-width: ${mobileBreakpoint}) {
-    flex-basis: 50%;
-    flex-shrink: 1;
-  }
-
+export const editorStyles = css`
   > * {
     ${typography.code}
   }
@@ -37,6 +31,16 @@ const EditorWrapper = styled.div`
     /* stylelint-disable-next-line */
     padding: 0 !important;
   }
+`;
+
+const EditorWrapper = styled.div`
+  flex-basis: 100%;
+  @media (min-width: ${mobileBreakpoint}) {
+    flex-basis: 50%;
+    flex-shrink: 1;
+  }
+
+  ${editorStyles}
 `;
 
 const PreviewWrapper = styled.div`
@@ -75,7 +79,7 @@ const BaseLiveError: React.FC<ErrorProps> = ({ live }) => <ErrorZone>{live?.erro
 
 const LiveError = withLive(BaseLiveError);
 
-const PreviewFrame = styled.iframe`
+export const PreviewFrame = styled.iframe`
   width: 100%;
   box-sizing: border-box;
   height: 100%;
@@ -89,6 +93,23 @@ interface Props {
   code: string;
   onChange?: (code: string) => void;
 }
+
+export const previewBaseContent = `
+<link
+  href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans"
+  rel="stylesheet"
+  type="text/css"
+/>
+<style>
+  html {
+    font-family: IBM Plex Sans, sans-serif;
+    font-size: 125%;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+</style>`;
 
 export const Editor: React.FC<Props> = ({ useReact, code, onChange }) => {
   const [codeState, setCurrentCode] = useState(code);
@@ -139,21 +160,7 @@ export const Editor: React.FC<Props> = ({ useReact, code, onChange }) => {
         <PreviewWrapper>
           <PreviewFrame
             srcDoc={`
-              <link
-                href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans"
-                rel="stylesheet"
-                type="text/css"
-              />
-              <style>
-              html {
-                font-family: IBM Plex Sans, sans-serif;
-                font-size: 125%;
-              }
-              body {
-                margin: 0;
-                padding: 0;
-              }
-              </style>
+              ${previewBaseContent}
               ${shownCode}
             `}
           />
