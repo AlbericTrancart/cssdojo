@@ -43,7 +43,12 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="512" />
         <meta property="og:image:height" content="512" />
-        <meta property="og:image:alt" content="The CSS3 logo" />
+        <meta property="og:image:alt" content="The CSS Dojo logo" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://cssdojo.dev/og-image.png" />
+        <meta name="twitter:image:alt" content="The CSS Dojo logo" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content="(re)learn CSS, the right way" />
       </Head>
 
       <CSSResets />
