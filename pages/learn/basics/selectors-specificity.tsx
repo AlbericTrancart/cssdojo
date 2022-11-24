@@ -134,8 +134,8 @@ const Kata: NextPage = () => (
           <strong>, the descendant combinator</strong>
         </dt>
         <dd>
-          This will select elements having the <Code>a</Code> class inside elements having the{' '}
-          <Code>b</Code> class
+          This will select elements having the <Code>b</Code> class inside elements having the{' '}
+          <Code>a</Code> class
         </dd>
 
         <dt>
@@ -152,8 +152,9 @@ const Kata: NextPage = () => (
           <strong>, the general sibling child combinator</strong>
         </dt>
         <dd>
-          This will select elements having the <Code>b</Code> class that share the same parent node
-          as an element having the <Code>a</Code> class.
+          This will select elements having the <Code>b</Code> class that <strong>follow</strong>{' '}
+          elements having the <Code>a</Code> class and that share the same parent node as the{' '}
+          <Code>a</Code> class.
         </dd>
 
         <dt>
