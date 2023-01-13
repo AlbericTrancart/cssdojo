@@ -80,8 +80,9 @@ const Kata: NextPage = () => (
         There are four main layouts: <em>flow</em> (the default one), <em>flex</em>, <em>grid</em>,
         and <em>table</em>. There are others, but they are more anecdotic.{' '}
         <strong>
-          As <em>flow</em> is the default layout, you <u>MUST</u> master it.{' '}
-          <u>There is no way around it.</u> Let me repeat that: <u>No. Way. Around. It.</u>
+          As <em>flow</em> is the default layout and you won’t use <em>flex</em> on every single DOM
+          element ever, you <u>MUST</u> master it. <u>There is no way around it.</u> Let me repeat
+          that: <u>No. Way. Around. It.</u>
         </strong>{' '}
         This is the goal of this kata.
       </p>
@@ -407,37 +408,30 @@ html .child {
           </Link>{' '}
           property.
         </strong>{' '}
-        The <Code>display: [outer] [inner];</Code> property is most commonly used with shorthands (
+        This property has two possible syntaxes:
+        <Code>display: [outer] [inner];</Code> property is most commonly used with shorthands (
         <Code>block</Code>, <Code>inline</Code>, <Code>flex</Code>...) but here we’ll learn it with
         its full syntax to understand what happens.
       </p>
 
-      <dl>
-        <dt>
-          <strong>The outer display type</strong>
-        </dt>
-        <dd>
-          This defines how the element should behave in the context of its parent. Possible values
-          are <Code>block</Code> and <Code>inline</Code>.
-        </dd>
-        <dt>
-          <strong>The inner display type</strong>
-        </dt>
-        <dd>
-          This defines how the element’s children will lay out. Possible values are{' '}
-          <Code>flow</Code> (participate in the parent’s formatting context), <Code>flow-root</Code>{' '}
-          (create an independent formatting context using the flow layout), and other layout
-          keywords such as <Code>flex</Code> and <Code>grid</Code>.
-        </dd>
-      </dl>
+      <ul>
+        <li>
+          <Code>display: [shorthand];</Code>: the old syntax, supported by all browsers
+        </li>
+        <li>
+          <Code>display: [outer] [inner];</Code>: the new, full syntax,{' '}
+          <Link href="https://caniuse.com/mdn-css_properties_display_multi-keyword_values">
+            supported by Firefox and Safari but not Chrome (yet)
+          </Link>
+        </li>
+      </ul>
 
       <p>
+        In this kata we’ll learn this property with its full, two values syntax to better understand
+        what happens.{' '}
         <strong>
-          <Link href="https://caniuse.com/mdn-css_properties_display_multi-keyword_values">
-            The two-value syntax is supported in Firefox and Safari but not yet in Chrome.
-          </Link>{' '}
-          If you are using Chrome/Edge here is a quick summary of what value to use to get the same
-          results:
+          If you are on Chrome, you can temporarily switch to Firefox/Safari or use this matching
+          table to achieve the same results:
         </strong>
       </p>
 
@@ -467,6 +461,30 @@ html .child {
           ))}
         </TableBody>
       </Table>
+
+      <p>
+        Now that we’ve cleared up these two syntax, let’s see how the{' '}
+        <Code>display: [outer] [inner]</Code> property works.
+      </p>
+
+      <dl>
+        <dt>
+          <strong>The outer display type</strong>
+        </dt>
+        <dd>
+          This defines how the element should behave in the context of its parent. Possible values
+          are <Code>block</Code> and <Code>inline</Code>.
+        </dd>
+        <dt>
+          <strong>The inner display type</strong>
+        </dt>
+        <dd>
+          This defines how the element’s children will lay out. Possible values are{' '}
+          <Code>flow</Code> (participate in the parent’s formatting context), <Code>flow-root</Code>{' '}
+          (create an independent formatting context using the flow layout), and other layout
+          keywords such as <Code>flex</Code> and <Code>grid</Code>.
+        </dd>
+      </dl>
 
       <p>
         Thus, a <Code>&lt;span&gt;</Code> element defaults to <Code>display: inline flow;</Code>{' '}
@@ -529,7 +547,8 @@ This is some text that has a <div class="button">button</div> in the middle of i
         <br />
         <br />
         <br />
-        If you already know the short answer, try to do it with the outer/inner display syntax.
+        If you already know the answer with the shorthand, try to do it with the outer/inner display
+        syntax and truly understand why it works.
         <br />
         <br />
         <br />
@@ -673,11 +692,74 @@ div {
           direction
         </li>
         <li>If there is not enough space, the boxes break into a new line</li>
-        <li>The height of a line is defined by the tallest box in it</li>
         <li>
           You can’t set <Code>width</Code> or <Code>height</Code> on inline boxes
         </li>
+        <li>The height of a line is defined by the tallest box in it</li>
         <li>Margins work only in the inline direction </li>
+      </ul>
+
+      <Exercise
+        task='Make the "first" line bigger by changing its font-size and the "second" by changing its line-height'
+        initialCode={`<style>
+html {
+  border: 1px solid red;
+}
+.first {
+  margin-right: 30px; /* works */
+  margin-bottom: 200px; /* doesn't work :( */
+  height: 3rem; /* doesn't work :( */
+}
+.second {
+}
+</style>
+
+<div>
+  Some line of text.<br />
+  Some line of text.<br />
+  Some line of text.<br />
+  Text of the <span class="first">first line</span> is really nice.<br />
+  Some line of text.<br />
+  Some line of text.<br />
+  Some line of text.<br />
+  But the text of the <span class="second">second line</span> looks better.
+  Some line of text.<br />
+  Some line of text.<br />
+  Some line of text.<br />
+  Some line of text.<br />
+</div>`}
+        solution={`<style>
+html {
+  border: 1px solid red;
+}
+.first {
+  margin-right: 30px; /* works */
+  margin-bottom: 200px; /* doesn't work :( */
+  height: 3rem; /* doesn't work :( */
+  font-size: 2rem;
+}
+.second {
+  line-height: 2rem;
+}
+</style>
+
+<div>
+  Some line of text.<br />
+  Some line of text.<br />
+  Some line of text.<br />
+  Text of the <span class="first">first line</span> is really nice.<br />
+  Some line of text.<br />
+  Some line of text.<br />
+  Some line of text.<br />
+  But the text of the <span class="second">second line</span> looks better.
+  Some line of text.<br />
+  Some line of text.<br />
+  Some line of text.<br />
+  Some line of text.<br />
+</div>`}
+      />
+
+      <ul>
         <li>
           The{' '}
           <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align">
@@ -690,8 +772,25 @@ div {
           <strong>
             which is not the same as <Code>baseline</Code>!
           </strong>
-          ), <Code>sub</Code> and <Code>super</Code> for exponents
+          ), <Code>sub</Code> and <Code>super</Code> for exponents. Go ahead and try all those
+          values:
         </li>
+      </ul>
+      <Editor
+        code={`<style>
+html {
+  border: 1px solid red;
+  text-decoration: underline;
+}
+.icon {
+  border: 1px solid black;
+  vertical-align: baseline;
+}
+</style>
+
+<div>Some text with <img class="icon" src="/favicon-16x16.png" alt="The CSS3 logo" /> an icon inside of it.</div>`}
+      />
+      <ul>
         <li>
           The{' '}
           <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/word-break">
@@ -700,6 +799,30 @@ div {
           property controls how words are broken when the text wraps. Classic values are{' '}
           <Code>normal</Code> and <Code>break-all</Code> (can break after any character)
         </li>
+      </ul>
+
+      <Exercise
+        task="Break the super duper long word!"
+        initialCode={`<style>
+html {
+  border: 1px solid red;
+}
+</style>
+
+<div>Let's have an imaginary super duper long word: Antipericatametaanaparcircumvolutiorectumgustpoops.</div>
+`}
+        solution={`<style>
+html {
+  border: 1px solid red;
+  word-break: break-all;
+}
+</style>
+
+<div>Let's have an imaginary super duper long word: Antipericatametaanaparcircumvolutiorectumgustpoops.</div>
+</style>`}
+      />
+
+      <ul>
         <li>
           The{' '}
           <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/white-space">
@@ -714,44 +837,27 @@ div {
       </ul>
 
       <Exercise
-        task='Make the height of the first line bigger, make the "relevant information" text fly to the top, make the empty line in the HTML paragraph appear and break the super duper long word'
+        task="Make the empty line in the HTML paragraph appear"
         initialCode={`<style>
 html {
   border: 1px solid red;
 }
-strong {
-  margin: 10px;
-  height: 3rem; /* doesn't work :( */
-}
 </style>
 
-<div>This is some text, with <strong>important words</strong> and <em>relevant information</em>. It is quite long so it should wrap at the end of the line. Let's write even more text to ensure this paragraph wraps on at least 4 lines.
+<div>This is some text, with relevant information. It is quite long so it should wrap at the end of the line. Let's write even more text to ensure this paragraph wraps on at least 4 lines.
 
-Furthermore, let's add an imaginary super duper long word: Antipericatametaanaparcircumvolutiorectumgustpoops.</div>
+And here is another line. In the HTML it has an empty line before it, but it does not appear by default.</div>
 `}
         solution={`<style>
 html {
   border: 1px solid red;
-}
-strong {
-  margin: 10px;
-  height: 3rem; /* doesn't work :( */
-  line-height: 3rem;
-}
-div {
-  word-break: break-all;
   white-space: pre-wrap;
-}
-em {
-  vertical-align: top;
 }
 </style>
 
-<div>This is some text, with <strong>important words</strong> and <em>relevant information</em>. It is quite long so it should wrap at the end of the line. Let's write even more text to ensure this paragraph wraps on at least 4 lines.
+<div>This is some text, with relevant information. It is quite long so it should wrap at the end of the line. Let's write even more text to ensure this paragraph wraps on at least 4 lines.
 
-Further more, let's add an imaginary super duper long word: Antipericatametaanaparcircumvolutiorectumgustpoops.</div>
-
-`}
+And here is another line. In the HTML it has an empty line before it, but it does not appear by default.</div>`}
       />
     </section>
 
