@@ -59,7 +59,7 @@ const Kata: NextPage = () => (
       </dl>
 
       <Exercise
-        task="turn the label red by every possible way we’ve seen!"
+        task="turn the label red by selecting it in every possible way we’ve seen!"
         initialCode={`<style>
 
 </style>

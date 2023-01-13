@@ -68,8 +68,9 @@ const Kata: NextPage = () => (
       <Subtitle id="display-property">The display property</Subtitle>
 
       <p>
-        You can change the display mode with the <Code>display</Code> CSS property. There are two
-        main display modes: <em>block</em> and <em>inline</em>.
+        You can change the display mode with the <Code>display</Code> CSS property. We’ll see it
+        more in depth in the next kata but for now remember that there are two main display modes:{' '}
+        <em>block</em> and <em>inline</em>.
       </p>
 
       <dl>

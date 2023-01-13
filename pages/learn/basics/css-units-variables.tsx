@@ -208,8 +208,8 @@ const Kata: NextPage = () => (
         Then, if <Code>font-size</Code> are set with <Code>rem</Code> and <Code>em</Code>, you
         probably want your spacing properties (<Code>padding</Code>, <Code>margin</Code>...) to use
         these values too. Otherwise the layout would not scale the same way as your font size,
-        probably leading to unexpected visual bugs. As a bonus, if you ever want to change the base
-        font size of your website, everything will scale automatically.
+        leading to unexpected visual bugs. As a bonus, if you ever want to change the base font size
+        of your website, everything will scale automatically.
       </p>
 
       <p>
@@ -249,7 +249,7 @@ const Kata: NextPage = () => (
       </p>
 
       <Exercise
-        task="make the disclaimer more important by using a variable and turning it red"
+        task="make the disclaimer more important by turning it red using a variable"
         initialCode={`<style>
 :root {
   --big: 2rem;

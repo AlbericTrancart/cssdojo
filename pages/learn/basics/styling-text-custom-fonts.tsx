@@ -58,7 +58,7 @@ const Kata: NextPage = () => (
             Changes the height of the line. As a consequence it will also modify spacing between
             lines in a paragraph. A good practice is to use a relative unit and{' '}
             <strong>
-              <Code>1.5</Code> is a good standard value.
+              <Code>1.5</Code> is a good standard value
             </strong>{' '}
             for better readability.
           </dd>

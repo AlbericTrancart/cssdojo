@@ -77,14 +77,14 @@ const Kata: NextPage = () => (
       </ul>
 
       <Exercise
-        task="go ahead and try to edit the code!"
+        task="go ahead and try every way to include CSS!"
         initialCode={`<html>
   <head>
     <!-- link this external stylesheet that changes the h1 tag -->
     <!-- /learn/basics/introduction-css-how-the-browser-renders-the-page/style.css -->
     <link href="" rel="stylesheet" type="text/css" />
 
-    <!-- Make the <p> blue -->
+    <!-- Make the <p> blue by writing inside the <style> tag -->
     <style>
     </style>
   </head>
@@ -94,7 +94,7 @@ const Kata: NextPage = () => (
 
     <p>
         This is some text.
-        <!-- Make the important text red -->
+        <!-- Make the important text red by adding to the style HTML attribute -->
         <strong style="font-size: 1.2em;">
           This is important.
         </strong>
@@ -107,11 +107,11 @@ const Kata: NextPage = () => (
     <!-- /learn/basics/introduction-css-how-the-browser-renders-the-page/style.css -->
     <link href="/learn/basics/introduction-css-how-the-browser-renders-the-page/style.css" rel="stylesheet" type="text/css" />
 
-    <!-- Make the <p> blue -->
+    <!-- Make the <p> blue by writing inside the <style> tag -->
     <style>
-    p {
-    color: blue;
-    }
+      p {
+        color: blue;
+      }
     </style>
   </head>
 
@@ -120,7 +120,7 @@ const Kata: NextPage = () => (
 
     <p>
         This is some text.
-        <!-- Make the important text red -->
+        <!-- Make the important text red by adding to the style HTML attribute -->
         <strong style="font-size: 1.2em; color: red;">
           This is important.
         </strong>
