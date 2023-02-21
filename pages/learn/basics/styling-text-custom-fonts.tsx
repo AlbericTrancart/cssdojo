@@ -179,7 +179,7 @@ html {
       <p>
         We’ll dedicate this whole section to the <Code>font-family</Code> property. This property
         sets a prioritized list of fonts to use. The generic font families available on all browsers
-        are: <Code>serif</Code>, <Code>serif</Code>, <Code>sans-serif</Code>, <Code>monospace</Code>
+        are: <Code>serif</Code>, <Code>sans-serif</Code>, <Code>monospace</Code>
         , <Code>cursive</Code> and <Code>fantasy</Code>.
       </p>
 
