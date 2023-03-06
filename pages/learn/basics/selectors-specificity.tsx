@@ -188,7 +188,7 @@ const Kata: NextPage = () => (
   .parent .b { color: red; }
   .parent > .b { color: red; }
   .node.b { color: red; }
-  .d ~ .b { color: red; }
+  .a ~ .b { color: red; }
   .a + .b { color: red; }
 </style>
 
