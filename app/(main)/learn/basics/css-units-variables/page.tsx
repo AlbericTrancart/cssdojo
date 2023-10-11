@@ -7,6 +7,7 @@ import { Editor } from 'components/Editor';
 import { Link } from 'components/Link';
 import { NextKataButton } from 'components/NextKataButton';
 import { PAGES } from 'services/pages';
+import twitterProfileImage from './twitter-profile.png';
 
 const Kata: NextPage = () => (
   <>
@@ -189,7 +190,7 @@ const Kata: NextPage = () => (
       </p>
 
       <Image
-        src="/learn/basics/css-units-variables/twitter-profile.png"
+        src={twitterProfileImage}
         alt="A website (Twitter in this case) with a sidebar"
         caption="Real-life example: does the side menu have a relative (% or vw) or fixed (px or rem) width? Go talk to your designer to get the intent."
       />

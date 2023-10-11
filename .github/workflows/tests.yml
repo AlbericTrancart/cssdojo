@@ -11,17 +11,17 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v3
-      - name: setup node
+      - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-      - name: install
+      - name: Install
         run: yarn install
-      - name: typescript check
+      - name: Typescript check
         run: yarn lint:tsc
-      - name: eslint check
+      - name: ESLint check
         run: yarn lint
-      - name: stylelint check
+      - name: Stylelint check
         run: yarn lint:style

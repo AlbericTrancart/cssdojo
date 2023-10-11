@@ -7,6 +7,8 @@ import { Link } from 'components/Link';
 import { NextKataButton } from 'components/NextKataButton';
 import { PAGES } from 'services/pages';
 import { Editor } from 'components/Editor';
+import cssSpecifictyWarsImage from './css-specificity-wars.png';
+import simpleSelectorsImage from './simple-selectors.png';
 
 const Kata: NextPage = () => (
   <>
@@ -77,7 +79,7 @@ const Kata: NextPage = () => (
       />
 
       <Image
-        src="/learn/basics/selectors-specificity/simple-selectors.png"
+        src={simpleSelectorsImage}
         alt="The dev tools showing the 4 rules with simple selectors"
         caption="You can check that all the rules are applied with the dev tools"
       />
@@ -384,7 +386,7 @@ const Kata: NextPage = () => (
       </p>
 
       <Image
-        src="/learn/basics/selectors-specificity/css-specificity-wars.png"
+        src={cssSpecifictyWarsImage}
         alt="Comparison between specificity of selectors and Star Wars characters"
         caption="Will you be that evil?"
       />

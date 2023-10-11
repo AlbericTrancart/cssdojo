@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import { StaticImageData } from 'next/image';
 import { Subtitle, Title } from 'components/Layout';
 import { Code } from 'components/Code';
 import { Link } from 'components/Link';
@@ -15,6 +16,11 @@ import {
   TableHeaderCell,
   TableRow,
 } from 'components/Table';
+import typographyImage from 'app/(main)/learn/basics/styling-text-custom-fonts/typography.svg';
+import anonymousBoxImage from './anonymous-box.png';
+import layoutsImage from './layouts.png';
+import formattingContextsImage from './formatting-contexts.png';
+import innerOuterDisplayImage from './inner-outer-display.png';
 
 const Kata: NextPage = () => (
   <>
@@ -147,7 +153,7 @@ const Kata: NextPage = () => (
       <p>Let’s sum up what we’ve learned:</p>
 
       <Image
-        src="/learn/basics/the-flow-layout-part-1-block-inline-formatting-contexts/layouts.png"
+        src={layoutsImage}
         alt="A drawing showing the four main layouts and the formatting contexts under the flow layout"
         caption="All important layouts"
       />
@@ -249,7 +255,7 @@ in a block container box`}
       />
 
       <Image
-        src="/learn/basics/the-flow-layout-part-1-block-inline-formatting-contexts/anonymous-box.png"
+        src={anonymousBoxImage}
         alt="The dev tools inspecting the HTML generated in the editor above"
         caption="An anonymous inline-level box as seen in the dev tools"
       />
@@ -322,7 +328,7 @@ in a
       </p>
 
       <Image
-        src="/learn/basics/the-flow-layout-part-1-block-inline-formatting-contexts/formatting-contexts.png"
+        src={formattingContextsImage}
         alt="A drawing showing squares and lines at the top to represent block and inline boxes, and at the bottom the same squares and lines arranged in boxes and formatting contexts"
         caption="How the browser transforms different elements into boxes and formatting contexts"
       />
@@ -493,7 +499,7 @@ html .child {
       </p>
 
       <Image
-        src="/learn/basics/the-flow-layout-part-1-block-inline-formatting-contexts/inner-outer-display.png"
+        src={innerOuterDisplayImage}
         alt="A table of display types combining outer display inline and block with inner display flow and flow-root"
         caption="Different combinations of outer and inner display types"
       />
@@ -680,7 +686,7 @@ div {
       </p>
 
       <Image
-        src="/learn/basics/styling-text/typography.svg"
+        src={typographyImage as StaticImageData}
         alt="A lorem ipsum text with arrows pointing to different characteristics of a line of text"
         aria-describedby="typography-schema-description"
         caption="Schema of a line of text and related CSS properties"

@@ -7,6 +7,8 @@ import { NextKataButton } from 'components/NextKataButton';
 import { Link } from 'components/Link';
 import { PAGES } from 'services/pages';
 import { Editor } from 'components/Editor';
+import cssRuleImage from './css-rule.png';
+import profilerImage from './profiler.png';
 
 const Kata: NextPage = () => (
   <>
@@ -23,7 +25,7 @@ const Kata: NextPage = () => (
       <p>Some vocabulary first. When we write CSS, we write a lot of CSS rules:</p>
 
       <Image
-        src="/learn/basics/introduction-css-how-the-browser-renders-the-page/css-rule.png"
+        src={cssRuleImage}
         alt="A h1 rule with font-size and color declarations"
         caption="An example of CSS rule: make all the first-level titles red and big"
       />
@@ -227,7 +229,7 @@ const Kata: NextPage = () => (
       </dl>
 
       <Image
-        src="/learn/basics/introduction-css-how-the-browser-renders-the-page/profiler.png"
+        src={profilerImage}
         alt="This page profiled by the chrome dev tools - all rendering operations included"
         caption="You can see all these steps in the Performance tab of your browser’s dev tools"
       />

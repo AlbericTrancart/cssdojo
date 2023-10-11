@@ -1,3 +1,4 @@
+import { StaticImageData } from 'next/image';
 import { NextPage } from 'next';
 import { Subtitle, Title } from 'components/Layout';
 import { Exercise } from 'components/Exercise';
@@ -7,6 +8,8 @@ import { Link } from 'components/Link';
 import { NextKataButton } from 'components/NextKataButton';
 import { PAGES } from 'services/pages';
 import { Editor } from 'components/Editor';
+import robotoFontFamilyImage from './roboto-font-family.png';
+import typographyImage from './typography.svg';
 
 const Kata: NextPage = () => (
   <>
@@ -22,7 +25,7 @@ const Kata: NextPage = () => (
       </p>
 
       <Image
-        src="/learn/basics/styling-text/typography.svg"
+        src={typographyImage as StaticImageData}
         alt="A lorem ipsum text with arrows pointing to different characteristics of a line of text"
         aria-describedby="typography-schema-description"
         caption="Schema of a line of text and related CSS properties"
@@ -190,7 +193,7 @@ html {
       </p>
 
       <Image
-        src="/learn/basics/styling-text/roboto-font-family.png"
+        src={robotoFontFamilyImage}
         alt="Different combinations of the Roboto font in different weights and italics"
         caption="Different font styles of the Roboto font family"
       />

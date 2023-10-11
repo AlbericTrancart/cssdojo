@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { Code } from 'components/Code';
 import { Image } from 'components/Image';
 import { PAGES } from './pages';
+import cssRuleQuestion from './css-rule-question.png';
 
 export interface Skill {
   id: string;
@@ -17,10 +18,7 @@ export const SKILLS: Skill[] = [
     kataUrl: PAGES.WhyCSSHowItWorks.url() + '#definitions',
     additionalInfos: (
       <>
-        <Image
-          src="/learn/basics/introduction-css-how-the-browser-renders-the-page/css-rule-question.png"
-          alt="Find the 5 keywords to describe CSS code"
-        />
+        <Image src={cssRuleQuestion} alt="Find the 5 keywords to describe CSS code" />
       </>
     ),
   },

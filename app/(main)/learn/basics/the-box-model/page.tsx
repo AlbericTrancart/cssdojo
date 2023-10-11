@@ -7,6 +7,8 @@ import { Link } from 'components/Link';
 import { NextKataButton } from 'components/NextKataButton';
 import { Editor } from 'components/Editor';
 import { PAGES } from 'services/pages';
+import boxModelImage from './box-model.png';
+import devToolsImage from './devtools.png';
 
 const Kata: NextPage = () => (
   <>
@@ -22,7 +24,7 @@ const Kata: NextPage = () => (
       </p>
 
       <Image
-        src="/learn/basics/the-box-model/box-model.png"
+        src={boxModelImage}
         alt="A box showing how width, height, padding, border and margin are related to each other"
         caption="Schema of the Box model (source: MDN)"
       />
@@ -33,10 +35,7 @@ const Kata: NextPage = () => (
         properties in your browser’s dev tools:
       </p>
 
-      <Image
-        src="/learn/basics/the-box-model/devtools.png"
-        alt="The box model in the Firefox dev tools"
-      />
+      <Image src={devToolsImage} alt="The box model in the Firefox dev tools" />
 
       <p>
         Those <em>characteristics</em> are different from the <Code>width</Code>,{' '}
@@ -135,7 +134,7 @@ const Kata: NextPage = () => (
       </p>
 
       <Image
-        src="/learn/basics/the-box-model/box-model.png"
+        src={boxModelImage}
         alt="A box showing how width, height, padding, border and margin are related to each other"
         caption="Schema of the Box model (source: MDN)"
       />
