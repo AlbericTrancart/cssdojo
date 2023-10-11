@@ -2,11 +2,14 @@
 
 import BaseEditor from 'react-simple-code-editor';
 import { NextPage } from 'next';
+import { StaticImageData } from 'next/image';
 import { highlight, languages } from 'prismjs';
 import { useState } from 'react';
+import theodoSponsorImage from 'public/sponsors/Theodo.svg';
 import { previewBaseContent } from 'components/Editor';
 import { Subtitle } from 'components/Layout';
 import { Link } from 'components/Link';
+import { Image } from 'components/Image';
 import { Page, PAGES } from 'services/pages';
 import { Button } from 'components/Button';
 import editorStyles from 'components/Editor/Editor.module.scss';
@@ -166,6 +169,14 @@ const Home: NextPage = () => {
           <li>Design a Tab navigation system</li>
         </ol>
       </section> */}
+
+      <section>
+        <Subtitle id={null}>Sponsors</Subtitle>
+
+        <a href="https://www.theodo.fr/">
+          <Image src={theodoSponsorImage as StaticImageData} alt="Theodo" />
+        </a>
+      </section>
     </>
   );
 };

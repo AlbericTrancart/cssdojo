@@ -5,7 +5,7 @@ $black: #000000;
 $darkGrey: #414141;
 $lightGrey: #dcdcdc;
 $white: #ffffff;
-$blue: #4a94c3;
+$blue: #278bca;
 
 // Breakpoints
 $mobile-breakpoint: 50em;
@@ -34,7 +34,7 @@ $main-vertical-padding: 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
   @media (min-width: $mobile-breakpoint) {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 }
 

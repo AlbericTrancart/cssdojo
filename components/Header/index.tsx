@@ -1,7 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { PAGES } from 'services/pages';
 import styles from './Header.module.scss';
+import logoWhiteImage from './logo-white.png';
 
 interface Props {
   isHomepage: boolean;
@@ -14,7 +16,7 @@ export const Header: React.FC<Props> = ({ isHomepage }) => {
       className={styles['home-link']}
       aria-label="Homepage, CSS dojo, relearn CSS the right way"
     >
-      <span className={styles['title']}>cssdojo</span>
+      <Image src={logoWhiteImage} alt="css dojo" className={styles['logo']} />
 
       <span className={styles['description']}>(re)learn CSS, the right way</span>
     </Link>
@@ -22,7 +24,7 @@ export const Header: React.FC<Props> = ({ isHomepage }) => {
 
   return (
     <header className={styles['container']}>
-      {isHomepage ? <h1>{homeLink}</h1> : <p>{homeLink}</p>}
+      {isHomepage ? <h1 style={{ margin: 0 }}>{homeLink}</h1> : <p>{homeLink}</p>}
     </header>
   );
 };
