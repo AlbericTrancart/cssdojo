@@ -31,7 +31,7 @@ export default class DefaultPage extends Document<Props> {
       <Html lang="en">
         <Head>
           <link
-            href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans"
+            href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=optional"
             rel="stylesheet"
             type="text/css"
           />

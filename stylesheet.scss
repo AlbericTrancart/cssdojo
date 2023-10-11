@@ -1,0 +1,44 @@
+// Colors
+$black: #000000;
+$darkGrey: #414141;
+$lightGrey: #dcdcdc;
+$white: #ffffff;
+$blue: #57a3e8;
+
+// Breakpoints
+$mobile-breakpoint: 50em;
+
+// Typography
+$font-main: 'IBM Plex Sans, sans-serif';
+$font-code: 'monospace';
+
+@mixin bodyFont() {
+  font-family: $fonts-main;
+  font-size: 125%;
+  line-height: 1.5;
+}
+
+@mixin titleFont() {
+  font-size: 1.75rem;
+  line-height: 1.5;
+  @media (min-width: $mobile-breakpoint) {
+    font-size: 2.5rem;
+  }
+}
+
+@mixin subtitleFont() {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  @media (min-width: $mobile-breakpoint) {
+    font-size: 1.75rem;
+  }
+}
+
+@mixin codeFont() {
+  font-size: 0.8em;
+  font-family: $fonts-code;
+}
+
+@mixin smallFont() {
+  font-size: 0.8rem;
+}

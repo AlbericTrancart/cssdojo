@@ -1,14 +1,14 @@
-import { editorStyles, previewBaseContent, PreviewFrame } from 'components/Editor';
 import BaseEditor from 'react-simple-code-editor';
-import { Subtitle } from 'components/Layout';
-import { Link } from 'components/Link';
 import { NextPage } from 'next';
-import { Page, PAGES } from 'services/pages';
 import styled from 'styled-components';
 import { highlight, languages } from 'prismjs';
+import { useState } from 'react';
+import { editorStyles, previewBaseContent, PreviewFrame } from 'components/Editor';
+import { Subtitle } from 'components/Layout';
+import { Link } from 'components/Link';
+import { Page, PAGES } from 'services/pages';
 import { getSpacing, mobileBreakpoint } from 'stylesheet';
 import { Button } from 'components/Button';
-import { useState } from 'react';
 
 interface Props {
   page: Page;

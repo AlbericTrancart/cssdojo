@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { CSSResets } from 'components/CSSResets';
 import Router, { useRouter } from 'next/router';
+import { CSSResets } from 'components/CSSResets';
 import { getPageConfig } from 'services/pages';
 import { Header } from 'components/Header';
 import { PageContainer } from 'components/Layout';

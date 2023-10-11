@@ -1,51 +1,28 @@
 import React from 'react';
-import styled from 'styled-components';
 import Link from 'next/link';
-import { colorPalette, getSpacing, typography } from 'stylesheet';
 import { PAGES } from 'services/pages';
-
-const Container = styled.header`
-  background-color: ${colorPalette.darkGrey};
-  color: ${colorPalette.white};
-  padding: ${getSpacing(3)} ${getSpacing(2)};
-  margin-bottom: ${getSpacing(4)};
-`;
-
-const HomeLink = styled.a`
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  font: inherit;
-  color: inherit;
-  text-decoration: none;
-`;
-
-const Text = styled.p``;
-
-const Title = styled.span`
-  ${typography.title}
-  margin: 0;
-`;
-
-const Description = styled.span`
-  ${typography.subtitle}
-  margin: 0;
-`;
+import styles from './Header.module.scss';
 
 interface Props {
   isHomepage: boolean;
 }
 
-export const Header: React.FC<Props> = ({ isHomepage }) => (
-  <Container>
-    <Text as={isHomepage ? 'h1' : 'p'}>
-      <Link href={PAGES.Home.url()} passHref>
-        <HomeLink aria-label="Homepage, CSS dojo, relearn CSS the right way">
-          <Title>cssdojo</Title>
+export const Header: React.FC<Props> = ({ isHomepage }) => {
+  const homeLink = (
+    <Link
+      href={PAGES.Home.url()}
+      className={styles['home-link']}
+      aria-label="Homepage, CSS dojo, relearn CSS the right way"
+    >
+      <span className={styles['title']}>cssdojo</span>
 
-          <Description>(re)learn CSS, the right way</Description>
-        </HomeLink>
-      </Link>
-    </Text>
-  </Container>
-);
+      <span className={styles['description']}>(re)learn CSS, the right way</span>
+    </Link>
+  );
+
+  return (
+    <header className={styles['container']}>
+      {isHomepage ? <h1>{homeLink}</h1> : <p>{homeLink}</p>}
+    </header>
+  );
+};

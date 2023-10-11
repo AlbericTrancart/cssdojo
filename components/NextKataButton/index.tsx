@@ -1,5 +1,5 @@
-import { Button } from 'components/Button';
 import styled from 'styled-components';
+import { Button } from 'components/Button';
 import { getSpacing } from 'stylesheet';
 
 const Wrapper = styled.div`

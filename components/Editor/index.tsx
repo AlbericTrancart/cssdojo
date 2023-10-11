@@ -1,4 +1,4 @@
-import { ContextProps, LiveEditor, LivePreview, LiveProvider, withLive } from 'react-live';
+import { LiveEditor, LivePreview, LiveProvider } from 'react-live';
 import BaseEditor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs';
 import { useState } from 'react';
@@ -66,19 +66,6 @@ const Divider = styled.div`
   background-color: ${colorPalette.lightGrey};
 `;
 
-const ErrorZone = styled.pre`
-  ${typography.small}
-  margin-top: ${getSpacing(2)};
-`;
-
-interface ErrorProps {
-  live?: ContextProps;
-}
-
-const BaseLiveError: React.FC<ErrorProps> = ({ live }) => <ErrorZone>{live?.error}</ErrorZone>;
-
-const LiveError = withLive(BaseLiveError);
-
 export const PreviewFrame = styled.iframe`
   width: 100%;
   box-sizing: border-box;
@@ -116,7 +103,7 @@ export const Editor: React.FC<Props> = ({ useReact, code, onChange }) => {
 
   // Use state if onChange handler not defined (uncontrolled input)
   const shownCode = onChange !== undefined ? code : codeState;
-  const handleChange = onChange !== undefined ? onChange : setCurrentCode;
+  const handleChange = onChange ?? setCurrentCode;
 
   if (useReact) {
     return (
@@ -138,7 +125,6 @@ export const Editor: React.FC<Props> = ({ useReact, code, onChange }) => {
               <LivePreview />
             </PreviewWrapper>
           </Container>
-          <LiveError />
         </LiveProvider>
       </MainContainer>
     );

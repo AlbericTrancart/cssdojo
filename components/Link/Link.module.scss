@@ -1,0 +1,14 @@
+@use 'stylesheet.scss' as style;
+
+.link {
+  cursor: pointer;
+  transition: color ease 0.3s;
+  text-decoration: underline;
+  color: style.$darkGrey;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: style.$blue;
+  }
+}

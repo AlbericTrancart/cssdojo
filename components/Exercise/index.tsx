@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Editor } from 'components/Editor';
 import styled from 'styled-components';
+import { Editor } from 'components/Editor';
 import { getSpacing, mobileBreakpoint } from 'stylesheet';
 import { Button } from 'components/Button';
 

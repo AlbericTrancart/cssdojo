@@ -1,9 +1,9 @@
-import { Title } from 'components/Layout';
-import { Link } from 'components/Link';
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
-import { Checkbox } from 'components/Checkbox';
 import styled from 'styled-components';
+import { Title } from 'components/Layout';
+import { Link } from 'components/Link';
+import { Checkbox } from 'components/Checkbox';
 import { SKILLS } from 'services/skills';
 import { PAGES } from 'services/pages';
 

@@ -1,4 +1,4 @@
-import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // We are in the stylesheet, we can use hardcoded vars here
 // stylelint-disable
@@ -23,7 +23,7 @@ export const fonts = {
 
 export const mobileBreakpoint = '50em';
 
-export const typography: { [key: string]: FlattenSimpleInterpolation } = {
+export const typography = {
   main: css`
     font-family: ${fonts.main};
     font-size: 125%;

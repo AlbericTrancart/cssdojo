@@ -1,12 +1,12 @@
 import React from 'react';
-import { MAIN_VERTICAL_MARGIN, MAIN_VERTICAL_PADDING, Title } from 'components/Layout';
 import { GetStaticPropsContext, GetStaticPropsResult, NextPage } from 'next';
 import styled from 'styled-components';
+import { useHotkeys } from 'react-hotkeys-hook';
+import { MAIN_VERTICAL_MARGIN, MAIN_VERTICAL_PADDING, Title } from 'components/Layout';
 import { SKILLS } from 'services/skills';
 import { PAGES } from 'services/pages';
 import { getSpacing, mobileBreakpoint } from 'stylesheet';
 import { Button } from 'components/Button';
-import { useHotkeys } from 'react-hotkeys-hook';
 
 const Dojo = styled.section`
   display: flex;

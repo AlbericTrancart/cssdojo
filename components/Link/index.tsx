@@ -1,30 +1,17 @@
 import React from 'react';
 import BaseLink, { LinkProps } from 'next/link';
-import styled from 'styled-components';
-import { colorPalette } from 'stylesheet';
+import classNames from 'classnames';
+import styles from './Link.module.scss';
 
 export interface CustomLinkProps extends LinkProps {
   target?: string;
   rel?: string;
   children?: React.ReactNode;
+  className?: string;
 }
 
-const StyledLink = styled.a`
-  cursor: pointer;
-  transition: color ease 0.3s;
-  text-decoration: underline;
-  color: ${colorPalette.darkGrey};
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: ${colorPalette.blue};
-  }
-`;
-
-export const Link: React.FC<CustomLinkProps> = ({ href, children, ...rest }) => (
-  <BaseLink href={href} passHref>
-    {/* @ts-expect-error Too lazy to find the right type */}
-    <StyledLink {...rest}>{children}</StyledLink>
+export const Link: React.FC<CustomLinkProps> = ({ children, className, ...props }) => (
+  <BaseLink className={classNames(styles['link'], className)} {...props}>
+    {children}
   </BaseLink>
 );
