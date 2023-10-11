@@ -1,0 +1,30 @@
+@use 'stylesheet.scss' as style;
+@use 'components/Editor/Editor.module.scss' as editor;
+
+.callout-wrapper {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  min-height: 8rem;
+
+  @media (min-width: style.$mobile-breakpoint) {
+    flex-wrap: nowrap;
+  }
+
+  & > * {
+    @media (min-width: style.$mobile-breakpoint) {
+      flex-basis: 1 1 50%;
+    }
+  }
+}
+
+.editor-wrapper {
+  @include editor.editor-styles;
+}
+
+.solution-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

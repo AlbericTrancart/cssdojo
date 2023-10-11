@@ -1,20 +1,13 @@
-import styled from 'styled-components';
-import { Button } from 'components/Button';
-import { getSpacing } from 'stylesheet';
+import { ButtonLink } from 'components/Button';
 
-const Wrapper = styled.div`
-  text-align: center;
-  margin-top: ${getSpacing(4)};
-`;
+import styles from './NextKataButton.module.scss';
 
 interface Props {
   href: string;
 }
 
 export const NextKataButton: React.FC<Props> = ({ href }) => (
-  <Wrapper>
-    <Button as="a" href={href}>
-      Go to the next kata!
-    </Button>
-  </Wrapper>
+  <div className={styles['wrapper']}>
+    <ButtonLink href={href}>Go to the next kata!</ButtonLink>
+  </div>
 );

@@ -1,0 +1,13 @@
+@use 'stylesheet.scss' as style;
+
+.input {
+  display: inline-block;
+  position: relative;
+  border: 2px solid style.$darkGrey;
+  cursor: pointer;
+  vertical-align: middle;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.1rem;
+  accent-color: style.$blue;
+}

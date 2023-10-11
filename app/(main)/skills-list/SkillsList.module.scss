@@ -1,0 +1,16 @@
+@use 'stylesheet.scss' as style;
+
+.fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.legend {
+  font-weight: bold;
+}
+
+.label {
+  display: block;
+  margin-top: 1rem;
+}

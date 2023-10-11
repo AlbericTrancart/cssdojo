@@ -1,44 +1,48 @@
+// stylelint-disable
+
 // Colors
 $black: #000000;
 $darkGrey: #414141;
 $lightGrey: #dcdcdc;
 $white: #ffffff;
-$blue: #57a3e8;
+$blue: #4a94c3;
 
 // Breakpoints
 $mobile-breakpoint: 50em;
 
-// Typography
-$font-main: 'IBM Plex Sans, sans-serif';
-$font-code: 'monospace';
+// Sizing
+$page-width: 50rem;
+$main-vertical-margin: 0rem;
+$main-vertical-padding: 1rem;
 
-@mixin bodyFont() {
-  font-family: $fonts-main;
+// Typography
+@mixin body-font() {
+  font-family: var(--font-main), sans-serif;
   font-size: 125%;
   line-height: 1.5;
 }
 
-@mixin titleFont() {
+@mixin title-font() {
   font-size: 1.75rem;
   line-height: 1.5;
   @media (min-width: $mobile-breakpoint) {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
 
-@mixin subtitleFont() {
+@mixin subtitle-font() {
   font-size: 1.25rem;
   line-height: 1.5;
   @media (min-width: $mobile-breakpoint) {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 }
 
-@mixin codeFont() {
+@mixin code-font() {
   font-size: 0.8em;
-  font-family: $fonts-code;
+  font-family: monospace;
 }
 
-@mixin smallFont() {
+@mixin small-font() {
   font-size: 0.8rem;
 }

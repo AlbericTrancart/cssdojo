@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-import { getSpacing } from 'stylesheet';
+import styles from './Image.module.scss';
 
 interface Props {
   src: string;
@@ -7,22 +6,10 @@ interface Props {
   caption?: string;
 }
 
-const Figure = styled.figure`
-  margin: ${getSpacing(3)} 0;
-  text-align: center;
-`;
-
-const Caption = styled.figcaption`
-  font-style: italic;
-`;
-
-const BaseImage = styled.img`
-  max-width: 100%;
-`;
-
 export const Image: React.FC<Props> = ({ src, alt, caption, ...rest }) => (
-  <Figure>
-    <BaseImage src={src} alt={alt} {...rest} />
-    {caption !== undefined && <Caption>{caption}</Caption>}
-  </Figure>
+  <figure className={styles['figure']}>
+    <img className={styles['image']} src={src} alt={alt} {...rest} />
+
+    {caption !== undefined && <figcaption className={styles['caption']}>{caption}</figcaption>}
+  </figure>
 );

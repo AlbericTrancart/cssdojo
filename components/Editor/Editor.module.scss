@@ -1,0 +1,75 @@
+@use 'stylesheet.scss' as style;
+
+.main-container {
+  margin: 2rem 0;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  @media (min-width: style.$mobile-breakpoint) {
+    width: 60rem;
+    position: relative;
+    left: -5rem;
+    flex-wrap: nowrap;
+  }
+}
+
+@mixin editor-styles() {
+  > * {
+    @include style.code-font;
+  }
+
+  /* stylelint-disable-next-line */
+  textarea,
+  pre {
+    /* stylelint-disable-next-line */
+    padding: 0 !important;
+  }
+}
+
+.editor-wrapper {
+  flex-basis: 100%;
+
+  @media (min-width: style.$mobile-breakpoint) {
+    flex-basis: 50%;
+    flex-shrink: 1;
+  }
+
+  @include editor-styles;
+}
+
+.preview-wrapper {
+  min-height: 10rem;
+  flex-basis: 100%;
+
+  @media (min-width: style.$mobile-breakpoint) {
+    flex-basis: 50%;
+    flex-shrink: 1;
+  }
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  margin: 1rem 0;
+  flex-shrink: 0;
+  background-color: style.$lightGrey;
+
+  @media (min-width: style.$mobile-breakpoint) {
+    width: 1px;
+    height: auto;
+    margin: 0 1rem;
+  }
+}
+
+.preview-frame {
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  border: none;
+  margin: 0;
+  padding: 0;
+}

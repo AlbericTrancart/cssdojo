@@ -3,8 +3,7 @@
 .container {
   background-color: style.$darkGrey;
   color: style.$white;
-  padding: 1.5rem 1rem;
-  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
 }
 
 .home-link {
@@ -17,13 +16,13 @@
 }
 
 .title {
-  @include style.titleFont;
+  @include style.title-font;
 
   margin: 0;
 }
 
 .description {
-  @include style.subtitleFont;
+  @include style.subtitle-font;
 
   margin: 0;
 }

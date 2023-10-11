@@ -1,53 +1,22 @@
+'use client';
+
 import React, { ReactNode } from 'react';
 import copy from 'copy-text-to-clipboard';
-import styled from 'styled-components';
-import { getSpacing, mobileBreakpoint, typography } from 'stylesheet';
+import classNames from 'classnames';
+import styles from './Layout.module.scss';
 
-export const PAGE_WIDTH = getSpacing(100);
-export const MAIN_VERTICAL_MARGIN = getSpacing(4);
-export const MAIN_VERTICAL_PADDING = getSpacing(2);
+interface TitleProps {
+  className?: string;
+  children: ReactNode;
+}
 
-export const PageContainer = styled.main`
-  max-width: ${PAGE_WIDTH};
-  margin: ${MAIN_VERTICAL_MARGIN} auto;
-  padding: ${MAIN_VERTICAL_PADDING};
-  @media (min-width: ${mobileBreakpoint}) {
-    margin-bottom: ${getSpacing(8)};
-  }
-`;
+export const Title: React.FC<TitleProps> = ({ children, className }) => (
+  <h1 className={classNames(styles['title'], className)}> {children}</h1>
+);
 
-export const HoverAnchor = styled.a`
-  visibility: hidden;
-  float: left;
-  text-decoration: none;
-
-  /* Line-height is 1.5em so center this way */
-  /* stylelint-disable-next-line */
-  font-size: 0.7em;
-  padding-top: 0.4em;
-  padding-right: 0.2em;
-  margin-left: calc(-0.2em - 2ch);
-`;
-
-export const Title = styled.h1`
-  position: relative;
-  ${typography.title}
-  margin: 0;
-`;
-
-export const BaseSubtitle = styled.h2`
-  position: relative;
-  ${typography.subtitle}
-  margin: 0;
-  margin-top: ${getSpacing(2)};
-
-  :hover ${HoverAnchor} {
-    visibility: visible;
-  }
-`;
-
-interface Props {
-  id: string;
+interface SubtitleProps {
+  id: string | null;
+  className?: string;
   children: ReactNode;
 }
 
@@ -57,11 +26,20 @@ const copyLink = (id: string) => {
   }
 };
 
-export const Subtitle: React.FC<Props> = ({ id, children }) => (
-  <BaseSubtitle id={id}>
-    <HoverAnchor href={`#${id}`} aria-hidden="true" onClick={() => copyLink(id)}>
-      🔗
-    </HoverAnchor>
+export const Subtitle: React.FC<SubtitleProps> = ({ id, className, children }) => (
+  <h2 id={id ?? undefined} className={classNames(styles['subtitle'], className)}>
+    {id !== null && (
+      <a
+        className={styles['subtitle-anchor']}
+        href={`#${id}`}
+        aria-hidden="true"
+        onClick={() => copyLink(id)}
+        title="Copy link to this section"
+      >
+        🔗
+      </a>
+    )}
+
     {children}
-  </BaseSubtitle>
+  </h2>
 );

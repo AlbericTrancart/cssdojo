@@ -1,3 +1,6 @@
+import { Metadata } from 'next';
+import { ReactNode } from 'react';
+
 export interface Page {
   url: (...params: string[]) => string;
   route: string;
@@ -62,5 +65,34 @@ export const PAGES = {
   },
 };
 
-export const getPageConfig = (route: string) =>
-  Object.values(PAGES).find((page) => route === page.route);
+export const generateTitleMetadata = (page: Page): Metadata => {
+  const title = `${page.title} | cssdojo`;
+
+  return {
+    title,
+    openGraph: {
+      title,
+      url: page.url(),
+      type: 'website',
+      locale: 'en_US',
+      description: '(re)learn CSS, the right way',
+      siteName: 'CSS Dojo',
+      images: [
+        {
+          url: 'https://cssdojo.dev/og-image.png',
+          alt: 'The CSS Dojo logo',
+          width: 512,
+          height: 512,
+        },
+      ],
+    },
+    twitter: {
+      title,
+      card: 'summary_large_image',
+      description: '(re)learn CSS, the right way',
+      images: [{ url: 'https://cssdojo.dev/og-image.png', alt: 'The CSS Dojo logo' }],
+    },
+  };
+};
+
+export const IndentityLayout = ({ children }: { children: ReactNode }) => children;

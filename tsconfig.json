@@ -20,7 +20,12 @@
     "jsx": "preserve",
     "sourceMap": true,
     "alwaysStrict": true,
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "exclude": [
     ".next",
@@ -31,6 +36,7 @@
     "**/*.ts",
     "**/*.tsx",
     "*/**.js",
-    "*.js"
+    "*.js",
+    ".next/types/**/*.ts"
   ]
 }

@@ -1,0 +1,11 @@
+@use 'stylesheet.scss' as style;
+
+.container {
+  max-width: style.$page-width;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+  text-decoration: italic;
+  text-align: center;
+
+  @include style.small-font;
+}

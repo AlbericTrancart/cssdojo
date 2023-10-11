@@ -1,34 +1,19 @@
+'use client';
+
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { Title } from 'components/Layout';
 import { Link } from 'components/Link';
 import { Checkbox } from 'components/Checkbox';
 import { SKILLS } from 'services/skills';
 import { PAGES } from 'services/pages';
+import styles from './SkillsList.module.scss';
 
 const LOCAL_STORAGE_KEY = 'skillslist';
 
 interface SkillsList {
   [key: string]: boolean;
 }
-
-const Form = styled.form``;
-
-const Fieldset = styled.fieldset`
-  border: none;
-  margin: 0;
-  padding: 0;
-`;
-
-const Legend = styled.legend`
-  font-weight: bold;
-`;
-
-const Label = styled.label`
-  display: block;
-  margin-top: 1rem;
-`;
 
 const SkillsListPage: NextPage = () => {
   const [skillsListState, setSkillsListState] = useState<SkillsList>({});
@@ -72,22 +57,22 @@ const SkillsListPage: NextPage = () => {
           </Link>
         </p>
 
-        <Form>
-          <Fieldset>
-            <Legend>
+        <form>
+          <fieldset className={styles['fieldset']}>
+            <legend className={styles['legend']}>
               Tick a box only if you are able to explain the concept clearly to someone else.
-            </Legend>
+            </legend>
             {SKILLS.map(({ id, skill, kataUrl }) => (
-              <Label key={id}>
+              <label key={id} className={styles['label']}>
                 <Checkbox
                   checked={isChecked(id)}
                   onChange={(checked) => toggleSkill(id, checked)}
                 />{' '}
                 {skill} <Link href={kataUrl}>(Go to kata)</Link>
-              </Label>
+              </label>
             ))}
-          </Fieldset>
-        </Form>
+          </fieldset>
+        </form>
       </section>
     </>
   );

@@ -1,0 +1,46 @@
+@use 'stylesheet.scss' as style;
+
+// We are resetting base HTML styles, using HTML tags is OK here
+// stylelint-disable
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+main {
+  display: block;
+}
+
+html {
+  height: 100vh;
+  color: style.$darkGrey;
+  padding: 0;
+  margin: 0;
+
+  @include style.body-font;
+}
+
+body,
+#__next {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+input::-ms-clear {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+dl {
+  margin: 0;
+}

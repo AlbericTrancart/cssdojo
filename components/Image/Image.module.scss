@@ -1,0 +1,14 @@
+@use 'stylesheet.scss' as style;
+
+.figure {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.caption {
+  font-style: italic;
+}
+
+.image {
+  max-width: 100%;
+}

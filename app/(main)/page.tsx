@@ -1,50 +1,26 @@
+'use client';
+
 import BaseEditor from 'react-simple-code-editor';
 import { NextPage } from 'next';
-import styled from 'styled-components';
 import { highlight, languages } from 'prismjs';
 import { useState } from 'react';
-import { editorStyles, previewBaseContent, PreviewFrame } from 'components/Editor';
+import { previewBaseContent } from 'components/Editor';
 import { Subtitle } from 'components/Layout';
 import { Link } from 'components/Link';
 import { Page, PAGES } from 'services/pages';
-import { getSpacing, mobileBreakpoint } from 'stylesheet';
 import { Button } from 'components/Button';
+import editorStyles from 'components/Editor/Editor.module.scss';
+import styles from './Home.module.scss';
 
 interface Props {
   page: Page;
 }
+
 const Kata: React.FC<Props> = ({ page }) => (
   <li>
     <Link href={page.url()}>{page.title}</Link>
   </li>
 );
-
-const CalloutWrapper = styled.div`
-  display: flex;
-  gap: ${getSpacing(2)};
-  flex-wrap: wrap;
-  @media (min-width: ${mobileBreakpoint}) {
-    flex-wrap: nowrap;
-  }
-
-  & > * {
-    @media (min-width: ${mobileBreakpoint}) {
-      flex-grow: 1;
-      flex-basis: 50%;
-      flex-shrink: 1;
-    }
-  }
-  min-height: 160px;
-`;
-const EditorWrapper = styled.div`
-  ${editorStyles}
-`;
-const SolutionWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`;
 
 const Home: NextPage = () => {
   const [showChallengeSolution, setShowChallengeSolution] = useState(false);
@@ -60,27 +36,31 @@ const Home: NextPage = () => {
   return (
     <>
       <section>
-        <Subtitle id="introduction">Why CSS Sometimes Sucks</Subtitle>
+        <Subtitle id={null}>Why CSS Sometimes Sucks</Subtitle>
 
         <p>
           Can you predict with 100% confidence what will be the visual result of the following code?
         </p>
-        <CalloutWrapper>
-          <EditorWrapper>
+        <div className={styles['callout-wrapper']}>
+          <div className={styles['editor-wrapper']}>
             <BaseEditor
               value={code}
               highlight={(codeToHighlight) => highlight(codeToHighlight, languages.html, 'html')}
               onValueChange={(value) => setCode(value)}
             />
-          </EditorWrapper>
-          <SolutionWrapper>
+          </div>
+          <div className={styles['solution-wrapper']}>
             {showChallengeSolution ? (
-              <PreviewFrame srcDoc={`${previewBaseContent}${code}`} />
+              <iframe
+                title="Live code editor preview"
+                className={editorStyles['preview-frame']}
+                srcDoc={`${previewBaseContent}${code}`}
+              />
             ) : (
               <Button onClick={() => setShowChallengeSolution(true)}>Show solution</Button>
             )}
-          </SolutionWrapper>
-        </CalloutWrapper>
+          </div>
+        </div>
 
         <p>
           CSS can be frustrating because it relies on rules and concepts we usually don’t learn and
@@ -119,7 +99,7 @@ const Home: NextPage = () => {
       </section>
 
       <section>
-        <Subtitle id="basics">Basics</Subtitle>
+        <Subtitle id={null}>Basics</Subtitle>
 
         <p>How to style the UI elements themselves.</p>
 
@@ -134,13 +114,13 @@ const Home: NextPage = () => {
       </section>
 
       <section>
-        <Subtitle id="layouts">Layouts</Subtitle>
+        <Subtitle id={null}>Layouts</Subtitle>
 
         <p>How to arrange the UI elements between each other.</p>
 
         <ol>
-          <li>The Flow layout (part 2) - Overflowing content and floats</li>
-          <li>The Flow layout (part 3) - Position and z-index</li>
+          <li>Position and z-index</li>
+          <li>Overflowing content</li>
           <li>The Flex layout</li>
           <li>The Grid layout</li>
           <li>The Table layout</li>
@@ -149,7 +129,7 @@ const Home: NextPage = () => {
       </section>
 
       <section>
-        <Subtitle id="advanced-css">Advanced CSS</Subtitle>
+        <Subtitle id={null}>Advanced CSS</Subtitle>
 
         <p>
           Although this part will use some Javascript, no previous knowledge of frameworks such as
@@ -158,16 +138,15 @@ const Home: NextPage = () => {
 
         <ol>
           <li>Animations</li>
-          <li>Styled Components (CSS in JS)</li>
-          <li>How to organize your CSS</li>
+          <li>CSS-in-JS</li>
           <li>Best practices and Stylelint</li>
           <li>How to choose your CSS tooling</li>
           <li>How to refactor legacy CSS</li>
         </ol>
       </section>
 
-      <section>
-        <Subtitle id="own-design-system">Your own design system</Subtitle>
+      {/* <section>
+        <Subtitle id={null}>Your own design system</Subtitle>
 
         <p>
           This part is more a sandbox to practice all the concepts that you learned in the previous
@@ -186,7 +165,7 @@ const Home: NextPage = () => {
           <li>Design a Modal</li>
           <li>Design a Tab navigation system</li>
         </ol>
-      </section>
+      </section> */}
     </>
   );
 };

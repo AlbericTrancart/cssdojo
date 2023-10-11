@@ -1,25 +1,12 @@
-import styled from 'styled-components';
-import BaseLink from 'next/link';
-import { colorPalette, getSpacing } from 'stylesheet';
-import { CustomLinkProps } from 'components/Link';
+import classNames from 'classnames';
+import { ComponentProps } from 'react';
+import { LinkComponentFactory } from 'components/Link';
+import styles from './Button.module.scss';
 
-export const Button = styled.button`
-  display: inline-block;
-  padding: ${getSpacing(1)} ${getSpacing(2)};
-  border: 1px solid ${colorPalette.darkGrey};
-  cursor: pointer;
-  background-color: transparent;
-  font: inherit;
-  color: inherit;
-  text-decoration: none;
-  text-align: center;
-`;
-
-export const Link: React.FC<CustomLinkProps> = ({ href, children, ...rest }) => (
-  <BaseLink href={href} passHref>
-    {/* @ts-expect-error Too lazy to find the right type */}
-    <Button as="a" {...rest}>
-      {children}
-    </Button>
-  </BaseLink>
+export const Button = ({ children, className, ...rest }: ComponentProps<'button'>) => (
+  <button className={classNames(className, styles['button'])} {...rest}>
+    {children}
+  </button>
 );
+
+export const ButtonLink = LinkComponentFactory(styles['button']);

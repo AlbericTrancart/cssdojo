@@ -1,0 +1,11 @@
+@use 'stylesheet.scss' as style;
+
+.main-container {
+  max-width: style.$page-width;
+  margin: style.$main-vertical-margin auto;
+  padding: style.$main-vertical-padding;
+
+  @media (min-width: style.$mobile-breakpoint) {
+    margin-bottom: 4rem;
+  }
+}

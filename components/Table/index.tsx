@@ -1,27 +1,33 @@
-import styled, { css } from 'styled-components';
-import { colorPalette, getSpacing } from 'stylesheet';
+import classNames from 'classnames';
+import { ComponentProps } from 'react';
+import styles from './Table.module.scss';
 
-export const Table = styled.table`
-  border-collapse: collapse;
-  width: 100%;
-`;
+export const Table = ({ children, className, ...rest }: ComponentProps<'table'>) => (
+  <table className={classNames(className, styles['table'])} {...rest}>
+    {children}
+  </table>
+);
 
-export const TableHeader = styled.thead``;
+export const TableHeader = ({ children, ...rest }: ComponentProps<'thead'>) => (
+  <thead {...rest}>{children}</thead>
+);
 
-export const TableBody = styled.tbody``;
+export const TableBody = ({ children, ...rest }: ComponentProps<'tbody'>) => (
+  <tbody {...rest}>{children}</tbody>
+);
 
-export const TableRow = styled.tr``;
+export const TableRow = ({ children, ...rest }: ComponentProps<'tr'>) => (
+  <tr {...rest}>{children}</tr>
+);
 
-const cellStyles = css`
-  text-align: left;
-  border: 1px solid ${colorPalette.lightGrey};
-  padding: ${getSpacing(1)} ${getSpacing(2)};
-`;
+export const TableHeaderCell = ({ children, className, ...rest }: ComponentProps<'th'>) => (
+  <th className={classNames(className, styles['table-header-cell'])} {...rest}>
+    {children}
+  </th>
+);
 
-export const TableHeaderCell = styled.th`
-  ${cellStyles}
-`;
-
-export const TableCell = styled.td`
-  ${cellStyles}
-`;
+export const TableCell = ({ children, className, ...rest }: ComponentProps<'td'>) => (
+  <td className={classNames(className, styles['table-cell'])} {...rest}>
+    {children}
+  </td>
+);

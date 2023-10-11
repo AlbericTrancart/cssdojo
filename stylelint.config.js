@@ -1,14 +1,7 @@
 module.exports = {
   plugins: ['stylelint-declaration-strict-value'],
-  processors: ['stylelint-processor-styled-components'],
-  extends: [
-    'stylelint-config-standard',
-    'stylelint-config-prettier',
-    'stylelint-config-styled-components',
-  ],
+  extends: ['stylelint-config-standard-scss', 'stylelint-config-prettier'],
   rules: {
-    // Giving false positives with styled-components
-    'value-keyword-case': null,
     'declaration-no-important': true,
     'selector-max-id': 0,
     'selector-max-class': 2,
