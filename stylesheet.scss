@@ -11,8 +11,8 @@ $blue: #278bca;
 $mobile-breakpoint: 50em;
 
 // Sizing
-$page-width: 50rem;
-$main-vertical-margin: 0rem;
+$page-width: 40rem;
+$main-vertical-margin: 1rem;
 $main-vertical-padding: 1rem;
 
 // Typography
@@ -25,17 +25,16 @@ $main-vertical-padding: 1rem;
 @mixin title-font() {
   font-size: 1.75rem;
   line-height: 1.5;
-  @media (min-width: $mobile-breakpoint) {
-    font-size: 2rem;
-  }
 }
 
 @mixin subtitle-font() {
   font-size: 1.25rem;
   line-height: 1.5;
-  @media (min-width: $mobile-breakpoint) {
-    font-size: 1.25rem;
-  }
+}
+
+@mixin subsubtitle-font() {
+  font-size: 1.15rem;
+  line-height: 1.5;
 }
 
 @mixin code-font() {

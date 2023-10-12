@@ -28,6 +28,7 @@ const copyLink = (id: string) => {
 
 export const Subtitle: React.FC<SubtitleProps> = ({ id, className, children }) => (
   <h2 id={id ?? undefined} className={classNames(styles['subtitle'], className)}>
+    {children}
     {id !== null && (
       <a
         className={styles['subtitle-anchor']}
@@ -39,7 +40,9 @@ export const Subtitle: React.FC<SubtitleProps> = ({ id, className, children }) =
         🔗
       </a>
     )}
-
-    {children}
   </h2>
+);
+
+export const Subsubtitle: React.FC<TitleProps> = ({ children, className }) => (
+  <h3 className={classNames(styles['subsubtitle'], className)}> {children}</h3>
 );

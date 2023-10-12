@@ -15,14 +15,16 @@
   @include style.subtitle-font;
 
   &-anchor {
-    float: left;
-    text-decoration: none;
-
-    /* Line-height is 1.5em so center this way */
     /* stylelint-disable-next-line */
     font-size: 0.7em;
-    padding-top: 0.4em;
-    padding-right: 0.2em;
-    margin-left: calc(-0.2em - 2ch);
+    text-decoration: none;
+    margin-left: 1ch;
   }
+}
+
+.subsubtitle {
+  @include style.subsubtitle-font;
+
+  margin: 0;
+  margin-top: 1rem;
 }

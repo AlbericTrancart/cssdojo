@@ -3,7 +3,7 @@
 import React from 'react';
 import { NextPage } from 'next';
 import { Title } from 'components/Layout';
-import { SKILLS } from 'services/skills';
+import { SKILLS_LIST } from 'services/skills';
 import styles from './Dojo.module.scss';
 import { ButtonLinks } from './ButtonLinks';
 
@@ -12,8 +12,8 @@ interface DojoProps {
 }
 
 const DojoKataPage: NextPage<DojoProps> = ({ params: { kataId } }) => {
-  const kata = SKILLS.find((skill) => skill.id === kataId)!;
-  const kataIndex = SKILLS.indexOf(kata);
+  const kata = SKILLS_LIST.find((skill) => skill.id === kataId)!;
+  const kataIndex = SKILLS_LIST.indexOf(kata);
 
   return (
     <section className={styles['dojo']}>
@@ -30,7 +30,7 @@ const DojoKataPage: NextPage<DojoProps> = ({ params: { kataId } }) => {
 
 export const getStaticPaths = async () =>
   Promise.resolve({
-    paths: SKILLS.map((skill) => ({ params: { kataId: skill.id } })),
+    paths: SKILLS_LIST.map((skill) => ({ params: { kataId: skill.id } })),
     fallback: false,
   });
 

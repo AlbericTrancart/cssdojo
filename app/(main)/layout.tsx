@@ -36,7 +36,7 @@ interface Props {
 const Layout = ({ children }: Props) => (
   <html lang="en" className={ibmPlexSans.variable}>
     <body>
-      <Header isHomepage={true} />
+      <Header />
 
       <main className={styles['main-container']}>{children}</main>
 

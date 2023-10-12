@@ -2,14 +2,13 @@
 
 import BaseEditor from 'react-simple-code-editor';
 import { NextPage } from 'next';
-import { StaticImageData } from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { highlight, languages } from 'prismjs';
 import { useState } from 'react';
 import theodoSponsorImage from 'public/sponsors/Theodo.svg';
 import { previewBaseContent } from 'components/Editor';
 import { Subtitle } from 'components/Layout';
 import { Link } from 'components/Link';
-import { Image } from 'components/Image';
 import { Page, PAGES } from 'services/pages';
 import { Button } from 'components/Button';
 import editorStyles from 'components/Editor/Editor.module.scss';
@@ -148,33 +147,15 @@ const Home: NextPage = () => {
         </ol>
       </section>
 
-      {/* <section>
-        <Subtitle id={null}>Your own design system</Subtitle>
-
-        <p>
-          This part is more a sandbox to practice all the concepts that you learned in the previous
-          parts. Keep doing the katas in order though!
-        </p>
-
-        <ol>
-          <li>Design a Link</li>
-          <li>Design a Button</li>
-          <li>Design a Table</li>
-          <li>Design an Input</li>
-          <li>Design Checkboxes/Radio buttons</li>
-          <li>Design a Select</li>
-          <li>Design a Dropdown Menu</li>
-          <li>Design a Tooltip</li>
-          <li>Design a Modal</li>
-          <li>Design a Tab navigation system</li>
-        </ol>
-      </section> */}
-
       <section>
         <Subtitle id={null}>Sponsors</Subtitle>
 
         <a href="https://www.theodo.fr/">
-          <Image src={theodoSponsorImage as StaticImageData} alt="Theodo" />
+          <Image
+            src={theodoSponsorImage as StaticImageData}
+            alt="Theodo"
+            className={styles['sponsor']}
+          />
         </a>
       </section>
     </>

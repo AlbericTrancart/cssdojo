@@ -27,6 +27,7 @@
     "tsconfig-paths-webpack-plugin": "^4.0.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/lodash": "^4.14.150",
     "@types/node": "^20.0.0",
     "@types/prismjs": "^1.16.1",

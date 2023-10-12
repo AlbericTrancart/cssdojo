@@ -3,6 +3,11 @@
 // We are resetting base HTML styles, using HTML tags is OK here
 // stylelint-disable
 
+@font-face {
+  font-family: 'Virgil';
+  src: url('https://excalidraw.com/Virgil.woff2');
+}
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,

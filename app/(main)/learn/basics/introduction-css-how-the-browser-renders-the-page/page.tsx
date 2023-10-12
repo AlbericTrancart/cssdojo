@@ -1,18 +1,71 @@
 import { NextPage } from 'next';
-import { Subtitle, Title } from 'components/Layout';
+import { Subsubtitle, Subtitle, Title } from 'components/Layout';
 import { Exercise } from 'components/Exercise';
 import { Image } from 'components/Image';
 import { Code } from 'components/Code';
 import { NextKataButton } from 'components/NextKataButton';
+import { KataQuestions } from 'components/KataQuestions';
 import { Link } from 'components/Link';
+import { Divider } from 'components/Divider';
 import { PAGES } from 'services/pages';
 import { Editor } from 'components/Editor';
-import cssRuleImage from './css-rule.png';
+import CssRuleImage from './css-rule.svg';
+import RenderProcessImage from './render-process.svg';
 import profilerImage from './profiler.png';
 
 const Kata: NextPage = () => (
   <>
     <Title>{PAGES.WhyCSSHowItWorks.title}</Title>
+
+    <section>
+      <p>
+        <strong>Welcome to cssdojo!</strong> This is the first{' '}
+        <Link
+          href="https://en.wikipedia.org/wiki/Kata"
+          target="_blank"
+          rel="noopener noreferer"
+          aria-label="What is a Kata on Wikipedia"
+        >
+          kata
+        </Link>
+        , so let me tell you how it works.
+      </p>
+      <p>
+        Each kata begins with a list of questions that will be addressed by the kata.
+        <br />
+        You can check the boxes to keep track of your progress and they will be saved on this
+        browser.{' '}
+        <strong>
+          Check the box only if you feel you can explain clearly the answer to another person.
+        </strong>{' '}
+        You will also find them in{' '}
+        <Link href={PAGES.SkillsList.url()}>the complete list of questions</Link>.
+      </p>
+
+      <p>
+        There will be <strong>live code editors</strong> embedded in the page: play with them as
+        long as you want!
+      </p>
+
+      <p>
+        At the end, there will be <strong>a short recap</strong> with the most important things to
+        remember. You can always go back to this kata later and check the questions/recap again.
+      </p>
+
+      <p>With that being said, let’s (re)learn CSS!</p>
+    </section>
+
+    <Divider />
+
+    <KataQuestions
+      skillIds={[
+        'introduction-css-browser-rendering-vocabulary',
+        'introduction-css-browser-rendering-include',
+        'introduction-css-browser-rendering-crp',
+        'introduction-css-browser-rendering-loading',
+        'introduction-css-browser-rendering-feature',
+      ]}
+    />
 
     <section>
       <Subtitle id="definitions">Definitions</Subtitle>
@@ -25,9 +78,10 @@ const Kata: NextPage = () => (
       <p>Some vocabulary first. When we write CSS, we write a lot of CSS rules:</p>
 
       <Image
-        src={cssRuleImage}
-        alt="A h1 rule with font-size and color declarations"
+        src={<CssRuleImage title="A h1 rule with font-size and color declarations" />}
+        alt=""
         caption="An example of CSS rule: make all the first-level titles red and big"
+        style={{ maxWidth: '20rem' }}
       />
 
       <dl>
@@ -82,11 +136,11 @@ const Kata: NextPage = () => (
         task="go ahead and try every way to include CSS!"
         initialCode={`<html>
   <head>
-    <!-- link this external stylesheet that changes the h1 tag -->
+    <!-- link this stylesheet that changes the h1 tag by using the href HTML attribute -->
     <!-- /learn/basics/introduction-css-how-the-browser-renders-the-page/style.css -->
     <link href="" rel="stylesheet" type="text/css" />
 
-    <!-- Make the <p> blue by writing inside the <style> tag -->
+    <!-- Make the <p> "blue" by writing a CSS rule and the "color" property inside the <style> tag -->
     <style>
     </style>
   </head>
@@ -96,7 +150,7 @@ const Kata: NextPage = () => (
 
     <p>
         This is some text.
-        <!-- Make the important text red by adding to the style HTML attribute -->
+        <!-- Make the important text "red" by adding the "color" property to the style HTML attribute -->
         <strong style="font-size: 1.2em;">
           This is important.
         </strong>
@@ -240,33 +294,49 @@ const Kata: NextPage = () => (
         but there are two main caveats:{' '}
       </p>
 
-      <ul>
-        <li>
-          <strong>The CSS is render-blocking.</strong> The DOM tree is built incrementally as the
-          browser receives the HTML over the network, but this is not the case with CSSOM. If the
-          CSSOM and render tree were built and rendered incrementally, we would see the page build
-          itself and flash every microsecond as the CSS is read. This is not good for user
-          experience nor optimal. Thus when the browser encounters a <Code>&lt;style&gt;</Code> tag
-          or an external CSS file, the CSSOM is built in one go.{' '}
-          <strong>
-            Until the whole CSS file is parsed, the render tree construction will be blocked.
-          </strong>{' '}
-          The browser will continue to parse the DOM but nothing will appear on screen until the
-          stylesheet is downloaded and parsed.
-        </li>
-        <li>
-          <strong>The CSS is script-blocking.</strong> Javascript can manipulate the DOM and access
-          the styles of any element throught the <Code>style</Code> object of every DOM node. Thus,
-          it is dangerous to execute Javascript while a stylesheet is being downloaded. Imagine that
-          a script reads a <Code>style</Code> value while a stylesheet download is in progress.
-          Depending on when the stylesheet download finishes and the CSSOM update completes, the
-          value may or may not be outdated.{' '}
-          <strong>
-            To prevent race conditions, all script execution is paused until every previous
-            stylesheet in the DOM is downloaded and parsed.
-          </strong>
-        </li>
-      </ul>
+      <Subsubtitle>CSS is render-blocking</Subsubtitle>
+
+      <p>
+        The DOM tree is built incrementally as the browser receives the HTML over the network, but
+        this is not the case with CSSOM. If the CSSOM and render tree were built and rendered
+        incrementally, we would see the page build itself and flash every microsecond as the CSS is
+        read. This is not good for user experience nor optimal. Thus when the browser encounters a{' '}
+        <Code>&lt;style&gt;</Code> tag or an external CSS file, the CSSOM is built in one go.{' '}
+      </p>
+
+      <p>
+        <strong>
+          Until the whole CSS file is parsed, the render tree construction will be blocked.
+        </strong>{' '}
+        The browser will continue to parse the DOM but nothing will appear on screen until the
+        stylesheet is downloaded and parsed.
+      </p>
+
+      <Subsubtitle>CSS is script-blocking</Subsubtitle>
+
+      <p>
+        Javascript can manipulate the DOM and access the styles of any element throught the{' '}
+        <Code>style</Code> object of every DOM node. Thus, it is dangerous to execute Javascript
+        while a stylesheet is being downloaded.
+      </p>
+
+      <p>
+        Imagine that a script reads a <Code>style</Code> value while a stylesheet download is in
+        progress. Depending on when the stylesheet download finishes and the CSSOM update completes,
+        the value may or may not be outdated.{' '}
+        <strong>
+          To prevent race conditions, all script execution is paused until every previous stylesheet
+          in the DOM is downloaded and parsed.
+        </strong>
+      </p>
+
+      <Image
+        src={
+          <RenderProcessImage title="A schema showing all the steps to the First Contentful Paint" />
+        }
+        alt=""
+        caption="Timeline of the rendering process until the First Contentful Paint"
+      />
 
       <p>
         Let that sink in.{' '}

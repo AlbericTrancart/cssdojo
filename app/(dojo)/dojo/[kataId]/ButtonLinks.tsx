@@ -3,7 +3,7 @@
 import { useHotkeys } from 'react-hotkeys-hook';
 import { ButtonLink } from 'components/Button';
 import { PAGES } from 'services/pages';
-import { SKILLS } from 'services/skills';
+import { SKILLS_LIST } from 'services/skills';
 import styles from './Dojo.module.scss';
 
 interface Props {
@@ -18,7 +18,7 @@ export const ButtonLinks: React.FC<Props> = ({ kataIndex, kataUrl }) => {
     }
   });
   useHotkeys('right', () => {
-    if (kataIndex + 1 < SKILLS.length) {
+    if (kataIndex + 1 < SKILLS_LIST.length) {
       window.document.getElementById('nextLink')?.click();
     }
   });
@@ -26,7 +26,7 @@ export const ButtonLinks: React.FC<Props> = ({ kataIndex, kataUrl }) => {
   return (
     <div className={styles['buttons-wrapper']}>
       {kataIndex > 0 && (
-        <ButtonLink id="previousLink" href={PAGES.Dojo.url(SKILLS[kataIndex - 1].id)}>
+        <ButtonLink id="previousLink" href={PAGES.Dojo.url(SKILLS_LIST[kataIndex - 1].id)}>
           Previous question
         </ButtonLink>
       )}
@@ -37,8 +37,8 @@ export const ButtonLinks: React.FC<Props> = ({ kataIndex, kataUrl }) => {
 
       <ButtonLink href={PAGES.Home.url()}>Go to home</ButtonLink>
 
-      {kataIndex + 1 < SKILLS.length && (
-        <ButtonLink id="nextLink" href={PAGES.Dojo.url(SKILLS[kataIndex + 1].id)}>
+      {kataIndex + 1 < SKILLS_LIST.length && (
+        <ButtonLink id="nextLink" href={PAGES.Dojo.url(SKILLS_LIST[kataIndex + 1].id)}>
           Next question
         </ButtonLink>
       )}

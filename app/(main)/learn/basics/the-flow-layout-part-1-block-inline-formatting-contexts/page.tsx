@@ -1,5 +1,4 @@
 import { NextPage } from 'next';
-import { StaticImageData } from 'next/image';
 import { Subtitle, Title } from 'components/Layout';
 import { Code } from 'components/Code';
 import { Link } from 'components/Link';
@@ -16,7 +15,7 @@ import {
   TableHeaderCell,
   TableRow,
 } from 'components/Table';
-import typographyImage from 'app/(main)/learn/basics/styling-text-custom-fonts/typography.svg';
+import TypographyImage from 'app/(main)/learn/basics/styling-text-custom-fonts/typography.svg';
 import anonymousBoxImage from './anonymous-box.png';
 import layoutsImage from './layouts.png';
 import formattingContextsImage from './formatting-contexts.png';
@@ -686,8 +685,10 @@ div {
       </p>
 
       <Image
-        src={typographyImage as StaticImageData}
-        alt="A lorem ipsum text with arrows pointing to different characteristics of a line of text"
+        src={
+          <TypographyImage title="A lorem ipsum text with arrows pointing to different characteristics of a line of text" />
+        }
+        alt=""
         aria-describedby="typography-schema-description"
         caption="Schema of a line of text and related CSS properties"
       />

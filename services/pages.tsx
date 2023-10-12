@@ -63,7 +63,7 @@ export const PAGES = {
     route: '/learn/layouts/the-flow-layout-part-2-overflowing-content-floats',
     title: 'The Flow layout (part 2) - Overflowing content and floats',
   },
-};
+} satisfies { [key: string]: Page };
 
 export const generateTitleMetadata = (page: Page): Metadata => {
   const title = `${page.title} | cssdojo`;
