@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { Subtitle, Title } from 'components/Layout';
+import { Subsubtitle, Subtitle, Title } from 'components/Layout';
 import { Exercise } from 'components/Exercise';
 import { Image } from 'components/Image';
 import { Code } from 'components/Code';
@@ -7,7 +7,8 @@ import { Link } from 'components/Link';
 import { NextKataButton } from 'components/NextKataButton';
 import { PAGES } from 'services/pages';
 import { Editor } from 'components/Editor';
-import cssSpecifictyWarsImage from './css-specificity-wars.png';
+import { Summary } from 'components/Summary';
+import SpecificityExamples from './specificity-examples.svg';
 import simpleSelectorsImage from './simple-selectors.png';
 
 const Kata: NextPage = () => (
@@ -91,20 +92,19 @@ const Kata: NextPage = () => (
       </p>
 
       <p>
-        Type selectors are in fact a bit too broad as they select all HTML tags of this type. It was
-        great when web pages were light and small, but today web pages contain a lot of elements
-        with rich UI interfaces. For instance, writing a rule with the <Code>a</Code> selector will
-        impact the look of your links in the navigation menu, in your main content and in your
-        footer. <em>Everywhere on every page.</em> Furthermore, the style is easier to reuse with a
-        class. What about styling a link that looks like a button? Use the <Code>.button</Code>{' '}
-        class on the <Code>a</Code> tag when you need to. So{' '}
+        Type selectors are a bit too broad as they select all HTML tags of this type. It was great
+        when web pages were light and small, but today web pages contain a lot of elements with rich
+        UI interfaces. For instance, writing a rule with the <Code>a</Code> selector will impact the
+        look of your links in the navigation menu, in your main content and in your footer.{' '}
+        <em>Everywhere on every page.</em> Furthermore, the style is easier to reuse with a class.
+        What about styling a link that looks like a button? Use the <Code>.button</Code> class on
+        the <Code>a</Code> tag when you need to. So{' '}
         <strong>use class selectors instead of type selectors</strong>.
       </p>
 
       <p>
         Attribute selectors are a bit of a niche, usually it is more efficient to add a class than a
-        custom HTML attribute that may lead into invalid HTML. You got it,{' '}
-        <strong>use classes whenever possible.</strong>
+        custom HTML attribute. You got it, <strong>use classes whenever possible.</strong>
       </p>
     </section>
 
@@ -354,8 +354,16 @@ const Kata: NextPage = () => (
 
       <ul>
         <li>
-          Inline style beats ID selectors. ID selectors are more specific than classes and
-          pseudo-classes. Classes and pseudo-classes win over type and pseudo-elements selectors.
+          Here is the selectors hierarchy:
+          <ul>
+            <li>Inline style beats ID selectors.</li>
+            <li>ID selectors are more specific than classes and pseudo-classes.</li>
+            <li>Classes and pseudo-classes win over type and pseudo-elements selectors.</li>
+            <li>
+              The universal selector (<Code>*</Code>) and combinators (<Code>&gt;</Code>,{' '}
+              <Code>:not()</Code>) have no impact on specificity.
+            </li>
+          </ul>
         </li>
         <li>
           A more specific selector beats any number of less specific selectors. For instance,{' '}
@@ -368,6 +376,10 @@ const Kata: NextPage = () => (
         <li>If two selectors have the same specificity, the last rule read by the browser wins.</li>
       </ul>
 
+      <Subsubtitle>
+        The <Code>!important</Code> keyword
+      </Subsubtitle>
+
       <p>
         Although <Code>!important</Code> has nothing to do with the specificity of a selector, it is
         good to know that a declaration using <Code>!important</Code> overrides any normal
@@ -376,19 +388,24 @@ const Kata: NextPage = () => (
       </p>
 
       <p>
+        A valid use case of the <Code>!important</Code> keyword is to override design libraries
+        using very specific selectors that you have no control over.
+      </p>
+
+      <Subsubtitle>Examples</Subsubtitle>
+
+      <p>
         Here is a good website to compute the specificity of a selector:{' '}
-        <Link href="https://specificity.keegan.st/">Specificity Calculator</Link>. Below is a chart
-        to recap all these rules (taken from this{' '}
-        <Link href="https://stuffandnonsense.co.uk/archives/css_specificity_wars.html">
-          funny post about specificity
-        </Link>
-        ).
+        <Link href="https://specificity.keegan.st/">Specificity Calculator</Link>. Below are some
+        examples combining different selectors that we’ve seen:
       </p>
 
       <Image
-        src={cssSpecifictyWarsImage}
-        alt="Comparison between specificity of selectors and Star Wars characters"
-        caption="Will you be that evil?"
+        src={
+          <SpecificityExamples title="Example comparing the specificity of different selectors" />
+        }
+        alt=""
+        caption="Specificity examples"
       />
 
       <p>
@@ -402,8 +419,8 @@ const Kata: NextPage = () => (
         task="aside from the fact that this design is ugly, refactor the code with what we’ve seen so far to use only classes for the same design"
         initialCode={`<style>
   a { color: blue; }
-  #article { color: grey; }
-  #article a:hover { color: yellow !important; }
+  #article { color: black; }
+  #article a:hover { color: green !important; }
 </style>
 
 <a>This is a link</a>
@@ -414,8 +431,8 @@ const Kata: NextPage = () => (
 </article>`}
         solution={`<style>
   .link { color: blue; }
-  .article { color: grey; }
-  .article .link:hover { color: yellow; }
+  .article { color: black; }
+  .article .link:hover { color: green; }
   .link.next-article-link { color: red; }
 </style>
 
@@ -428,9 +445,15 @@ const Kata: NextPage = () => (
       />
 
       <p>
-        In fact, you can build whole websites without going further than a specificity of 2 classes
-        and a pseudo-class. Let me demonstrate that. When you select an element, you want to either:
+        In fact,{' '}
+        <strong>
+          you can build whole websites without going further than a specificity of 2 classes and a
+          pseudo-class.
+        </strong>{' '}
+        Let me demonstrate that.
       </p>
+
+      <p>When you select an element, you want to either:</p>
 
       <ul>
         <li>Select it directly (class)</li>
@@ -567,6 +590,8 @@ const Kata: NextPage = () => (
       </ul>
 
       <NextKataButton href={PAGES.CSSUnitsVariables.url()} />
+
+      <Summary src="/learn/basics/selectors-specificity/css-selectors-specificity-summary.png" />
     </section>
   </>
 );
