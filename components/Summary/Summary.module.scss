@@ -1,19 +1,29 @@
+@use 'stylesheet.scss' as style;
+
 .container {
-  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media (min-width: style.$mobile-breakpoint) {
+    grid-template-columns: 1fr 2fr;
+  }
 }
 
-.button {
-  border: 0;
-  background: none;
-  width: 100%;
-
-  &:hover {
-    cursor: pointer;
-    opacity: 0.75;
-  }
+.callout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .image {
   width: 100%;
   height: auto;
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.75;
+  }
 }

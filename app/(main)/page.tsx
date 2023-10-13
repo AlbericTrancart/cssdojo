@@ -2,10 +2,9 @@
 
 import BaseEditor from 'react-simple-code-editor';
 import { NextPage } from 'next';
-import Image, { StaticImageData } from 'next/image';
 import { highlight, languages } from 'prismjs';
 import { useState } from 'react';
-import theodoSponsorImage from 'public/sponsors/Theodo.svg';
+import TheodoSponsorImage from 'public/sponsors/Theodo.svg';
 import { previewBaseContent } from 'components/Editor';
 import { Subtitle } from 'components/Layout';
 import { Link } from 'components/Link';
@@ -151,11 +150,7 @@ const Home: NextPage = () => {
         <Subtitle id={null}>Sponsors</Subtitle>
 
         <a href="https://www.theodo.fr/">
-          <Image
-            src={theodoSponsorImage as StaticImageData}
-            alt="Theodo"
-            className={styles['sponsor']}
-          />
+          <TheodoSponsorImage title="Theodo" className={styles['sponsor']} />
         </a>
       </section>
     </>
