@@ -8,6 +8,11 @@ export interface Page {
 }
 
 export const PAGES = {
+  NotFound: {
+    url: () => '/404',
+    route: '/404',
+    title: 'Page not found',
+  },
   Home: {
     url: () => '/',
     route: '/',
