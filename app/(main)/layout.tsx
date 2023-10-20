@@ -42,19 +42,14 @@ const Layout = ({ children }: Props) => (
 
       <Footer />
 
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-YYCZ0NZV0L"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics">
         {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', 'G-YYCZ0NZV0L');
-            `}
+          window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+          ga('create', 'G-YYCZ0NZV0L', 'auto');
+          ga('send', 'pageview');
+        `}
       </Script>
+      <Script src="https://www.google-analytics.com/analytics.js" />
     </body>
   </html>
 );

@@ -1,5 +1,10 @@
 module.exports = {
-  extends: ['eslint:recommended', 'plugin:prettier/recommended', 'plugin:import/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:prettier/recommended',
+    'plugin:import/recommended',
+    'next/core-web-vitals',
+  ],
   env: {
     browser: true,
     es6: true,

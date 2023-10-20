@@ -75,6 +75,7 @@ export const generateTitleMetadata = (page: Page): Metadata => {
 
   return {
     title,
+    metadataBase: new URL('https://cssdojo.dev'),
     openGraph: {
       title,
       url: page.url(),
