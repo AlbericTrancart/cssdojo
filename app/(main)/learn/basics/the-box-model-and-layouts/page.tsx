@@ -6,6 +6,7 @@ import { Code } from 'components/Code';
 import { Link } from 'components/Link';
 import { NextKataButton } from 'components/NextKataButton';
 import { Editor } from 'components/Editor';
+import { KataQuestions } from 'components/KataQuestions';
 import { PAGES } from 'services/pages';
 import boxModelImage from './box-model.png';
 import devToolsImage from './devtools.png';
@@ -13,6 +14,16 @@ import devToolsImage from './devtools.png';
 const Kata: NextPage = () => (
   <>
     <Title>{PAGES.TheBoxModel.title}</Title>
+
+    <KataQuestions
+      skillIds={[
+        'box-model-definition',
+        'box-model-alternatives',
+        'box-model-layout',
+        'box-model-common-layouts',
+        'box-model-outer-inner-display',
+      ]}
+    />
 
     <section>
       <Subtitle id="definition">Definition</Subtitle>

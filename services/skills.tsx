@@ -101,21 +101,21 @@ export const SKILLS = {
     skill: 'What are the two possible box models?',
     kataUrl: PAGES.TheBoxModel.url() + '#i-broke-the-box-model',
   },
-  'flow-layout-definition': {
+  'box-model-layout': {
     skill: 'In CSS, what is a layout?',
-    kataUrl: PAGES.FlowLayout.url() + '#definition',
+    kataUrl: PAGES.TheBoxModel.url() + '#definition',
   },
-  'flow-layout-common-layouts': {
+  'box-model-common-layouts': {
     skill: 'What are the most common layouts?',
-    kataUrl: PAGES.FlowLayout.url() + '#definition',
+    kataUrl: PAGES.TheBoxModel.url() + '#definition',
   },
-  'flow-layout-formatting-contexts': {
-    skill: 'What are the formatting contexts?',
-    kataUrl: PAGES.FlowLayout.url() + '#definition',
-  },
-  'flow-layout-outer-inner-display': {
+  'box-model-outer-inner-display': {
     skill: 'What are the outer and inner display types?',
-    kataUrl: PAGES.FlowLayout.url() + '#mastering-formatting-contexts',
+    kataUrl: PAGES.TheBoxModel.url() + '#mastering-formatting-contexts',
+  },
+  'flow-layout-boxes': {
+    skill: 'How inline and block boxes are laid out in the Flow layout?',
+    kataUrl: PAGES.FlowLayout.url() + '#definition',
   },
   'flow-layout-block-formatting-context': {
     skill: 'What are the rules of the block formatting context?',

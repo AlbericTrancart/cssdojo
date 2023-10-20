@@ -47,14 +47,14 @@ export const PAGES = {
     title: 'CSS units and variables',
   },
   TheBoxModel: {
-    url: () => '/learn/basics/the-box-model',
-    route: '/learn/basics/the-box-model',
-    title: 'The Box Model',
+    url: () => '/learn/basics/the-box-model-and-layouts',
+    route: '/learn/basics/the-box-model-and-layouts',
+    title: 'The Box Model and Layouts',
   },
   FlowLayout: {
-    url: () => '/learn/basics/the-flow-layout-part-1-block-inline-formatting-contexts',
-    route: '/learn/basics/the-flow-layout-part-1-block-inline-formatting-contexts',
-    title: 'The Flow layout (part 1) - the block and inline formatting contexts',
+    url: () => '/learn/basics/the-flow-layout',
+    route: '/learn/basics/the-flow-layout',
+    title: 'The Flow layout',
   },
 
   // Layouts

@@ -6,12 +6,23 @@ import { Code } from 'components/Code';
 import { Editor } from 'components/Editor';
 import { Link } from 'components/Link';
 import { NextKataButton } from 'components/NextKataButton';
+import { KataQuestions } from 'components/KataQuestions';
 import { PAGES } from 'services/pages';
 import twitterProfileImage from './twitter-profile.png';
 
 const Kata: NextPage = () => (
   <>
     <Title>CSS units and variables</Title>
+
+    <KataQuestions
+      skillIds={[
+        'css-units-variables-units',
+        'css-units-variables-good-unit',
+        'css-units-variables-px-rem',
+        'css-units-variables-variables',
+        'css-units-variables-keywords',
+      ]}
+    />
 
     <p>
       One last step before learning new CSS properties: we must learn about various CSS units that

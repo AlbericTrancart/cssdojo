@@ -7,12 +7,22 @@ import { Link } from 'components/Link';
 import { NextKataButton } from 'components/NextKataButton';
 import { PAGES } from 'services/pages';
 import { Editor } from 'components/Editor';
+import { KataQuestions } from 'components/KataQuestions';
 import robotoFontFamilyImage from './roboto-font-family.png';
 import TypographyImage from './typography.svg';
 
 const Kata: NextPage = () => (
   <>
     <Title>{PAGES.StylingTextCustomFonts.title}</Title>
+
+    <KataQuestions
+      skillIds={[
+        'styling-text-custom-fonts-standard-font-size',
+        'styling-text-custom-fonts-include-fonts',
+        'styling-text-custom-fonts',
+        'styling-text-custom-fonts-variable-fonts',
+      ]}
+    />
 
     <section>
       <Subtitle id="basic-text-styling">Basic text styling</Subtitle>

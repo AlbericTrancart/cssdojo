@@ -1,3 +1,9 @@
+@use 'stylesheet.scss' as style;
+
 .question {
   display: block;
+}
+
+.link {
+  @include style.small-font;
 }

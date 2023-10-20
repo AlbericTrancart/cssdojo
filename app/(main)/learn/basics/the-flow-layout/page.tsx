@@ -6,7 +6,6 @@ import { Image } from 'components/Image';
 import { PAGES } from 'services/pages';
 import { Editor } from 'components/Editor';
 import { Exercise } from 'components/Exercise';
-import { NextKataButton } from 'components/NextKataButton';
 import {
   Table,
   TableBody,
@@ -15,6 +14,7 @@ import {
   TableHeaderCell,
   TableRow,
 } from 'components/Table';
+import { KataQuestions } from 'components/KataQuestions';
 import TypographyImage from 'app/(main)/learn/basics/styling-text-custom-fonts/typography.svg';
 import anonymousBoxImage from './anonymous-box.png';
 import layoutsImage from './layouts.png';
@@ -24,6 +24,15 @@ import innerOuterDisplayImage from './inner-outer-display.png';
 const Kata: NextPage = () => (
   <>
     <Title>{PAGES.FlowLayout.title}</Title>
+
+    <KataQuestions
+      skillIds={[
+        'flow-layout-boxes',
+        'flow-layout-block-formatting-context',
+        'flow-layout-margin-collapsing',
+        'flow-layout-inline-formatting-context',
+      ]}
+    />
 
     <p>
       <strong>Read this kata carefully.</strong> It may be the most important kata of the dojo as it
@@ -965,8 +974,6 @@ And here is another line. In the HTML it has an empty line before it, but it doe
           </ul>
         </li>
       </ul>
-
-      <NextKataButton href={PAGES.OverflowingContentFloats.url()} />
     </section>
   </>
 );
