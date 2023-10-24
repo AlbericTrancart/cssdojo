@@ -99,35 +99,39 @@ export const SKILLS = {
   },
   'box-model-alternatives': {
     skill: 'What are the two possible box models?',
-    kataUrl: PAGES.TheBoxModel.url() + '#i-broke-the-box-model',
+    kataUrl: PAGES.TheBoxModel.url() + '#box-sizing-property',
   },
   'box-model-layout': {
     skill: 'In CSS, what is a layout?',
-    kataUrl: PAGES.TheBoxModel.url() + '#definition',
+    kataUrl: PAGES.TheBoxModel.url() + '#layouts',
   },
   'box-model-common-layouts': {
     skill: 'What are the most common layouts?',
-    kataUrl: PAGES.TheBoxModel.url() + '#definition',
+    kataUrl: PAGES.TheBoxModel.url() + '#layouts',
   },
   'box-model-outer-inner-display': {
     skill: 'What are the outer and inner display types?',
-    kataUrl: PAGES.TheBoxModel.url() + '#mastering-formatting-contexts',
+    kataUrl: PAGES.TheBoxModel.url() + '#display',
+  },
+  'flow-layout-block-formatting-context': {
+    skill: 'What is a Block Formatting Context?',
+    kataUrl: PAGES.FlowLayout.url() + '#block-formatting-context',
   },
   'flow-layout-boxes': {
     skill: 'How inline and block boxes are laid out in the Flow layout?',
-    kataUrl: PAGES.FlowLayout.url() + '#definition',
+    kataUrl: PAGES.FlowLayout.url() + '#inline-block-boxes-grouping',
   },
-  'flow-layout-block-formatting-context': {
-    skill: 'What are the rules of the block formatting context?',
-    kataUrl: PAGES.FlowLayout.url() + '#block-formatting-context',
+  'flow-layout-block-formatting': {
+    skill: 'What are the rules of block formatting?',
+    kataUrl: PAGES.FlowLayout.url() + '#block-formatting',
   },
   'flow-layout-margin-collapsing': {
     skill: 'How does margin collapsing work?',
-    kataUrl: PAGES.FlowLayout.url() + '#block-formatting-context',
+    kataUrl: PAGES.FlowLayout.url() + '#block-formatting',
   },
-  'flow-layout-inline-formatting-context': {
-    skill: 'What are the rules of the inline formatting context?',
-    kataUrl: PAGES.FlowLayout.url() + '#inline-formatting-context',
+  'flow-layout-inline-formatting': {
+    skill: 'What are the rules of inline formatting?',
+    kataUrl: PAGES.FlowLayout.url() + '#inline-formatting',
   },
 } satisfies { [key: string]: Skill };
 

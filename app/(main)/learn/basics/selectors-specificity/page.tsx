@@ -593,7 +593,7 @@ const Kata: NextPage = () => (
         </li>
         <li>How specificity works.</li>
         <li>
-          <strong>A good selector has a low specificity and conveys the design intention</strong>
+          <strong>A good selector has a low specificity and conveys the design intention.</strong>
         </li>
       </ul>
 

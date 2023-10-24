@@ -17,7 +17,6 @@ import {
 import { KataQuestions } from 'components/KataQuestions';
 import TypographyImage from 'app/(main)/learn/basics/styling-text-custom-fonts/typography.svg';
 import anonymousBoxImage from './anonymous-box.png';
-import layoutsImage from './layouts.png';
 import formattingContextsImage from './formatting-contexts.png';
 import innerOuterDisplayImage from './inner-outer-display.png';
 
@@ -27,149 +26,45 @@ const Kata: NextPage = () => (
 
     <KataQuestions
       skillIds={[
-        'flow-layout-boxes',
         'flow-layout-block-formatting-context',
+        'flow-layout-boxes',
+        'flow-layout-block-formatting',
         'flow-layout-margin-collapsing',
-        'flow-layout-inline-formatting-context',
+        'flow-layout-inline-formatting',
       ]}
     />
 
     <p>
-      <strong>Read this kata carefully.</strong> It may be the most important kata of the dojo as it
-      addresses the most commonly misunderstood concepts of CSS and thus is one of the biggest
-      sources of CSS frustration.
+      <strong>
+        This may be the most important part of the dojo. The Flow layout is the default layout and
+        thus applies almost everywhere in a web page. By learning it correctly, many CSS
+        frustrations will disappear.
+      </strong>
     </p>
 
     <section>
-      <Subtitle id="definition">What is a layout?</Subtitle>
+      <Subtitle id="block-formatting-context">The Block Formatting Context (BFC)</Subtitle>
 
       <p>
-        So far, we’ve learned CSS properties to style <em>one</em> element and change its color,
-        width, font size... but web pages are made of hundreds, often thousands of elements.
-      </p>
-
-      <p>
-        <strong>
-          A <em>layout</em> is a set of rules and CSS properties that dictates how <em>multiple</em>{' '}
-          elements will interact between each other.
-        </strong>{' '}
-      </p>
-
-      <p>Let me list some implications of this definition:</p>
-
-      <ul>
-        <li>
-          A layout rules how CSS properties will interact. It may use specific CSS properties (such
-          as <Code>flex-direction</Code> for the <em>flex</em> layout),{' '}
-          <strong>
-            but it will also make use of standard properties (<Code>width</Code>,{' '}
-            <Code>margin</Code>...)
-          </strong>
-        </li>
-        <li>
-          Layout having different sets of rules, this means that a{' '}
-          <strong>
-            CSS value (such as <Code>width: auto;</Code>) can behave differently in the context of
-            different layouts
-          </strong>
-        </li>
-        <li>
-          It also means that some layout-specific properties (such as <Code>float</Code>) will be
-          completely useless in the context of other layouts
-        </li>
-        <li>
-          Layout rulesets can introduce very specific behaviors (such as <em>margin collapsing</em>)
-          that will <strong>not</strong> be transposed to other layouts
-        </li>
-        <li>Each CSS layout has its own CSS specification</li>
-      </ul>
-
-      <p>
-        <strong>You should see layouts as a toolbox</strong>: within the context of a layout, you’ll
-        be able to predict how elements will place next to each other. You don’t like a layout’s
-        ruleset? Change your toolbox and use another layout.
-      </p>
-
-      <p>
-        There are four main layouts: <em>flow</em> (the default one), <em>flex</em>, <em>grid</em>,
-        and <em>table</em>. There are others, but they are more anecdotic.{' '}
-        <strong>
-          As <em>flow</em> is the default layout and you won’t use <em>flex</em> on every single DOM
-          element ever, you <u>MUST</u> master it. <u>There is no way around it.</u> Let me repeat
-          that: <u>No. Way. Around. It.</u>
-        </strong>{' '}
-        This is the goal of this kata.
-      </p>
-
-      <p>
-        Other layouts will be addressed in the second part of the dojo. After learning all the main
-        layouts, you’ll have a good understanding of which one is the more adapted to your specific
-        case.
-      </p>
-
-      <p>
-        Again,{' '}
-        <strong>
-          a <em>layout</em> is a set of rules and CSS properties that dictates how <em>multiple</em>{' '}
-          elements will interact between each other.
-        </strong>{' '}
+        The Flow layout always happens in a{' '}
+        <Link href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context">
+          Block Formatting Context
+        </Link>
+        .
       </p>
     </section>
 
-    <section>
-      <Subtitle id="formatting-contexts">The formatting contexts</Subtitle>
+    {/*
 
-      <p>
-        Hold on to your butts, because this kata is probably the most difficult part of this whole
-        website but also the most important.
-      </p>
-
-      <p>
-        The <em>flow</em> layout introduces a concept: the formatting context. Think of it as a
-        mini-layout inside the <em>flow</em> layout. The spec says that there are two formatting
-        contexts in the <em>flow</em> layout:
-      </p>
-
-      <dl>
-        <dt>
-          <strong>The block formatting context</strong>
-        </dt>
-        <dd>
-          Block boxes are laid out vertically, one after the other, beginning at the top of a
-          containing block.
-        </dd>
-        <dt>
-          <strong>The inline formatting context</strong>
-        </dt>
-        <dd>
-          Inline boxes are laid out horizontally, one after the other, beginning at the top of a
-          containing block.
-        </dd>
-      </dl>
-
-      <p>
-        We’ll see how each formatting context works further down, but for now, keep in mind that
-        there are <em>block</em> and <em>inline</em> contexts.
-      </p>
-
-      <p>
+    <p>
         For this dojo, we will be working in English but take note that in other languages the
         writing mode of the page could change and invert the block and inline directions to
         horizontal and vertical respectively.
       </p>
+    */}
 
-      <p>Let’s sum up what we’ve learned:</p>
-
-      <Image
-        src={layoutsImage}
-        alt="A drawing showing the four main layouts and the formatting contexts under the flow layout"
-        caption="All important layouts"
-      />
-
-      <p>
-        <strong>How do I know which formatting context applies?</strong> This is one of the most
-        confusing parts of CSS, because it is <em>implicit</em>. There are four rules:
-      </p>
+    <section>
+      <Subtitle id="inline-block-boxes-grouping">Inline and block boxes grouping</Subtitle>
 
       <ol>
         <li>
@@ -599,7 +494,7 @@ This is some text that has a <div class="button">button</div> in the middle of i
     </section>
 
     <section>
-      <Subtitle id="block-formatting-context">The block formatting context</Subtitle>
+      <Subtitle id="block-formatting">The block formatting context</Subtitle>
 
       <p>
         Now that you know what are formatting contexts and where they apply, we can learn their
@@ -685,7 +580,7 @@ div {
     </section>
 
     <section>
-      <Subtitle id="inline-formatting-context">The inline formatting context</Subtitle>
+      <Subtitle id="inline-formatting">The inline formatting context</Subtitle>
 
       <p>
         Next, we learn the rules for the inline formatting context. Let’s bring up the schema from{' '}
