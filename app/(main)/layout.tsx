@@ -33,6 +33,8 @@ interface Props {
   children: React.ReactNode;
 }
 
+const ANALYTICS_ID = process.env.NEXT_PUBLIC_ANALYTICS_ID;
+
 const Layout = ({ children }: Props) => (
   <html lang="en" className={ibmPlexSans.variable}>
     <body>
@@ -42,14 +44,18 @@ const Layout = ({ children }: Props) => (
 
       <Footer />
 
-      <Script id="google-analytics">
-        {`
+      {ANALYTICS_ID !== undefined && ANALYTICS_ID !== '' && (
+        <>
+          <Script id="google-analytics">
+            {`
           window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-          ga('create', 'G-YYCZ0NZV0L', 'auto');
+          ga('create', '${ANALYTICS_ID}', 'auto');
           ga('send', 'pageview');
-        `}
-      </Script>
-      <Script src="https://www.google-analytics.com/analytics.js" />
+          `}
+          </Script>
+          <Script src="https://www.google-analytics.com/analytics.js" />
+        </>
+      )}
     </body>
   </html>
 );
