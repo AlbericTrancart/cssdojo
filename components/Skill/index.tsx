@@ -1,5 +1,6 @@
 'use client';
 
+import { event } from 'nextjs-google-analytics';
 import { useEffect, useState } from 'react';
 import { Link } from 'components/Link';
 import { Checkbox } from 'components/Checkbox';
@@ -42,6 +43,8 @@ export const Skill = ({ className, skillId, showKataLink }: Props) => {
     } catch {
       console.warn('There was an issue with local storage!');
     }
+
+    event('toggle_skill', { checked, skillId });
   };
 
   const skill = SKILLS[skillId];

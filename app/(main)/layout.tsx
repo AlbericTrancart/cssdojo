@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import { IBM_Plex_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
 import { Header } from 'components/Header';
@@ -7,6 +6,7 @@ import './global.scss';
 import 'prismjs/themes/prism-solarizedlight.css';
 import { generateTitleMetadata, PAGES } from 'services/pages';
 import styles from './MainLayout.module.scss';
+import { Analytics } from './Analytics';
 
 export const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin'],
@@ -33,8 +33,6 @@ interface Props {
   children: React.ReactNode;
 }
 
-const ANALYTICS_ID = process.env.NEXT_PUBLIC_ANALYTICS_ID;
-
 const Layout = ({ children }: Props) => (
   <html lang="en" className={ibmPlexSans.variable}>
     <body>
@@ -44,18 +42,7 @@ const Layout = ({ children }: Props) => (
 
       <Footer />
 
-      {ANALYTICS_ID !== undefined && ANALYTICS_ID !== '' && (
-        <>
-          <Script id="google-analytics">
-            {`
-          window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-          ga('create', '${ANALYTICS_ID}', 'auto');
-          ga('send', 'pageview');
-          `}
-          </Script>
-          <Script src="https://www.google-analytics.com/analytics.js" />
-        </>
-      )}
+      <Analytics />
     </body>
   </html>
 );
