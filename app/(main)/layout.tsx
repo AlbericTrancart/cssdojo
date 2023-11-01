@@ -24,7 +24,6 @@ export const metadata: Metadata = {
   applicationName: 'CSS Dojo',
   authors: [{ name: 'Albéric Trancart', url: 'https://alberic.trancart.net/' }],
   keywords: ['css', 'dojo', 'tutorial', 'learn', 'guide'],
-  themeColor: '#ffffff',
   icons: { icon: '/favicon-32x32.png', apple: '/apple-touch-icon.png' },
   manifest: '/site.webmanifest',
 };

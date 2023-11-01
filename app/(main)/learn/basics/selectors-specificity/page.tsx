@@ -7,7 +7,6 @@ import { Link } from 'components/Link';
 import { NextKataButton } from 'components/NextKataButton';
 import { PAGES } from 'services/pages';
 import { Editor } from 'components/Editor';
-import { Summary } from 'components/Summary';
 import { KataQuestions } from 'components/KataQuestions';
 import SpecificityExamples from './specificity-examples.svg';
 import simpleSelectorsImage from './simple-selectors.png';
@@ -600,7 +599,7 @@ const Kata: NextPage = () => (
 
       <NextKataButton href={PAGES.CSSUnitsVariables.url()} />
 
-      <Summary src="/learn/basics/selectors-specificity/css-selectors-specificity-summary.png" />
+      {/* <Summary src="/learn/basics/selectors-specificity/css-selectors-specificity-summary.png" /> */}
     </section>
   </>
 );
