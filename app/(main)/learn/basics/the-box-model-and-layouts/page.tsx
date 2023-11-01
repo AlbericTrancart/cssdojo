@@ -16,6 +16,7 @@ import {
   TableHeaderCell,
   TableRow,
 } from 'components/Table';
+import { KataRating } from 'components/KataRating';
 import BoxModelImage from './box-model.svg';
 import OuterInnerDisplayTypeImage from './outer-inner-display-type.svg';
 import BorderBoxModelImage from './border-box-model.svg';
@@ -477,6 +478,8 @@ const Kata: NextPage = () => (
           <em>inner display type</em> of the box.
         </li>
       </ul>
+
+      <KataRating kataId="box-model" />
 
       <NextKataButton href={PAGES.FlowLayout.url()} />
     </section>

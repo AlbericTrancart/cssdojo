@@ -7,6 +7,7 @@ import { PAGES } from 'services/pages';
 import { Editor } from 'components/Editor';
 import { Exercise } from 'components/Exercise';
 import { KataQuestions } from 'components/KataQuestions';
+import { KataRating } from 'components/KataRating';
 import TypographyImage from 'app/(main)/learn/basics/styling-text-custom-fonts/typography.svg';
 import anonymousBoxImage from './anonymous-box.png';
 import FlowLayoutImage from './flow-layout.svg';
@@ -771,6 +772,8 @@ And here is another line. In the HTML it has an empty line before it, but it doe
           </ul>
         </li>
       </ul>
+
+      <KataRating kataId="flow-layout" />
     </section>
   </>
 );

@@ -8,6 +8,6 @@ interface Props {
 
 export const NextKataButton: React.FC<Props> = ({ href }) => (
   <div className={styles['wrapper']}>
-    <ButtonLink href={href}>Go to the next kata!</ButtonLink>
+    <ButtonLink href={href}>Go to the next kata</ButtonLink>
   </div>
 );

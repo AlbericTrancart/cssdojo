@@ -9,6 +9,7 @@ import { Link } from 'components/Link';
 import { Divider } from 'components/Divider';
 import { PAGES } from 'services/pages';
 import { Editor } from 'components/Editor';
+import { KataRating } from 'components/KataRating';
 import CssRuleImage from './css-rule.svg';
 import RenderProcessImage from './render-process.svg';
 import profilerImage from './profiler.png';
@@ -411,6 +412,8 @@ const Kata: NextPage = () => (
           <Link href="https://caniuse.com">caniuse.com</Link>.
         </li>
       </ul>
+
+      <KataRating kataId="introduction-rendering" />
 
       <NextKataButton href={PAGES.SelectorsSpecificity.url()} />
     </section>

@@ -8,6 +8,7 @@ import { NextKataButton } from 'components/NextKataButton';
 import { PAGES } from 'services/pages';
 import { Editor } from 'components/Editor';
 import { KataQuestions } from 'components/KataQuestions';
+import { KataRating } from 'components/KataRating';
 import SpecificityExamples from './specificity-examples.svg';
 import simpleSelectorsImage from './simple-selectors.png';
 
@@ -596,6 +597,8 @@ const Kata: NextPage = () => (
           <strong>A good selector has a low specificity and conveys the design intention.</strong>
         </li>
       </ul>
+
+      <KataRating kataId="selectors-specificity" />
 
       <NextKataButton href={PAGES.CSSUnitsVariables.url()} />
 

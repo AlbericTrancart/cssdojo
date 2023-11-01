@@ -1,0 +1,10 @@
+@use 'stylesheet.scss' as style;
+
+.input {
+  border-radius: 0.1rem;
+  accent-color: style.$blue;
+  border: 1px solid style.$darkGrey;
+  padding: 0.25rem;
+  outline-offset: 2px;
+  font: inherit;
+}

@@ -8,6 +8,7 @@ import { NextKataButton } from 'components/NextKataButton';
 import { PAGES } from 'services/pages';
 import { Editor } from 'components/Editor';
 import { KataQuestions } from 'components/KataQuestions';
+import { KataRating } from 'components/KataRating';
 import robotoFontFamilyImage from './roboto-font-family.png';
 import TypographyImage from './typography.svg';
 
@@ -458,6 +459,8 @@ html {
         </li>
         <li>Variable fonts exists and will become the standard for loading font styles.</li>
       </ul>
+
+      <KataRating kataId="styling-text" />
 
       <NextKataButton href={PAGES.TheBoxModel.url()} />
     </section>

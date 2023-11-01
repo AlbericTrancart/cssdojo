@@ -7,6 +7,7 @@ import { Editor } from 'components/Editor';
 import { Link } from 'components/Link';
 import { NextKataButton } from 'components/NextKataButton';
 import { KataQuestions } from 'components/KataQuestions';
+import { KataRating } from 'components/KataRating';
 import { PAGES } from 'services/pages';
 import twitterProfileImage from './twitter-profile.png';
 
@@ -496,6 +497,8 @@ const Kata: NextPage = () => (
           <Code>unset</Code> resets it.
         </li>
       </ul>
+
+      <KataRating kataId="units-variables" />
 
       <NextKataButton href={PAGES.StylingTextCustomFonts.url()} />
     </section>

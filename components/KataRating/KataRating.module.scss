@@ -1,0 +1,85 @@
+@use 'stylesheet.scss' as style;
+
+.fieldset {
+  border: 1px solid style.$lightGrey;
+  border-left: none;
+  border-right: none;
+  padding: 1rem 0;
+
+  @media (min-width: style.$mobile-breakpoint) {
+    border: 1px solid style.$lightGrey;
+    border-radius: 0.25rem;
+    flex-wrap: 1rem;
+    padding: 1rem;
+  }
+}
+
+.legend {
+  padding-right: 0.5ch;
+
+  @media (min-width: style.$mobile-breakpoint) {
+    margin-left: -0.5ch;
+    padding-left: 0.5ch;
+  }
+}
+
+.rating-scale {
+  display: none;
+
+  @media (min-width: style.$mobile-breakpoint) {
+    display: block;
+  }
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+  align-items: end;
+}
+
+.rating-container {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-items: center;
+  text-align: center;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.heart {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+}
+
+.last-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media (min-width: style.$mobile-breakpoint) {
+    flex-wrap: nowrap;
+  }
+}
+
+.feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+
+  &-input {
+    flex-grow: 1;
+  }
+}
+
+.submit-container {
+  flex-grow: 1;
+  margin-top: 1rem;
+}
