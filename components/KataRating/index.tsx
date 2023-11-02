@@ -38,7 +38,6 @@ export const KataRating: React.FC<Props> = ({ kataId }) => {
   const [rating, setRating] = useState<number | ''>('');
   const [feedback, setFeedback] = useState<string>('');
   const [submitted, setSubmitted] = useState<boolean>(false);
-  console.log({ rating });
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -47,7 +46,7 @@ export const KataRating: React.FC<Props> = ({ kataId }) => {
     }
     setKataRating(kataId, rating);
 
-    event('kata_feedback', { kataId, rating, feedback });
+    event('kata_rating', { label: kataId, value: rating, feedback });
 
     setSubmitted(true);
   };

@@ -44,7 +44,7 @@ export const Skill = ({ className, skillId, showKataLink }: Props) => {
       console.warn('There was an issue with local storage!');
     }
 
-    event('toggle_skill', { checked, skillId });
+    event('toggle_skill', { label: skillId, value: checked ? 1 : 0 });
   };
 
   const skill = SKILLS[skillId];
