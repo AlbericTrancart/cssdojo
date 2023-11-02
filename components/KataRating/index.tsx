@@ -54,7 +54,7 @@ export const KataRating: React.FC<Props> = ({ kataId }) => {
 
   useEffect(() => {
     setRating(getKataRating(kataId));
-  }, []);
+  }, [kataId]);
 
   return (
     <form onSubmit={onSubmit}>

@@ -2,19 +2,13 @@
 @use 'components/Editor/Editor.module.scss' as editor;
 
 .callout-wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1rem;
-  flex-wrap: wrap;
   min-height: 8rem;
 
   @media (min-width: style.$mobile-breakpoint) {
-    flex-wrap: nowrap;
-  }
-
-  & > * {
-    @media (min-width: style.$mobile-breakpoint) {
-      flex-basis: 1 1 50%;
-    }
+    grid-template-columns: 1fr 1fr;
   }
 }
 

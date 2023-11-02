@@ -46,8 +46,6 @@ export const Editor: React.FC<Props> = ({ code, onChange }) => {
           />
         </div>
 
-        <div className={styles['divider']} />
-
         <div className={styles['preview-wrapper']}>
           <iframe
             title="Live code editor preview"
