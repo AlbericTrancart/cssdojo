@@ -4,6 +4,7 @@ import { event } from 'nextjs-google-analytics';
 import Image from 'next/image';
 import { Radio } from 'components/Radio';
 import { Textarea } from 'components/Input';
+import { getItem, setItem } from 'services/storage';
 import { Button } from 'components/Button';
 import styles from './KataRating.module.scss';
 import blueHeartImage from './blue-heart.png';
@@ -13,26 +14,6 @@ interface Props {
 }
 
 const options = [0, 1, 2, 3, 4, 5];
-
-const getKataRating = (kataId: string) => {
-  try {
-    const rating = localStorage.getItem(`k-${kataId}`);
-
-    return rating !== null ? parseInt(rating) : '';
-  } catch {
-    console.warn('There was an issue with local storage!');
-  }
-
-  return '';
-};
-
-const setKataRating = (kataId: string, rating: number) => {
-  try {
-    localStorage.setItem(`k-${kataId}`, rating.toString());
-  } catch {
-    console.warn('There was an issue with local storage!');
-  }
-};
 
 export const KataRating: React.FC<Props> = ({ kataId }) => {
   const [rating, setRating] = useState<number | ''>('');
@@ -44,7 +25,7 @@ export const KataRating: React.FC<Props> = ({ kataId }) => {
     if (rating === '') {
       return;
     }
-    setKataRating(kataId, rating);
+    setItem(`k-${kataId}`, rating.toString());
 
     event('kata_rating', { label: kataId, value: rating, feedback });
 
@@ -52,7 +33,9 @@ export const KataRating: React.FC<Props> = ({ kataId }) => {
   };
 
   useEffect(() => {
-    setRating(getKataRating(kataId));
+    const storedRating = getItem(`k-${kataId}`);
+
+    setRating(storedRating !== null ? parseInt(storedRating) : '');
   }, [kataId]);
 
   return (
